@@ -22,7 +22,7 @@ public class Map3 : MonoBehaviour
     {
         if (other.gameObject.tag == "Player1")
         {
-            sc.GetComponent<Map3_1>().Map();
+            //sc.GetComponent<Map3_1>().Map();
         }
     }
 }
