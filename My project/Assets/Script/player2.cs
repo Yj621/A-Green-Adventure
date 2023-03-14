@@ -58,10 +58,12 @@ public class player2 : MonoBehaviour
         if (rigid.velocity.x > maxSpeed)
         {
             rigid.velocity = new Vector2(maxSpeed, rigid.velocity.y);
+            transform.rotation = Quaternion.Euler(0, 0, 0);
         }
         else if (rigid.velocity.x < maxSpeed * (-1))
         {
             rigid.velocity = new Vector2(maxSpeed * (-1), rigid.velocity.y);
+            transform.rotation = Quaternion.Euler(0, 180, 0);
         }
     }
 
