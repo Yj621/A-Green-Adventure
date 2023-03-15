@@ -98,4 +98,16 @@ public class player : MonoBehaviour
         }
     }
 
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Npc6"))
+        {
+            if (Input.GetKey(KeyCode.G))
+            {
+
+
+            }
+        }
+    }
+
 }
