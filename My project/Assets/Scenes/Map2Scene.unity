@@ -213,6 +213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c69fa306131b394e8890326d074f9e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 754571335}
   maxSpeed: 5
   jumpPower: 15
   animator: {fileID: 22743687}
@@ -285,6 +286,50 @@ Transform:
   - {fileID: 1798335801}
   m_Father: {fileID: 0}
   m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &53436295
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 53436297}
+  - component: {fileID: 53436296}
+  m_Layer: 0
+  m_Name: TalkManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &53436296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 53436295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01b2137a40578234b89c34ceab894ee5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &53436297
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 53436295}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.8886107, y: 0.9579466, z: 0.057231393}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &212402895
 GameObject:
@@ -726,11 +771,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 737048990}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3ee20399f4089d49a772e29ce1ccdf1, type: 3}
+  m_Script: {fileID: 11500000, guid: 444622daf6594a44ea92a7d3a2fafdb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isNPC: 0
-  id: 0
 --- !u!1 &737895575
 GameObject:
   m_ObjectHideFlags: 0
@@ -815,6 +858,56 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &754571334
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 754571336}
+  - component: {fileID: 754571335}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &754571335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 754571334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 673d2ac0873dbc6468c66a7ccd04ec4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  talkManager: {fileID: 53436296}
+  talkText: {fileID: 536257368}
+  talkPanel: {fileID: 635875495}
+  isAction: 0
+  talkIndex: 0
+  scanObject: {fileID: 0}
+--- !u!4 &754571336
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 754571334}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 426.62997, y: 363.16177, z: -2.3421898}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &893342053
 GameObject:
   m_ObjectHideFlags: 0
@@ -1163,11 +1256,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0b8bd3959daf164a94e285bef03d109, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 754571335}
   animator: {fileID: 1253897828}
   maxSpeed: 5
   jumpPower: 15
   Target: {fileID: 0}
   Btn: {fileID: 0}
+  scanObject: {fileID: 0}
 --- !u!50 &1253897831
 Rigidbody2D:
   serializedVersion: 4
@@ -1353,7 +1448,7 @@ GameObject:
   - component: {fileID: 1764027989}
   m_Layer: 7
   m_Name: ' block out (1)'
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1623,7 +1718,7 @@ GameObject:
   - component: {fileID: 1936409861}
   m_Layer: 7
   m_Name: Floor Collider
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1851,7 +1946,7 @@ GameObject:
   - component: {fileID: 2060832673}
   m_Layer: 7
   m_Name: ' block out'
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

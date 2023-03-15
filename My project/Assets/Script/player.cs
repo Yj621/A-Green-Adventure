@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class player : MonoBehaviour
 {
+    public GameManager manager;
     Rigidbody2D rigid;
     public float maxSpeed;
     public float jumpPower;
@@ -51,7 +52,7 @@ public class player : MonoBehaviour
     void FixedUpdate()
     {
         //움직일때 속도
-        float h = Input.GetAxisRaw("Horizontal");
+        float h =  Input.GetAxisRaw("Horizontal");
         rigid.AddForce(Vector2.right * h, ForceMode2D.Impulse);
 
         if (rigid.velocity.x > maxSpeed)

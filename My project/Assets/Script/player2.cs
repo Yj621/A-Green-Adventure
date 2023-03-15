@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class player2 : MonoBehaviour
 {
+    public GameManager manager;
     Rigidbody2D rigid;
     public Animator animator;
     public float maxSpeed;
@@ -13,6 +14,7 @@ public class player2 : MonoBehaviour
     private bool isDie = false;
     public GameObject Target; //버튼을 누르면 사라질 객체
     public GameObject Btn; //버튼도 사라지게
+    public GameObject scanObject;
 
 
     void Awake()
@@ -22,11 +24,15 @@ public class player2 : MonoBehaviour
     void Update()
     {
         //Jump
-        if (Input.GetKeyDown(KeyCode.W) && isjump)/*isPlayer  && !Animation.GetBool("isJumping")*/ //스페이스바를 누르고, 캐릭터가 땅에 있다면
+        if (Input.GetKeyDown(KeyCode.W) && isjump)
         {
             rigid.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
             isjump = false;
-            /*isPlayer= false;*/
+        }
+        //대화창
+        if (Input.GetButtonDown("Jump") && scanObj != null)
+        {
+            manager.ShowText(scanObj);
         }
         //멈출때 속도
         if (Input.GetButtonDown("Left Right Arrow"))
@@ -65,6 +71,7 @@ public class player2 : MonoBehaviour
             rigid.velocity = new Vector2(maxSpeed * (-1), rigid.velocity.y);
             transform.rotation = Quaternion.Euler(0, 180, 0);
         }
+
     }
 
     void OnCollisionEnter2D(Collision2D other)
