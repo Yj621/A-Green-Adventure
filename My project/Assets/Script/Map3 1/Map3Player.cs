@@ -11,7 +11,8 @@ public class Map3Player : MonoBehaviour
     public Animator animator;
     public GameObject BlueObs; 
     public GameObject BlueBtn; 
-    public GameObject OrgBtn; 
+    public GameObject OrgBtn;
+    public GameObject OrgBtn2;
 
     void Awake()
     {
@@ -48,7 +49,6 @@ public class Map3Player : MonoBehaviour
 
     void FixedUpdate()
     {
-        //�����϶� �ӵ�
         float h = Input.GetAxisRaw("Horizontal");
         rigid.AddForce(Vector2.right * h, ForceMode2D.Impulse);
 
@@ -84,6 +84,7 @@ public class Map3Player : MonoBehaviour
         {
             OrgBtn.SetActive(false);
             GameObject.Find("Orange").transform.Find("Org").gameObject.SetActive(true);
+            OrgBtn2.SetActive(true);
         }
 
 
