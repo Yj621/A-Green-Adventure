@@ -10,10 +10,24 @@ public class player2 : MonoBehaviour
     public float jumpPower;
     private bool isjump = true;
     private bool isJump = true;
-    private bool isDie = false;
+    private GameObject miniPanel;
+    private GameObject restartPanel;
     public GameObject Target; //버튼을 누르면 사라질 객체
     public GameObject Btn; //버튼도 사라지게
 
+    private void Start()
+    {
+        if (GameObject.Find("MiniGamePanel") != null)
+        {
+            miniPanel = GameObject.Find("MiniGamePanel");
+            miniPanel.SetActive(false);
+        }
+        if(GameObject.Find("RestartPanel") != null)
+        {
+            restartPanel = GameObject.Find("RestartPanel");
+        }
+       
+    }
 
     void Awake()
     {
@@ -76,6 +90,7 @@ public class player2 : MonoBehaviour
         if (other.gameObject.tag == "Obstacle")
         {
             animator.SetBool("IsDie", true);
+            restartPanel.SetActive(true);
         }
         if (other.gameObject.tag == "Btn")
         {
@@ -93,5 +108,15 @@ public class player2 : MonoBehaviour
             isjump = true;
         }
     }
- 
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Npc6"))
+        {
+            if (Input.GetKey(KeyCode.G))
+            {
+                if(miniPanel) miniPanel.SetActive(true);
+            }
+        }
+    }
 }
