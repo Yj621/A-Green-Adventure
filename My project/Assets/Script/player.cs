@@ -35,7 +35,7 @@ public class player : MonoBehaviour
     void Update()
     {
         //Jump
-        if (Input.GetKeyDown(KeyCode.UpArrow) && isJump /* && !Animation.GetBool("isJumping")*/) //스페이스바를 누르고, 캐릭터가 땅에 있다면
+        if (Input.GetKeyDown(KeyCode.UpArrow) && isJump ) //스페이스바를 누르고, 캐릭터가 땅에 있다면
         {
             rigid.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
             isJump = false;

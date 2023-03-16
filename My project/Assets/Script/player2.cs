@@ -15,7 +15,7 @@ public class player2 : MonoBehaviour
     private GameObject restartPanel;
     public GameObject Target; //버튼을 누르면 사라질 객체
     public GameObject Btn; //버튼도 사라지게
-    public GameObject scanObject;
+
 
     private void Start()
     {
@@ -30,7 +30,7 @@ public class player2 : MonoBehaviour
         }
        
     }
-
+   
     void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
@@ -44,9 +44,9 @@ public class player2 : MonoBehaviour
             isjump = false;
         }
         //대화창
-        if (Input.GetButtonDown("Jump") && scanObj != null)
+        if (Input.GetButtonDown("Jump") && manager.GetComponent<GameManager>().scanObject != null)
         {
-            manager.ShowText(scanObj);
+            manager.ShowText(manager.GetComponent<GameManager>().scanObject);
         }
         //멈출때 속도
         if (Input.GetButtonDown("Left Right Arrow"))
