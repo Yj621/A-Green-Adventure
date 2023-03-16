@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class player : MonoBehaviour
+public class Map8Player : MonoBehaviour
 {
     Rigidbody2D rigid;
     public float maxSpeed;
@@ -11,25 +10,9 @@ public class player : MonoBehaviour
     private bool isJump = true;
     private bool isDie = false;
     public Animator animator;
-    public GameObject Target; //버튼을 누르면 사라질 객체
-    public GameObject Btn; //버튼도 사라지게\
-    private GameObject miniPanel;
-    private GameObject restartPanel;
     public GameObject Dialogues;
     public GameObject StartBtn;
 
-    private void Start()
-    {
-        if (GameObject.Find("MiniGamePanel") != null)
-        {
-            miniPanel = GameObject.Find("MiniGamePanel");
-            miniPanel.SetActive(false);
-        }
-        if(GameObject.Find("RestartPanel") != null)
-        {
-            restartPanel = GameObject.Find("RestartPanel");
-        }
-    }
     void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
@@ -37,7 +20,7 @@ public class player : MonoBehaviour
     void Update()
     {
         //Jump
-        if (Input.GetKeyDown(KeyCode.UpArrow) && isJump ) //스페이스바를 누르고, 캐릭터가 땅에 있다면
+        if (Input.GetKeyDown(KeyCode.UpArrow) && isJump) //스페이스바를 누르고, 캐릭터가 땅에 있다면
         {
             rigid.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
             isJump = false;
@@ -67,7 +50,7 @@ public class player : MonoBehaviour
     void FixedUpdate()
     {
         //움직일때 속도
-        float h =  Input.GetAxisRaw("Horizontal");
+        float h = Input.GetAxisRaw("Horizontal");
         rigid.AddForce(Vector2.right * h, ForceMode2D.Impulse);
 
         if (rigid.velocity.x > maxSpeed)
@@ -89,21 +72,7 @@ public class player : MonoBehaviour
             isJump = true;
             animator.SetBool("IsJumping", false);
         }
-        if (other.gameObject.tag == "Obstacle")
-        { 
-            animator.SetBool("IsDie", true);
-            restartPanel.SetActive(true);
-        }
-        if (other.gameObject.tag == "Blind")
-        {
-            Destroy(other.gameObject);
 
-        }
-        if (other.gameObject.tag == "Btn")
-        {
-            Btn.SetActive(false);
-            Target.SetActive(false);
-        }
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -120,16 +89,9 @@ public class player : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Npc6"))
         {
-            if (Input.GetKey(KeyCode.G))
-            {
-                if (miniPanel) miniPanel.SetActive(true);
-            }
-        }
-        if (collision.gameObject.CompareTag("River"))
-        {
             Dialogues.SetActive(true);
             StartBtn.SetActive(true);
         }
     }
-
 }
+

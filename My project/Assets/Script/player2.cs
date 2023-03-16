@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class player2 : MonoBehaviour
 {
-    public GameManager manager;
     Rigidbody2D rigid;
     public Animator animator;
     public float maxSpeed;
@@ -15,10 +14,12 @@ public class player2 : MonoBehaviour
     private GameObject restartPanel;
     public GameObject Target; //버튼을 누르면 사라질 객체
     public GameObject Btn; //버튼도 사라지게
-
+    public GameObject Dialogues;
+    public GameObject StartBtn;
 
     private void Start()
     {
+
         if (GameObject.Find("MiniGamePanel") != null)
         {
             miniPanel = GameObject.Find("MiniGamePanel");
@@ -28,7 +29,7 @@ public class player2 : MonoBehaviour
         {
             restartPanel = GameObject.Find("RestartPanel");
         }
-       
+        
     }
    
     void Awake()
@@ -43,11 +44,7 @@ public class player2 : MonoBehaviour
             rigid.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
             isjump = false;
         }
-        //대화창
-        if (Input.GetButtonDown("Jump") && manager.GetComponent<GameManager>().scanObject != null)
-        {
-            manager.ShowText(manager.GetComponent<GameManager>().scanObject);
-        }
+
         //멈출때 속도
         if (Input.GetButtonDown("Left Right Arrow"))
         {
@@ -101,8 +98,8 @@ public class player2 : MonoBehaviour
         }
         if (other.gameObject.tag == "Btn")
         {
-            Target.SetActive(false);
             Btn.SetActive(false);
+            Target.SetActive(false);
         }
 
     }
@@ -124,6 +121,11 @@ public class player2 : MonoBehaviour
             {
                 if(miniPanel) miniPanel.SetActive(true);
             }
+        }
+        if (collision.gameObject.CompareTag("River"))
+        {
+            Dialogues.SetActive(true);
+            StartBtn.SetActive(true);
         }
     }
 }
