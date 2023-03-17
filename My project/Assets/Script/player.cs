@@ -10,6 +10,7 @@ public class player : MonoBehaviour
     public float jumpPower;
     private bool isJump = true;
     private bool isDie = false;
+    private GameObject sitPlace;
     public Animator animator;
     public GameObject Target; //버튼을 누르면 사라질 객체
     public GameObject Btn; //버튼도 사라지게\
@@ -129,6 +130,13 @@ public class player : MonoBehaviour
         {
             Dialogues.SetActive(true);
             StartBtn.SetActive(true);
+        }
+        if (collision.gameObject.CompareTag("Chair"))
+        {
+            if (Input.GetKey(KeyCode.G))
+            {
+                //sitPlace = collision.transform.Getchild(0).gameObject;
+            }
         }
     }
 
