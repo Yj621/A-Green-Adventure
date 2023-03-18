@@ -9,8 +9,10 @@ public class player : MonoBehaviour
     public float maxSpeed;
     public float jumpPower;
     private bool isJump = true;
-   // private bool isDie = false;
-    private bool isSit=false;
+    private bool isSit = false;
+    private GameObject chair;
+    private GameObject chairChild;
+    // private bool isDie = false;
     private Vector3 sitPlace;
     public Animator animator;
     public GameObject Target; //버튼을 누르면 사라질 객체
@@ -121,42 +123,53 @@ public class player : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-      
+        if (collision.gameObject.CompareTag("Npc6"))
+        {
+            if (Input.GetKey(KeyCode.G))
+            {
+                if (miniPanel) miniPanel.SetActive(true);
+            }
+        }
+
         if (collision.gameObject.CompareTag("River"))
         {
             Dialogues.SetActive(true);
             StartBtn.SetActive(true);
         }
 
-        if (Input.GetKeyDown(KeyCode.G))
+        if (collision.gameObject.CompareTag("Chair"))
         {
-            if (collision.gameObject.CompareTag("Chair"))
+            // Debug.Log("의자");
+            if (Input.GetKeyDown(KeyCode.DownArrow))
             {
-                Debug.Log("의자");
                 if (isSit == false)
                 {
-                    sitPlace = collision.gameObject.transform.gameObject.GetComponentInChildren<Transform>().position;//new Vector3(collision.gameObject.transform.gameObject.GetComponentInChildren<Transform>().position.x, collision.gameObject.transform.position.y, collision.gameObject.transform.position.z);
-                    gameObject.transform.position = sitPlace;
+                    chair = collision.gameObject;
+                    chairChild = chair.transform.GetChild(0).gameObject;
+                    chairChild.SetActive(true);
+                    gameObject.transform.position = new Vector3(chair.transform.position.x, chair.transform.position.y + 1f, chair.transform.position.z);
+                    chair.GetComponent<BoxCollider2D>().isTrigger = false;
                     animator.SetBool("IsSit", true);
                     isSit = true;
                     Debug.Log("앉");
                 }
-                else
-                {
-                    animator.SetBool("IsSit", false);
-                    isSit = false;
-                    Debug.Log("섰");
-                }
-                
-
-            }
-
-            if (collision.gameObject.CompareTag("Npc6"))
-            {
-               if (miniPanel) miniPanel.SetActive(true);
             }
         }
-
+        if (collision.gameObject.CompareTag("ChairUp"))
+        {
+            //Debug.Log("의자위");
+            if (Input.GetKeyDown(KeyCode.DownArrow))
+            {
+                if (isSit == true)
+                {
+                    chairChild.SetActive(false);
+                    chair.GetComponent<BoxCollider2D>().isTrigger = true;
+                    animator.SetBool("IsSit", false);
+                    isSit = false;
+                    Debug.Log("서기");
+                }
+            }
+        }
     }
 }
 

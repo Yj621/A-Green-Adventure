@@ -10,6 +10,9 @@ public class player2 : MonoBehaviour
     public float jumpPower;
     private bool isjump = true;
     private bool isJump = true;
+    private bool isSit = false;
+    private GameObject chair;
+    private GameObject chairChild;
     private GameObject miniPanel;
     private GameObject restartPanel;
     public GameObject Target; //버튼을 누르면 사라질 객체
@@ -126,6 +129,39 @@ public class player2 : MonoBehaviour
         {
             Dialogues.SetActive(true);
             StartBtn.SetActive(true);
+        }
+        if (collision.gameObject.CompareTag("Chair"))
+        {
+            // Debug.Log("의자");
+            if (Input.GetKeyDown(KeyCode.S))
+            {
+                if (isSit == false)
+                {
+                    chair = collision.gameObject;
+                    chairChild = chair.transform.GetChild(0).gameObject;
+                    chairChild.SetActive(true);
+                    gameObject.transform.position = new Vector3(chair.transform.position.x, chair.transform.position.y + 1f, chair.transform.position.z);
+                    chair.GetComponent<BoxCollider2D>().isTrigger = false;
+                    animator.SetBool("IsSit", true);
+                    isSit = true;
+                    Debug.Log("앉");
+                }
+            }
+        }
+        if (collision.gameObject.CompareTag("ChairUp"))
+        {
+            //Debug.Log("의자위");
+            if (Input.GetKeyDown(KeyCode.S))
+            {
+                if (isSit == true)
+                {
+                    chairChild.SetActive(false);
+                    chair.GetComponent<BoxCollider2D>().isTrigger = true;
+                    animator.SetBool("IsSit", false);
+                    isSit = false;
+                    Debug.Log("서기");
+                }
+            }
         }
     }
 }
