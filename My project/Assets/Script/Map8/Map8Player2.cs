@@ -8,7 +8,7 @@ public class Map8Player2 : MonoBehaviour
     public float maxSpeed;
     public float jumpPower;
     private bool isJump = true;
-    private bool isDie = false;
+   // private bool isDie ;
     public Animator animator;
     public GameObject Dialogues;
     public GameObject StartBtn;

@@ -9,11 +9,12 @@ public class player : MonoBehaviour
     public float maxSpeed;
     public float jumpPower;
     private bool isJump = true;
-    private bool isDie = false;
-    private GameObject sitPlace;
+   // private bool isDie = false;
+    private bool isSit=false;
+    private Vector3 sitPlace;
     public Animator animator;
     public GameObject Target; //버튼을 누르면 사라질 객체
-    public GameObject Btn; //버튼도 사라지게\
+    public GameObject Btn; //버튼도 사라지게
     private GameObject miniPanel;
     private GameObject restartPanel;
     public GameObject Dialogues;
@@ -29,6 +30,7 @@ public class player : MonoBehaviour
         if(GameObject.Find("RestartPanel") != null)
         {
             restartPanel = GameObject.Find("RestartPanel");
+            Debug.Log("찾음");
         }
     }
     void Awake()
@@ -119,25 +121,43 @@ public class player : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Npc6"))
-        {
-            if (Input.GetKey(KeyCode.G))
-            {
-                if (miniPanel) miniPanel.SetActive(true);
-            }
-        }
+      
         if (collision.gameObject.CompareTag("River"))
         {
             Dialogues.SetActive(true);
             StartBtn.SetActive(true);
         }
-        if (collision.gameObject.CompareTag("Chair"))
+
+        if (Input.GetKeyDown(KeyCode.G))
         {
-            if (Input.GetKey(KeyCode.G))
+            if (collision.gameObject.CompareTag("Chair"))
             {
-                //sitPlace = collision.transform.Getchild(0).gameObject;
+                Debug.Log("의자");
+                if (isSit == false)
+                {
+                    sitPlace = collision.gameObject.transform.gameObject.GetComponentInChildren<Transform>().position;//new Vector3(collision.gameObject.transform.gameObject.GetComponentInChildren<Transform>().position.x, collision.gameObject.transform.position.y, collision.gameObject.transform.position.z);
+                    gameObject.transform.position = sitPlace;
+                    animator.SetBool("IsSit", true);
+                    isSit = true;
+                    Debug.Log("앉");
+                }
+                else
+                {
+                    animator.SetBool("IsSit", false);
+                    isSit = false;
+                    Debug.Log("섰");
+                }
+                
+
+            }
+
+            if (collision.gameObject.CompareTag("Npc6"))
+            {
+               if (miniPanel) miniPanel.SetActive(true);
             }
         }
-    }
 
+    }
 }
+
+
