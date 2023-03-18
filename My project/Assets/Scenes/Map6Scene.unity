@@ -515,12 +515,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c69fa306131b394e8890326d074f9e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  manager: {fileID: 0}
   maxSpeed: 7
   jumpPower: 15
   animator: {fileID: 200762210}
   Target: {fileID: 0}
   Btn: {fileID: 0}
+  Dialogues: {fileID: 0}
+  StartBtn: {fileID: 0}
 --- !u!212 &200762214
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -989,12 +990,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0b8bd3959daf164a94e285bef03d109, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  manager: {fileID: 0}
   animator: {fileID: 562748426}
   maxSpeed: 7
   jumpPower: 15
   Target: {fileID: 0}
   Btn: {fileID: 0}
+  Dialogues: {fileID: 0}
+  StartBtn: {fileID: 0}
 --- !u!50 &562748429
 Rigidbody2D:
   serializedVersion: 4
@@ -2737,7 +2739,6 @@ GameObject:
   - component: {fileID: 2012017567}
   - component: {fileID: 2012017566}
   - component: {fileID: 2012017565}
-  - component: {fileID: 2012017568}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2804,27 +2805,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2012017564}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -8}
+  m_LocalPosition: {x: 0, y: 0, z: -21.41}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2012017568
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2012017564}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12a3a1729d89fb84cb70aaf2766cadb8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cameraSpeed: 5
-  player: {fileID: 200762209}
 --- !u!1 &2043311661
 GameObject:
   m_ObjectHideFlags: 0

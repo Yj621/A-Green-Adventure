@@ -8,11 +8,13 @@ public class Map3Player : MonoBehaviour
     public float jumpPower;
     private bool isJump = true;
     private bool isDie = false;
+    public bool isBtn1 = false;
     public Animator animator;
     public GameObject BlueObs; 
     public GameObject BlueBtn; 
     public GameObject OrgBtn;
     public GameObject OrgBtn2;
+    
 
     void Awake()
     {
@@ -87,7 +89,6 @@ public class Map3Player : MonoBehaviour
             OrgBtn2.SetActive(true);
         }
 
-
         if (other.gameObject.tag == "Blind")
         {
             Destroy(other.gameObject);
@@ -103,5 +104,12 @@ public class Map3Player : MonoBehaviour
             animator.SetBool("IsJumping", false);
         }
     }
+    void OnCollisionStay2D(Collision2D other)
+    {
+        if (other.gameObject.tag == "Btn1")
+        {
+            isBtn1 = true;
+        }
 
+    }
 }

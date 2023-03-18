@@ -11,13 +11,14 @@ public class Map3Player2 : MonoBehaviour
     private bool isjump = true;
     private bool isJump = true;
     private bool isDie = false;
+    public bool isBtn2 = false;
     public GameObject RedObs; //버튼을 누르면 사라질 객체
     public GameObject RedBtn; //버튼도 사라지게
 
-    public GameObject BlackObs; 
-    public GameObject BlackBtn; 
+    public GameObject BlackObs;
+    public GameObject BlackBtn;
 
-    public GameObject GreenObs; 
+    public GameObject GreenObs;
     public GameObject GreenBtn;
 
     void Awake()
@@ -69,6 +70,7 @@ public class Map3Player2 : MonoBehaviour
             rigid.velocity = new Vector2(maxSpeed * (-1), rigid.velocity.y);
             transform.rotation = Quaternion.Euler(0, 180, 0);
         }
+
     }
 
     void OnCollisionEnter2D(Collision2D other)
@@ -102,6 +104,24 @@ public class Map3Player2 : MonoBehaviour
         if (other.gameObject.tag == "Blind")
         {
             Destroy(other.gameObject);
+        }
+    }
+    void OnCollisionStay2D(Collision2D other)
+    {
+        if (other.gameObject.tag == "Btn2")
+        {
+            Debug.Log("2");
+            isBtn2 = true;
+        }
+
+    }
+    void OnTriggerEnter2D(Collider2D other)
+    {
+
+        if (other.gameObject.tag == "Head")
+        {
+            isJump = true;
+            animator.SetBool("IsJumping", false);
         }
     }
 }

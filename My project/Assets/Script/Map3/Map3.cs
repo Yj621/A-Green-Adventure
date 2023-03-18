@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class Map3 : MonoBehaviour
 {
-    private GameObject sc;
 
     void Start()
     {
@@ -15,14 +14,11 @@ public class Map3 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-    }
-
-    void OnCollisionEnter2D(Collision2D other)
-    {
-        if (other.gameObject.tag == "Player1")
+        bool map3 = (GameObject.Find("Player1").GetComponent<Map3Player>().isBtn1==true)&& 
+            (GameObject.Find("Player2").GetComponent<Map3Player2>().isBtn2 == true);
+        if (map3 == true)
         {
-            //sc.GetComponent<Map3_1>().Map();
+            SceneManager.LoadScene(5);
         }
     }
 }
