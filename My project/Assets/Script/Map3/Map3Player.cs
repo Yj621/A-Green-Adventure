@@ -110,6 +110,9 @@ public class Map3Player : MonoBehaviour
         {
             isBtn1 = true;
         }
-
+    }
+    void OnTriggerExit2D(Collider2D collision)
+    {
+        isBtn1 = false;
     }
 }

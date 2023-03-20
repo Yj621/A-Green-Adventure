@@ -115,7 +115,12 @@ public class Map3Player2 : MonoBehaviour
         }
 
     }
-    void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerExit2D(Collider2D collision)
+    {
+        isBtn2 = false;
+    }
+
+void OnTriggerEnter2D(Collider2D other)
     {
 
         if (other.gameObject.tag == "Head")
