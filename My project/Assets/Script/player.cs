@@ -118,6 +118,11 @@ public class player : MonoBehaviour
             isJump = true;
             animator.SetBool("IsJumping", false);
         }
+        if (other.gameObject.CompareTag("River"))
+        {
+            GameObject.Find("Canvas").transform.Find("Chat Back").gameObject.SetActive(true);
+            StartBtn.SetActive(true);
+        }
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -130,11 +135,7 @@ public class player : MonoBehaviour
             }
         }
 
-        if (collision.gameObject.CompareTag("River"))
-        {
-            GameObject.Find("Canvas").transform.Find("Chat Back").gameObject.SetActive(true);
-            StartBtn.SetActive(true);
-        }
+
 
         if (collision.gameObject.CompareTag("Chair"))
         {

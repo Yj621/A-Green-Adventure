@@ -8,7 +8,6 @@ public class DialogueSystem : MonoBehaviour
 {
     public Text name;
     public Text sentence;
-   // public GameObject Chat;
 
     Queue<string> sentences = new Queue<string>();
 
@@ -29,7 +28,6 @@ public class DialogueSystem : MonoBehaviour
         {
             End();
             return;
-
         }
         sentence.text = sentences.Dequeue(); //다음문장 넣기
     }
@@ -37,6 +35,5 @@ public class DialogueSystem : MonoBehaviour
     private void End()
     {
         GameObject.Find("Canvas").transform.Find("Chat Back").gameObject.SetActive(false);
-
     }
 }

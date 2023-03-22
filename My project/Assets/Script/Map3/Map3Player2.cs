@@ -17,6 +17,7 @@ public class Map3Player2 : MonoBehaviour
 
     public GameObject BlackObs;
     public GameObject BlackBtn;
+    public GameObject BlackBtn2;
 
     public GameObject GreenObs;
     public GameObject GreenBtn;
@@ -93,6 +94,7 @@ public class Map3Player2 : MonoBehaviour
         {
             BlackObs.SetActive(false);
             BlackBtn.SetActive(false);
+            BlackBtn2.SetActive(true);
         }
         if (other.gameObject.tag == "GreenBtn")
         {

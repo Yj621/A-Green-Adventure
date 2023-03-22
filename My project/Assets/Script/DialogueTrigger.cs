@@ -18,6 +18,5 @@ public class DialogueTrigger : MonoBehaviour
         var system = FindObjectOfType<DialogueSystem>(); //현재 다이얼로그 시스템을 검색 
         system.Begin(info); //Begin함수 호출
         StartBtn.SetActive(false);
-
     }
 }

@@ -116,6 +116,11 @@ public class player2 : MonoBehaviour
         {
             isjump = true;
         }
+        if (other.gameObject.CompareTag("River"))
+        {
+            GameObject.Find("Canvas").transform.Find("Chat Back").gameObject.SetActive(true);
+            StartBtn.SetActive(true);
+        }
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -126,11 +131,6 @@ public class player2 : MonoBehaviour
             {
                 if(miniPanel) miniPanel.SetActive(true);
             }
-        }
-        if (collision.gameObject.CompareTag("River"))
-        {
-            GameObject.Find("Canvas").transform.Find("Chat Back").gameObject.SetActive(true);
-            StartBtn.SetActive(true);
         }
 
         if (collision.gameObject.CompareTag("Chair"))
