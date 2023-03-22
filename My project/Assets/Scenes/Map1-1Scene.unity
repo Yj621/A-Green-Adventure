@@ -1821,6 +1821,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1739253369}
     m_Modifications:
+    - target: {fileID: 1251712959552322266, guid: c88a0aab5eb0dc143a4fbf1a654ae740, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6756620092317902930, guid: c88a0aab5eb0dc143a4fbf1a654ae740, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6756620092782281877, guid: c88a0aab5eb0dc143a4fbf1a654ae740, type: 3}
       propertyPath: m_Name
       value: RestartPanel
@@ -1938,12 +1946,28 @@ PrefabInstance:
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 6756620093238890399, guid: c88a0aab5eb0dc143a4fbf1a654ae740, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6756620093238890399, guid: c88a0aab5eb0dc143a4fbf1a654ae740, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -46.7
+      value: 262
       objectReference: {fileID: 0}
     - target: {fileID: 6756620093238890399, guid: c88a0aab5eb0dc143a4fbf1a654ae740, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -32.8
+      value: 127
+      objectReference: {fileID: 0}
+    - target: {fileID: 6756620093578302392, guid: c88a0aab5eb0dc143a4fbf1a654ae740, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6756620093578302392, guid: c88a0aab5eb0dc143a4fbf1a654ae740, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -261
+      objectReference: {fileID: 0}
+    - target: {fileID: 6756620093578302392, guid: c88a0aab5eb0dc143a4fbf1a654ae740, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 127
       objectReference: {fileID: 0}
     - target: {fileID: 6756620093578302393, guid: c88a0aab5eb0dc143a4fbf1a654ae740, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size

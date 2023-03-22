@@ -8,6 +8,7 @@ public class DialogueSystem : MonoBehaviour
 {
     public Text name;
     public Text sentence;
+   // public GameObject Chat;
 
     Queue<string> sentences = new Queue<string>();
 
@@ -21,7 +22,6 @@ public class DialogueSystem : MonoBehaviour
             sentences.Enqueue(sentence);
         }
         Next();
-        
     }
     public void Next()
     {
@@ -29,12 +29,14 @@ public class DialogueSystem : MonoBehaviour
         {
             End();
             return;
+
         }
         sentence.text = sentences.Dequeue(); //다음문장 넣기
     }
+
     private void End()
     {
-        if (gameObject.tag == "Script")
-            gameObject.SetActive(false);
+        GameObject.Find("Canvas").transform.Find("Chat Back").gameObject.SetActive(false);
+
     }
 }

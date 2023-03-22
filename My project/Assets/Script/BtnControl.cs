@@ -33,10 +33,6 @@ public class BtnControl : MonoBehaviour
         SceneManager.LoadScene(1);
     }
 
-    public void ClickOption()
-    {
-     
-    }
 
     public void ClickMiniGameYes()
     {
@@ -56,6 +52,6 @@ public class BtnControl : MonoBehaviour
 
     public void ClickExit()
     {
-        SceneManager.LoadScene(0);
+        Application.Quit();
     }
 }

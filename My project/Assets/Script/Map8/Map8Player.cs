@@ -89,7 +89,7 @@ public class Map8Player : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Npc6"))
         {
-            Dialogues.SetActive(true);
+            GameObject.Find("Canvas").transform.Find("Chat Back").gameObject.SetActive(true);
             StartBtn.SetActive(true);
         }
     }

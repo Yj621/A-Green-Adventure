@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class player2 : MonoBehaviour
 {
@@ -105,6 +106,7 @@ public class player2 : MonoBehaviour
             Target.SetActive(false);
         }
 
+
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -127,9 +129,10 @@ public class player2 : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("River"))
         {
-            Dialogues.SetActive(true);
+            GameObject.Find("Canvas").transform.Find("Chat Back").gameObject.SetActive(true);
             StartBtn.SetActive(true);
         }
+
         if (collision.gameObject.CompareTag("Chair"))
         {
             // Debug.Log("ÀÇÀÚ");

@@ -19,7 +19,6 @@ public class player : MonoBehaviour
     public GameObject Btn; //¹öÆ°µµ »ç¶óÁö°Ô
     private GameObject miniPanel;
     private GameObject restartPanel;
-    public GameObject Dialogues;
     public GameObject StartBtn;
 
     private void Start()
@@ -133,7 +132,7 @@ public class player : MonoBehaviour
 
         if (collision.gameObject.CompareTag("River"))
         {
-            Dialogues.SetActive(true);
+            GameObject.Find("Canvas").transform.Find("Chat Back").gameObject.SetActive(true);
             StartBtn.SetActive(true);
         }
 
@@ -151,7 +150,7 @@ public class player : MonoBehaviour
                     chair.GetComponent<BoxCollider2D>().isTrigger = false;
                     animator.SetBool("IsSit", true);
                     isSit = true;
-                    Debug.Log("¾É");
+                    Debug.Log("¾É±â");
                 }
             }
         }
