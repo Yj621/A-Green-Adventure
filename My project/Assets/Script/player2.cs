@@ -10,7 +10,6 @@ public class player2 : MonoBehaviour
     public float maxSpeed;
     public float jumpPower;
     private bool isjump = true;
-    private bool isJump = true;
     private bool isSit = false;
     private GameObject chair;
     private GameObject chairChild;

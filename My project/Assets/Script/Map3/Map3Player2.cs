@@ -10,7 +10,7 @@ public class Map3Player2 : MonoBehaviour
     public float jumpPower;
     private bool isjump = true;
     private bool isJump = true;
-    private bool isDie = false;
+   // private bool isDie = false;
     public bool isBtn2 = false;
     public GameObject RedObs; //버튼을 누르면 사라질 객체
     public GameObject RedBtn; //버튼도 사라지게
