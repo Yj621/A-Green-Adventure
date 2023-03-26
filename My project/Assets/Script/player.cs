@@ -20,7 +20,7 @@ public class player : MonoBehaviour
     private GameObject miniPanel;
     private GameObject restartPanel;
     public GameObject StartBtn;
-
+    
     private void Start()
     {
         if (GameObject.Find("MiniGamePanel") != null)
@@ -123,6 +123,7 @@ public class player : MonoBehaviour
             GameObject.Find("Canvas").transform.Find("Chat Back").gameObject.SetActive(true);
             StartBtn.SetActive(true);
         }
+
     }
 
     private void OnTriggerStay2D(Collider2D collision)
