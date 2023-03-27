@@ -9,8 +9,7 @@ public class Map5Btn : MonoBehaviour
     private GameObject TransFloor1;
     private GameObject TransFloor2;
     private GameObject sprite;
-    private GameObject airSprite;
-    private GameObject airTurnOff;
+    private GameObject airTurnOn;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,8 +18,8 @@ public class Map5Btn : MonoBehaviour
         TransFloor1 = GameObject.Find("TransparencyFloor");
         TransFloor2 = GameObject.Find("TransparencyFloor2");
         sprite = GameObject.Find("Sprite");
-        airTurnOff = GameObject.Find("AirTurnOff");
-        airSprite = GameObject.Find("AirSprite");
+        airTurnOn = GameObject.Find("AirTurnOn");
+
 
         if (TransFloor2 != null)
         {
@@ -29,8 +28,6 @@ public class Map5Btn : MonoBehaviour
             TransFloor2.GetComponent<SpriteRenderer>().sprite = null;
             TransFloor2.GetComponent<BoxCollider2D>().isTrigger = true;
         }
-
-        if (airTurnOff != null) airTurnOff.GetComponent<SpriteRenderer>().sprite = null;
     }
 
     // Update is called once per frame
@@ -58,7 +55,7 @@ public class Map5Btn : MonoBehaviour
         {
             if (gameObject == btn2)
             {
-                airTurnOff.GetComponent<SpriteRenderer>().sprite= airSprite.GetComponent<SpriteRenderer>().sprite;
+                airTurnOn.SetActive(false);
                 gameObject.SetActive(false);
             }
         }

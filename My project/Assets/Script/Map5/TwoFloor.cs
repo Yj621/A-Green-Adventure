@@ -18,7 +18,7 @@ public class TwoFloor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(ride == 2)
+        if(ride == 3)
         {
             Direction();
             if(left == true)
@@ -60,6 +60,6 @@ public class TwoFloor : MonoBehaviour
         {
             left =  false;
         }
-        if (gameObject.transform.position.x >= 11) left = true;
+        if (gameObject.transform.position.x >= 5.3f) left = true;
     }
 }
