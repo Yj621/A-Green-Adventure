@@ -88,7 +88,7 @@ public class player : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.tag == "Floor")
+        if (other.gameObject.tag == "Floor" || other.gameObject.tag == "Box")
         {
             isJump = true;
             animator.SetBool("IsJumping", false);

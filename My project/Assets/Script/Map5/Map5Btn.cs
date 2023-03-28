@@ -37,7 +37,7 @@ public class Map5Btn : MonoBehaviour
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Box"))
         {
             if (gameObject == btn1)
             {

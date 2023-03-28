@@ -18,7 +18,7 @@ public class TwoFloor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(ride == 3)
+        if(ride == 2)
         {
             Direction();
             if(left == true)
