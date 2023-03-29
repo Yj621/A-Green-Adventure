@@ -31,7 +31,6 @@ public class player : MonoBehaviour
         if(GameObject.Find("RestartPanel") != null)
         {
             restartPanel = GameObject.Find("RestartPanel");
-            Debug.Log("Ã£À½");
         }
     }
     void Awake()
@@ -136,7 +135,13 @@ public class player : MonoBehaviour
             }
         }
 
-
+        if (collision.gameObject.CompareTag("restartNPC"))
+        {
+            if (Input.GetKey(KeyCode.G))
+            {
+                restartPanel.SetActive(true);
+            }
+        }
 
         if (collision.gameObject.CompareTag("Chair"))
         {

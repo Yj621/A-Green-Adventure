@@ -23,7 +23,7 @@ public class Map7 : MonoBehaviour
             if (Input.GetKey(KeyCode.G))//GetKey사용하면 누를때 바로 이동됨
             {
 
-                SceneManager.LoadScene(8);
+                SceneManager.LoadScene(9);
             }
         }
     }
