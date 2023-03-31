@@ -6,8 +6,6 @@ public class TwoFloor : MonoBehaviour
 {
 
     private int ride = 0;
-    public GameObject pos1;
-    public GameObject pos2;
     private bool left = true;
     // Start is called before the first frame update
     void Start()

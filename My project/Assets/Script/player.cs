@@ -39,6 +39,7 @@ public class player : MonoBehaviour
     }
     void Update()
     {
+   
         //Jump
         if (Input.GetKeyDown(KeyCode.UpArrow) && isJump ) //스페이스바를 누르고, 캐릭터가 땅에 있다면
         {
@@ -109,6 +110,23 @@ public class player : MonoBehaviour
         }
     }
 
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Floor")
+        {
+            isJump = true;
+            animator.SetBool("IsJumping", false);
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Floor")
+        {
+            isJump = false;
+            animator.SetBool("IsJumping", true);
+        }
+    }
     void OnTriggerEnter2D(Collider2D other)
     {
 
@@ -124,7 +142,7 @@ public class player : MonoBehaviour
         }
 
     }
-
+  
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Npc6"))
