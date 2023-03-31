@@ -10,7 +10,6 @@ public class Map8Player : MonoBehaviour
     private bool isJump = true;
     //private bool isDie = false;
     public Animator animator;
-    public GameObject Dialogues;
     public GameObject StartBtn;
 
     void Awake()
@@ -83,11 +82,7 @@ public class Map8Player : MonoBehaviour
             isJump = true;
             animator.SetBool("IsJumping", false);
         }
-    }
-
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Npc6"))
+        if (other.gameObject.CompareTag("Npc6"))
         {
             GameObject.Find("Canvas").transform.Find("Chat Back").gameObject.SetActive(true);
             StartBtn.SetActive(true);
