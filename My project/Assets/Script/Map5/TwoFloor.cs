@@ -6,8 +6,6 @@ public class TwoFloor : MonoBehaviour
 {
 
     private int ride = 0;
-    public GameObject pos1;
-    public GameObject pos2;
     private bool left = true;
     // Start is called before the first frame update
     void Start()
@@ -18,7 +16,7 @@ public class TwoFloor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(ride == 3)
+        if(ride == 2)
         {
             Direction();
             if(left == true)

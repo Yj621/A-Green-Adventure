@@ -31,7 +31,6 @@ public class player : MonoBehaviour
         if(GameObject.Find("RestartPanel") != null)
         {
             restartPanel = GameObject.Find("RestartPanel");
-            Debug.Log("찾음");
         }
     }
     void Awake()
@@ -40,6 +39,7 @@ public class player : MonoBehaviour
     }
     void Update()
     {
+   
         //Jump
         if (Input.GetKeyDown(KeyCode.UpArrow) && isJump ) //스페이스바를 누르고, 캐릭터가 땅에 있다면
         {
@@ -88,7 +88,7 @@ public class player : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.tag == "Floor")
+        if (other.gameObject.tag == "Floor" || other.gameObject.tag == "Box")
         {
             isJump = true;
             animator.SetBool("IsJumping", false);
@@ -110,6 +110,23 @@ public class player : MonoBehaviour
         }
     }
 
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Floor")
+        {
+            isJump = true;
+            animator.SetBool("IsJumping", false);
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Floor")
+        {
+            isJump = false;
+            animator.SetBool("IsJumping", true);
+        }
+    }
     void OnTriggerEnter2D(Collider2D other)
     {
 
@@ -125,7 +142,7 @@ public class player : MonoBehaviour
         }
 
     }
-
+  
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Npc6"))
@@ -136,7 +153,13 @@ public class player : MonoBehaviour
             }
         }
 
-
+        if (collision.gameObject.CompareTag("restartNPC"))
+        {
+            if (Input.GetKey(KeyCode.G))
+            {
+                restartPanel.SetActive(true);
+            }
+        }
 
         if (collision.gameObject.CompareTag("Chair"))
         {

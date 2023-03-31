@@ -6,7 +6,7 @@ public class Map5Btn : MonoBehaviour
 {
     private GameObject btn1;
     private GameObject btn2;
-    private GameObject TransFloor1;
+    //private GameObject TransFloor1;
     private GameObject TransFloor2;
     private GameObject sprite;
     private GameObject airTurnOn;
@@ -15,7 +15,7 @@ public class Map5Btn : MonoBehaviour
     {
         btn1 = GameObject.Find("Btn1");
         btn2 = GameObject.Find("Btn2");
-        TransFloor1 = GameObject.Find("TransparencyFloor");
+        //TransFloor1 = GameObject.Find("TransparencyFloor");
         TransFloor2 = GameObject.Find("TransparencyFloor2");
         sprite = GameObject.Find("Sprite");
         airTurnOn = GameObject.Find("AirTurnOn");
@@ -27,6 +27,7 @@ public class Map5Btn : MonoBehaviour
             //TransFloor1.GetComponent<BoxCollider2D>().isTrigger = true;
             TransFloor2.GetComponent<SpriteRenderer>().sprite = null;
             TransFloor2.GetComponent<BoxCollider2D>().isTrigger = true;
+           
         }
     }
 
@@ -37,7 +38,7 @@ public class Map5Btn : MonoBehaviour
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Box"))
         {
             if (gameObject == btn1)
             {
@@ -45,6 +46,7 @@ public class Map5Btn : MonoBehaviour
                 //TransFloor1.GetComponent<BoxCollider2D>().isTrigger = false;
                 TransFloor2.GetComponent<SpriteRenderer>().sprite = sprite.GetComponent<SpriteRenderer>().sprite;
                 TransFloor2.GetComponent<BoxCollider2D>().isTrigger = false;
+     
             }
         }
     }
@@ -71,6 +73,7 @@ public class Map5Btn : MonoBehaviour
                 //TransFloor1.GetComponent<BoxCollider2D>().isTrigger = true;
                 TransFloor2.GetComponent<SpriteRenderer>().sprite = null;
                 TransFloor2.GetComponent<BoxCollider2D>().isTrigger = true;
+            
             }
         }
     }

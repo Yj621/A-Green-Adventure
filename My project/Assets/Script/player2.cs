@@ -31,7 +31,9 @@ public class player2 : MonoBehaviour
         if(GameObject.Find("RestartPanel") != null)
         {
             restartPanel = GameObject.Find("RestartPanel");
+            restartPanel.SetActive(false);
         }
+ 
         
     }
    
@@ -90,7 +92,7 @@ public class player2 : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.tag == "Floor")
+        if (other.gameObject.tag == "Floor" || other.gameObject.tag == "Box")
         {
             isjump = true;
         }
@@ -131,7 +133,14 @@ public class player2 : MonoBehaviour
                 if(miniPanel) miniPanel.SetActive(true);
             }
         }
+        if (collision.gameObject.CompareTag("restartNPC"))
+        {
 
+            if (Input.GetKey(KeyCode.G))
+            {
+                restartPanel.SetActive(true);
+            }
+        }
         if (collision.gameObject.CompareTag("Chair"))
         {
             // Debug.Log("ÀÇÀÚ");
