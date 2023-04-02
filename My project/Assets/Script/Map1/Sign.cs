@@ -22,7 +22,6 @@ public class Sign : MonoBehaviour
 
         StartCoroutine(GetValue());
     }
-    // 값을 불러올 파일 경로
 
 
     // 주기적으로 파일 내용을 검색하여 값을 가져오는 함수
