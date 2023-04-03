@@ -8,9 +8,13 @@ public class DialogueSystem : MonoBehaviour
 {
     public Text name;
     public Text sentence;
-
+    private GameObject panelController;
     Queue<string> sentences = new Queue<string>();
 
+    private void Start()
+    {
+        panelController = GameObject.Find("PanelController");
+    }
     public void Begin(Dialogue info)
     {
         sentences.Clear(); //초기화
@@ -27,9 +31,11 @@ public class DialogueSystem : MonoBehaviour
         if (sentences.Count == 0)
         {
             End();
+            panelController.GetComponent<BtnControl>().panelOn = false;
             return;
         }
         sentence.text = sentences.Dequeue(); //다음문장 넣기
+
     }
 
     private void End()
