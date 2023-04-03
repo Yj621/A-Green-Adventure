@@ -17,21 +17,18 @@ public class player : MonoBehaviour
     public Animator animator;
     public GameObject Target; //버튼을 누르면 사라질 객체
     public GameObject Btn; //버튼도 사라지게
-    private GameObject miniPanel;
-    private GameObject restartPanel;
     public GameObject StartBtn;
-    
+    private GameObject panelController;
     private void Start()
     {
-        if (GameObject.Find("MiniGamePanel") != null)
+        if (GameObject.Find("PanelController"))
         {
-            miniPanel = GameObject.Find("MiniGamePanel");
-            miniPanel.SetActive(false);
+            panelController = GameObject.Find("PanelController");
         }
-        if(GameObject.Find("RestartPanel") != null)
-        {
-            restartPanel = GameObject.Find("RestartPanel");
-        }
+        //if(GameObject.Find("RestartPanel") != null)
+        //{
+        //    restartPanel = GameObject.Find("RestartPanel");
+        //}
     }
     void Awake()
     {
@@ -96,7 +93,8 @@ public class player : MonoBehaviour
         if (other.gameObject.tag == "Obstacle")
         { 
             animator.SetBool("IsDie", true);
-            restartPanel.SetActive(true);
+            panelController.GetComponent<BtnControl>().RestartPanel.SetActive(true);
+            panelController.GetComponent<BtnControl>().panelOn = true;
         }
         if (other.gameObject.tag == "Blind")
         {
@@ -141,26 +139,20 @@ public class player : MonoBehaviour
             StartBtn.SetActive(true);
         }
 
+        if (other.gameObject.CompareTag("Npc6"))
+        {
+            if (panelController)
+            {
+                panelController.GetComponent<BtnControl>().panelOn = true;
+                panelController.GetComponent<BtnControl>().miniPanel.SetActive(true);
+            }
+        }
     }
+  
   
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Npc6"))
-        {
-            if (Input.GetKey(KeyCode.G))
-            {
-                if (miniPanel) miniPanel.SetActive(true);
-            }
-        }
-
-        if (collision.gameObject.CompareTag("restartNPC"))
-        {
-            if (Input.GetKey(KeyCode.G))
-            {
-                restartPanel.SetActive(true);
-            }
-        }
-
+       
         if (collision.gameObject.CompareTag("Chair"))
         {
             // Debug.Log("의자");

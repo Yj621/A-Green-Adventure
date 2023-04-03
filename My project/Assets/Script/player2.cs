@@ -19,20 +19,18 @@ public class player2 : MonoBehaviour
     public GameObject Btn; //버튼도 사라지게
     public GameObject Dialogues;
     public GameObject StartBtn;
-
+    private GameObject panelController;
     private void Start()
     {
-
-        if (GameObject.Find("MiniGamePanel") != null)
+        if (GameObject.Find("PanelController"))
         {
-            miniPanel = GameObject.Find("MiniGamePanel");
-            miniPanel.SetActive(false);
+            panelController = GameObject.Find("PanelController");
         }
-        if(GameObject.Find("RestartPanel") != null)
-        {
-            restartPanel = GameObject.Find("RestartPanel");
-            restartPanel.SetActive(false);
-        }
+        //if(GameObject.Find("RestartPanel") != null)
+        //{
+        //    restartPanel = GameObject.Find("RestartPanel");
+        //    restartPanel.SetActive(false);
+        //}
  
         
     }
@@ -122,17 +120,18 @@ public class player2 : MonoBehaviour
             GameObject.Find("Canvas").transform.Find("Chat Back").gameObject.SetActive(true);
             StartBtn.SetActive(true);
         }
+        if (other.gameObject.CompareTag("Npc6"))
+        {
+            if (panelController)
+            {
+                panelController.GetComponent<BtnControl>().panelOn = true;
+                panelController.GetComponent<BtnControl>().miniPanel.SetActive(true);
+            }
+        }
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Npc6"))
-        {
-            if (Input.GetKey(KeyCode.G))
-            {
-                if(miniPanel) miniPanel.SetActive(true);
-            }
-        }
         if (collision.gameObject.CompareTag("restartNPC"))
         {
 
