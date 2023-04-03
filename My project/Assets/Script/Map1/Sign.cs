@@ -11,7 +11,7 @@ public class Sign : MonoBehaviour
 {
     private TextMeshPro txt;
     //날씨 정보를 가져옴
-    private static string relativePath = "Python/weather.txt";
+    private static string relativePath = "Assets/Python/weather.txt";
     //절대경로로 변환
     private static string absolutePath = Path.GetFullPath(relativePath);
 
@@ -37,7 +37,7 @@ public class Sign : MonoBehaviour
             UnityEngine.Debug.Log(valueString);
 
             // 1초 대기
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(10f);
         }
     }
 }
