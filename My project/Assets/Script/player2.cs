@@ -132,14 +132,6 @@ public class player2 : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("restartNPC"))
-        {
-
-            if (Input.GetKey(KeyCode.G))
-            {
-                restartPanel.SetActive(true);
-            }
-        }
         if (collision.gameObject.CompareTag("Chair"))
         {
             // Debug.Log("ÀÇÀÚ");
