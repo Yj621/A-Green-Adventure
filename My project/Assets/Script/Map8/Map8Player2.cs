@@ -82,7 +82,7 @@ public class Map8Player2 : MonoBehaviour
             isJump = true;
             animator.SetBool("IsJumping", false);
         }
-        if (other.gameObject.CompareTag("Npc6"))
+        if (other.gameObject.CompareTag("ChatNPC"))
         {
             GameObject.Find("Canvas").transform.Find("Chat Back").gameObject.SetActive(true);
             StartBtn.SetActive(true);
