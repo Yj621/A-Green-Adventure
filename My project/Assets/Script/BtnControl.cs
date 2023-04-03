@@ -4,16 +4,22 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class BtnControl : MonoBehaviour
 {
-    private GameObject miniPanel;
-    private GameObject RestartPanel;
+    public GameObject miniPanel;
+    public GameObject RestartPanel;
+    private GameObject player1;
+    private Rigidbody2D player1Rb;
+    private GameObject player2;
+    private Rigidbody2D player2Rb;
+    public bool panelOn = false;
+
     // Start is called before the first frame update
     void Start()
     {
-        if (GameObject.Find("MiniGamePanel") != null)
-        {
-            miniPanel = GameObject.Find("MiniGamePanel");
-            miniPanel.SetActive(false);
-        }
+        player1 = GameObject.Find("Player1");
+        player1Rb = player1.GetComponent<Rigidbody2D>();
+        player2 = GameObject.Find("Player2");
+        player2Rb = player2.GetComponent<Rigidbody2D>();
+        if(miniPanel != null) { miniPanel.SetActive(false); }
         if(GameObject.Find("RestartPanel") != null)
         {
             RestartPanel = GameObject.Find("RestartPanel");
@@ -25,7 +31,23 @@ public class BtnControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (panelOn == true)
+        {
+            player1Rb.constraints = RigidbodyConstraints2D.FreezeAll;
+            player2Rb.constraints = RigidbodyConstraints2D.FreezeAll;
+        }
+        else
+        {
+            player1Rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+            player2Rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+        }
+
+    }
+
+    public void ClickRestartBtn()
+    {
+        RestartPanel.SetActive(true);
+        panelOn = false;
     }
 
     public void ClickStart()
@@ -41,13 +63,15 @@ public class BtnControl : MonoBehaviour
 
      public void ClickMiniGameNo()
     {
-       miniPanel.SetActive(false);
+        panelOn = false;
+        miniPanel.SetActive(false);
     }
 
     public void ClickRestart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         RestartPanel.SetActive(false);
+        panelOn=false;
     }
 
     public void ClickExit()

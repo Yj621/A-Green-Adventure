@@ -27,6 +27,7 @@ TagManager:
   - Trashcan
   - Box
   - restartNPC
+  - text
   layers:
   - Default
   - TransparentFX
@@ -34,7 +35,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - text
   - 
   - 
   - 
@@ -61,6 +62,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: text
+    uniqueID: 289928193
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
