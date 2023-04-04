@@ -15,10 +15,14 @@ public class BtnControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player1 = GameObject.Find("Player1");
-        player1Rb = player1.GetComponent<Rigidbody2D>();
-        player2 = GameObject.Find("Player2");
-        player2Rb = player2.GetComponent<Rigidbody2D>();
+        if (GameObject.Find("Player1"))
+        {
+            player1 = GameObject.Find("Player1");
+            player1Rb = player1.GetComponent<Rigidbody2D>();
+            player2 = GameObject.Find("Player2");
+            player2Rb = player2.GetComponent<Rigidbody2D>();
+        }
+       
         if(miniPanel != null) { miniPanel.SetActive(false); }
         if(GameObject.Find("RestartPanel") != null)
         {
