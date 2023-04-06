@@ -37,13 +37,20 @@ public class BtnControl : MonoBehaviour
     {
         if (panelOn == true)
         {
-            player1Rb.constraints = RigidbodyConstraints2D.FreezeAll;
-            player2Rb.constraints = RigidbodyConstraints2D.FreezeAll;
+            if (player1)
+            {
+                player1Rb.constraints = RigidbodyConstraints2D.FreezeAll;
+                player2Rb.constraints = RigidbodyConstraints2D.FreezeAll;
+            }
+         
         }
         else
         {
-            player1Rb.constraints = RigidbodyConstraints2D.FreezeRotation;
-            player2Rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+            if (player1) {
+                player1Rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+                player2Rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+            }
+            
         }
 
     }
