@@ -76,13 +76,12 @@ public class Map8Player : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-
         if (other.gameObject.tag == "Head")
         {
             isJump = true;
             animator.SetBool("IsJumping", false);
         }
-        if (other.gameObject.CompareTag("Npc6"))
+        if (other.gameObject.CompareTag("ChatNPC"))
         {
             GameObject.Find("Canvas").transform.Find("Chat Back").gameObject.SetActive(true);
             StartBtn.SetActive(true);

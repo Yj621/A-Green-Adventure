@@ -8,6 +8,7 @@ public class DialogueSystem : MonoBehaviour
 {
     public Text name;
     public Text sentence;
+    public GameObject Dia;
     private GameObject panelController;
     Queue<string> sentences = new Queue<string>();
 
@@ -41,5 +42,6 @@ public class DialogueSystem : MonoBehaviour
     private void End()
     {
         GameObject.Find("Canvas").transform.Find("Chat Back").gameObject.SetActive(false);
+        Dia.SetActive(false);
     }
 }

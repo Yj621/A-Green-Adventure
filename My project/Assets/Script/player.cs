@@ -147,6 +147,11 @@ public class player : MonoBehaviour
                 panelController.GetComponent<BtnControl>().miniPanel.SetActive(true);
             }
         }
+        if (other.gameObject.CompareTag("ChatNPC"))
+        {
+            GameObject.Find("Canvas").transform.Find("Chat Back").gameObject.SetActive(true);
+            StartBtn.SetActive(true);
+        }
     }
   
   

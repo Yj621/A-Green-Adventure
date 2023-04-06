@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-public class Map8 : MonoBehaviour
+public class Map4_3 : MonoBehaviour
 {
     public Image imageToFade;
     // Start is called before the first frame update
@@ -16,14 +16,14 @@ public class Map8 : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-             StartCoroutine(FadeOut());
-             Invoke("Delay", 0.97f);
+            StartCoroutine(FadeOut());
+            Invoke("Delay", 0.97f);
         }
     }
     void Delay()
     {
         Invoke("Delay", 2f);
-        SceneManager.LoadScene(10);
+        SceneManager.LoadScene(6);
     }
     private IEnumerator FadeOut()
     {
