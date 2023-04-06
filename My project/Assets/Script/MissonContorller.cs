@@ -8,7 +8,7 @@ public class MissonContorller : MonoBehaviour
     public int leafCount = 0;
     public bool map5Clear = false;
     public bool clubClear= false ;
-    private bool dropLeaf = false;
+    public bool dropLeaf = false;
     public bool map3Btn1 = false;
     public bool map3Btn2 = false;
 

@@ -11,9 +11,11 @@ public class Map8Player2 : MonoBehaviour
    // private bool isDie ;
     public Animator animator;
     public GameObject StartBtn;
+    private GameObject missonControl;
 
     void Awake()
     {
+        missonControl = GameObject.Find("MissionController");
         rigid = GetComponent<Rigidbody2D>();
     }
     void Update()
@@ -71,7 +73,11 @@ public class Map8Player2 : MonoBehaviour
             isJump = true;
             animator.SetBool("IsJumping", false);
         }
-
+        if (other.gameObject.tag == "Leaf")
+        {
+            missonControl.GetComponent<MissonContorller>().leafCount++;
+            Destroy(other.gameObject);
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -84,9 +90,20 @@ public class Map8Player2 : MonoBehaviour
         }
         if (other.gameObject.CompareTag("ChatNPC"))
         {
-            GameObject.Find("Canvas").transform.Find("Chat Back").gameObject.SetActive(true);
-            StartBtn.SetActive(true);
+            if(missonControl.GetComponent<MissonContorller>().map5Clear==true && missonControl.GetComponent<MissonContorller>().clubClear == true)
+            {
+                GameObject.Find("Canvas").transform.Find("Chat Back2").gameObject.SetActive(true);
+                missonControl.GetComponent<MissonContorller>().dropLeaf = true;
+
+            }
+            else
+            {
+                GameObject.Find("Canvas").transform.Find("Chat Back1").gameObject.SetActive(true);
+                StartBtn.SetActive(true);
+            }
+            
         }
+       
     }
 
 }

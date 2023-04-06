@@ -19,23 +19,19 @@ public class player2 : MonoBehaviour
     public GameObject Btn; //버튼도 사라지게
     public GameObject StartBtn;
     private GameObject panelController;
+    private GameObject missionController;
     private void Start()
     {
         if (GameObject.Find("PanelController"))
         {
             panelController = GameObject.Find("PanelController");
         }
-        //if(GameObject.Find("RestartPanel") != null)
-        //{
-        //    restartPanel = GameObject.Find("RestartPanel");
-        //    restartPanel.SetActive(false);
-        //}
- 
-        
+    
     }
    
     void Awake()
     {
+        missionController = GameObject.Find("MissionController");
         rigid = GetComponent<Rigidbody2D>();
     }
     void Update()
@@ -130,6 +126,29 @@ public class player2 : MonoBehaviour
                 panelController.GetComponent<BtnControl>().panelOn = true;
                 panelController.GetComponent<BtnControl>().miniPanel.SetActive(true);
             }
+        }
+        if (other.gameObject.CompareTag("ChatNPC"))
+        {
+            if (GameObject.Find("Canvas").transform.Find("Chat Back1"))
+            {
+                if (missionController.GetComponent<MissonContorller>().map5Clear == true)
+                {
+                    GameObject.Find("Canvas").transform.Find("Chat Back2").gameObject.SetActive(true);
+                    StartBtn.SetActive(true);
+                    missionController.GetComponent<MissonContorller>().dropLeaf = true;
+                }
+                else
+                {
+                    GameObject.Find("Canvas").transform.Find("Chat Back1").gameObject.SetActive(true);
+                    StartBtn.SetActive(true);
+                }
+            }
+            else
+            {
+                GameObject.Find("Canvas").transform.Find("Chat Back").gameObject.SetActive(true);
+                StartBtn.SetActive(true);
+            }
+
         }
     }
 

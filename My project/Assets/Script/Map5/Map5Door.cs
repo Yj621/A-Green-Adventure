@@ -21,7 +21,10 @@ public class Map5Door : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(homeCount == 3)
+        {
+            GameObject.Find("MissionController").GetComponent<MissonContorller>().map5Clear = true;
+        }
     }
 
     private void OnTriggerStay2D(Collider2D collision) //æ¿¿Ãµø
