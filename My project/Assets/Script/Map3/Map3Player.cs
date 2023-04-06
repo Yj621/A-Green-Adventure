@@ -7,15 +7,21 @@ public class Map3Player : MonoBehaviour
     public float maxSpeed;
     public float jumpPower;
     private bool isJump = true;
-   // private bool isDie = false;
+    // private bool isDie = false;
     public bool isBtn1 = false;
+    private GameObject missionController;
     public Animator animator;
     public GameObject BlueObs; 
     public GameObject BlueBtn; 
     public GameObject OrgBtn;
     public GameObject OrgBtn2;
-    
 
+    public GameObject map3;
+
+    private void Start()
+    {
+        missionController = GameObject.Find("MissionController");
+    }
     void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
@@ -93,6 +99,7 @@ public class Map3Player : MonoBehaviour
         {
             Destroy(other.gameObject);
         }
+        
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -103,16 +110,24 @@ public class Map3Player : MonoBehaviour
             isJump = true;
             animator.SetBool("IsJumping", false);
         }
+        if (other.gameObject.tag == "Leaf")
+        {
+            map3.GetComponent<Map3>().getLeaf = true;
+            missionController.GetComponent<MissonContorller>().leafCount++;
+            Destroy(other.gameObject);
+        }
     }
     void OnCollisionStay2D(Collision2D other)
     {
         if (other.gameObject.tag == "Btn1")
         {
             isBtn1 = true;
+            missionController.GetComponent<MissonContorller>().map3Btn1 = true;
         }
     }
     void OnTriggerExit2D(Collider2D collision)
     {
         isBtn1 = false;
+        missionController.GetComponent<MissonContorller>().map3Btn1 = false;
     }
 }
