@@ -10,8 +10,10 @@ public class Map3Player2 : MonoBehaviour
     public float jumpPower;
     private bool isjump = true;
     private bool isJump = true;
-   // private bool isDie = false;
+    // private bool isDie = false;
+    private GameObject missionController;
     public bool isBtn2 = false;
+
     public GameObject RedObs; //버튼을 누르면 사라질 객체
     public GameObject RedBtn; //버튼도 사라지게
 
@@ -22,10 +24,16 @@ public class Map3Player2 : MonoBehaviour
     public GameObject GreenObs;
     public GameObject GreenBtn;
 
+    public GameObject map3;
+    private void Start()
+    {
+        missionController = GameObject.Find("MissionController");
+    }
     void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
     }
+
     void Update()
     {
         //Jump
@@ -107,18 +115,26 @@ public class Map3Player2 : MonoBehaviour
         {
             Destroy(other.gameObject);
         }
+
+        if (other.gameObject.tag == "Leaf")
+        {
+            map3.GetComponent<Map3>().getLeaf = true;
+            Destroy(other.gameObject);
+            missionController.GetComponent<MissonContorller>().leafCount++;
+        }
     }
     void OnCollisionStay2D(Collision2D other)
     {
         if (other.gameObject.tag == "Btn2")
         {
-            Debug.Log("2");
             isBtn2 = true;
+            missionController.GetComponent<MissonContorller>().map3Btn2 = true;
         }
 
     }
     void OnTriggerExit2D(Collider2D collision)
     {
+        missionController.GetComponent<MissonContorller>().map3Btn2 = false;
         isBtn2 = false;
     }
 
@@ -130,5 +146,6 @@ void OnTriggerEnter2D(Collider2D other)
             isJump = true;
             animator.SetBool("IsJumping", false);
         }
+        
     }
 }

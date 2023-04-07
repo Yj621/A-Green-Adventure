@@ -23539,11 +23539,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3573003254772844931, guid: 0ca69c5792593734fa0a1f00a3c6f823, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.48
+      value: 7.19
       objectReference: {fileID: 0}
     - target: {fileID: 3573003254772844931, guid: 0ca69c5792593734fa0a1f00a3c6f823, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.61
+      value: -6.47
       objectReference: {fileID: 0}
     - target: {fileID: 3573003254772844931, guid: 0ca69c5792593734fa0a1f00a3c6f823, type: 3}
       propertyPath: m_LocalPosition.z
@@ -33197,6 +33197,7 @@ MonoBehaviour:
   BlackBtn2: {fileID: 606043768}
   GreenObs: {fileID: 1051825767}
   GreenBtn: {fileID: 2020440784}
+  map3: {fileID: 1163252396}
 --- !u!1 &701239760
 GameObject:
   m_ObjectHideFlags: 0
@@ -52677,6 +52678,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9aab77ec316153f4cac49664c581697d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  getLeaf: 0
   imageToFadeOut: {fileID: 694030467}
 --- !u!4 &1163252398
 Transform:
@@ -61679,11 +61681,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4222253083565281329, guid: 19cc42ad8ff345a458a417fbbce036f8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.72
+      value: -6.88
       objectReference: {fileID: 0}
     - target: {fileID: 4222253083565281329, guid: 19cc42ad8ff345a458a417fbbce036f8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.2
+      value: 6.65
       objectReference: {fileID: 0}
     - target: {fileID: 4222253083565281329, guid: 19cc42ad8ff345a458a417fbbce036f8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -61745,6 +61747,7 @@ MonoBehaviour:
   BlueBtn: {fileID: 1085744151}
   OrgBtn: {fileID: 1213508484}
   OrgBtn2: {fileID: 1275137609}
+  map3: {fileID: 1163252396}
 --- !u!95 &1330698271 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 4222253083565281328, guid: 19cc42ad8ff345a458a417fbbce036f8, type: 3}
@@ -84393,6 +84396,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9aab77ec316153f4cac49664c581697d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  getLeaf: 0
   imageToFadeOut: {fileID: 0}
 --- !u!1 &1791068486
 GameObject:
