@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 216698012755503565}
   - component: {fileID: 9173289661554725481}
-  - component: {fileID: 1414633855}
   - component: {fileID: 1414633854}
   m_Layer: 0
   m_Name: Leaf
@@ -86,27 +85,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!50 &1414633855
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2549803914801200927}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!61 &1414633854
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -181,5 +159,8 @@ MonoBehaviour:
   leafCount: 0
   map5Clear: 0
   clubClear: 0
+  dropLeaf: 0
   map3Btn1: 0
   map3Btn2: 0
+  blind: {fileID: 0}
+  missonNum: 0

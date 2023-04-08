@@ -26,13 +26,16 @@ public class Map2 : MonoBehaviour
             if (Input.GetKey(KeyCode.G))//GetKey사용하면 누를때 바로 이동됨
             {
                 StartCoroutine(FadeOut());
+                
                 Invoke("Delay", 0.97f);                
             }
         }
     }
     void Delay()
     {
+        GameObject.Find("MissionController").GetComponent<MissonContorller>().missonNum++;
         SceneManager.LoadScene(3);
+        
     }
     private IEnumerator FadeOut()
     {

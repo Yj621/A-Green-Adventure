@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class MissonContorller : MonoBehaviour
 {
     private GameObject leaf;
@@ -11,30 +11,40 @@ public class MissonContorller : MonoBehaviour
     public bool dropLeaf = false;
     public bool map3Btn1 = false;
     public bool map3Btn2 = false;
-
+    public GameObject blind;
     private GameObject player1;
     private GameObject player2;
-    private Vector3 leafTrans;
-
+    private GameObject leafTrans;
+    public int missonNum = 0;
     // Start is called before the first frame update
     void Start()
-    {
-        DontDestroyOnLoad(gameObject);
-        player1 = GameObject.Find("Player1");
-        player2 = GameObject.Find("Player2");
+    { 
+        DontDestroyOnLoad(gameObject); 
         leaf = gameObject.transform.GetChild(0).gameObject;
         leaf.SetActive(false);
+    }
+    void OnEnable()
+    {
+        // 씬 매니저의 sceneLoaded에 체인을 건다.
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        player1 = GameObject.Find("Player1");
+        if (GameObject.Find("Blind")) blind = GameObject.Find("Blind");
+        if (GameObject.Find("LeafPos")) leafTrans = GameObject.Find("LeafPos");
     }
 
     // Update is called once per frame
     void Update()
-    { 
-       
+    {
+        Debug.Log(missonNum);
         if (map3Btn1 == true && map3Btn2 == true)
         {
             dropLeaf = true;
             map3Btn1 = false;
             map3Btn2 = false;
+            blind.SetActive(false);
         }
         if ( dropLeaf==true)
         {
@@ -42,14 +52,13 @@ public class MissonContorller : MonoBehaviour
                 LeafControl(); 
         }
     }
-
+   
     void LeafControl()
     {
-        leafTrans = new Vector3(player1.transform.position.x, player1.transform.position.y+1f, 0f);
-        leaf.transform.position = leafTrans;
+        leaf.transform.position = leafTrans.transform.position;
         leaf.SetActive(true);
-        leaf.GetComponent<Rigidbody2D>().AddForce(transform.up * 2f, ForceMode2D.Impulse);
         dropLeaf = false;
+        missonNum++;
     }
 
 }

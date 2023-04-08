@@ -116,12 +116,7 @@ public class Map3Player2 : MonoBehaviour
             Destroy(other.gameObject);
         }
 
-        if (other.gameObject.tag == "Leaf")
-        {
-            map3.GetComponent<Map3>().getLeaf = true;
-            Destroy(other.gameObject);
-            missionController.GetComponent<MissonContorller>().leafCount++;
-        }
+      
     }
     void OnCollisionStay2D(Collision2D other)
     {
@@ -130,7 +125,12 @@ public class Map3Player2 : MonoBehaviour
             isBtn2 = true;
             missionController.GetComponent<MissonContorller>().map3Btn2 = true;
         }
-
+        if (other.gameObject.tag == "Leaf")
+        {
+            map3.GetComponent<Map3>().getLeaf = true;
+            Destroy(other.gameObject);
+            missionController.GetComponent<MissonContorller>().leafCount++;
+        }
     }
     void OnTriggerExit2D(Collider2D collision)
     {

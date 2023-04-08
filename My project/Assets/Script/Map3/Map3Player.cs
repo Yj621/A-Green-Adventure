@@ -98,13 +98,7 @@ public class Map3Player : MonoBehaviour
         if (other.gameObject.tag == "Blind")
         {
             Destroy(other.gameObject);
-        }
-        if (other.gameObject.tag == "Leaf")
-        {
-            map3.GetComponent<Map3>().getLeaf = true;
-            missionController.GetComponent<MissonContorller>().leafCount++;
-            Destroy(other.gameObject);
-        }
+        }  
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -115,7 +109,12 @@ public class Map3Player : MonoBehaviour
             isJump = true;
             animator.SetBool("IsJumping", false);
         }
-       
+        if (other.gameObject.tag == "Leaf")
+        {
+            map3.GetComponent<Map3>().getLeaf = true;
+            missionController.GetComponent<MissonContorller>().leafCount++;
+            Destroy(other.gameObject);
+        }
     }
     void OnCollisionStay2D(Collision2D other)
     {
