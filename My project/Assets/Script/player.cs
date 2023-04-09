@@ -35,13 +35,11 @@ public class player : MonoBehaviour
     }
     void Update()
     {
-   
         //Jump
         if (Input.GetKeyDown(KeyCode.UpArrow) && isJump ) //스페이스바를 누르고, 캐릭터가 땅에 있다면
         {
             rigid.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
             isJump = false;
-
         }
         //멈출때 속도
         if (Input.GetButtonDown("Horizontal"))
@@ -49,7 +47,7 @@ public class player : MonoBehaviour
             rigid.velocity = new Vector2(rigid.velocity.normalized.x * 0.5f, rigid.velocity.y);
         }
 
-        if (Input.GetKey(KeyCode.UpArrow))
+        if (Input.GetKey(KeyCode.UpArrow) && isSit==false)
         {
             animator.SetBool("IsJumping", true);
         }
@@ -81,6 +79,7 @@ public class player : MonoBehaviour
             transform.rotation = Quaternion.Euler(0, 180, 0);
         }
     }
+    
 
     void OnCollisionEnter2D(Collision2D other)
     {
@@ -186,10 +185,13 @@ public class player : MonoBehaviour
                     chairChild = chair.transform.GetChild(0).gameObject;
                     chairChild.SetActive(true);
                     gameObject.transform.position = new Vector3(chair.transform.position.x, chair.transform.position.y + 1f, chair.transform.position.z);
+                    rigid.constraints = RigidbodyConstraints2D.FreezeAll;
                     chair.GetComponent<BoxCollider2D>().isTrigger = false;
                     animator.SetBool("IsSit", true);
                     isSit = true;
+                    
                     Debug.Log("앉기");
+                    
                 }
             }
         }
@@ -200,10 +202,12 @@ public class player : MonoBehaviour
             {
                 if (isSit == true)
                 {
+                   
                     chairChild.SetActive(false);
                     chair.GetComponent<BoxCollider2D>().isTrigger = true;
                     animator.SetBool("IsSit", false);
                     isSit = false;
+                   
                     Debug.Log("서기");
                 }
             }
