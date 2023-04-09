@@ -9,7 +9,7 @@ public class player2 : MonoBehaviour
     public Animator animator;
     public float maxSpeed;
     public float jumpPower;
-    private bool isjump = true;
+    public bool isjump = true;
     private bool isSit = false;
     private GameObject chair;
     private GameObject chairChild;
@@ -36,6 +36,7 @@ public class player2 : MonoBehaviour
     }
     void Update()
     {
+        Debug.Log("isjump"+ isjump);
         //Jump
         if (Input.GetKeyDown(KeyCode.W) && isjump)
         {
@@ -49,7 +50,7 @@ public class player2 : MonoBehaviour
             rigid.velocity = new Vector2(rigid.velocity.normalized.x * 0.5f, rigid.velocity.y);
         }
 
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.W) && isSit == false)
         {
             animator.SetBool("IsJumping", true);
         }
@@ -88,6 +89,7 @@ public class player2 : MonoBehaviour
         if (other.gameObject.tag == "Floor" || other.gameObject.tag == "Box")
         {
             isjump = true;
+            animator.SetBool("IsJumping", false);
         }
         if (other.gameObject.tag == "Obstacle")
         {
@@ -106,13 +108,26 @@ public class player2 : MonoBehaviour
         }
 
     }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Floor")
+        {
+            isjump = false;
+            animator.SetBool("IsJumping", true);
+        }
+    }
 
     void OnTriggerEnter2D(Collider2D other)
      {
-        
+        if (other.gameObject.tag == "Leaf")
+        {
+            missionController.GetComponent<MissonContorller>().leafCount++;
+            Destroy(other.gameObject);
+        }
         if (other.gameObject.tag == "Head")
         {
             isjump = true;
+            animator.SetBool("IsJumping", false);
         }
         if (other.gameObject.CompareTag("River"))
         {
@@ -134,19 +149,19 @@ public class player2 : MonoBehaviour
                 if (missionController.GetComponent<MissonContorller>().map5Clear == true)
                 {
                     GameObject.Find("Canvas").transform.Find("Chat Back2").gameObject.SetActive(true);
-                    StartBtn.SetActive(true);
                     missionController.GetComponent<MissonContorller>().dropLeaf = true;
                 }
                 else
                 {
                     GameObject.Find("Canvas").transform.Find("Chat Back1").gameObject.SetActive(true);
-                    StartBtn.SetActive(true);
                 }
+
+                GameObject.Find("PanelController").GetComponent<BtnControl>().panelOn = true;
             }
             else
             {
                 GameObject.Find("Canvas").transform.Find("Chat Back").gameObject.SetActive(true);
-                StartBtn.SetActive(true);
+                GameObject.Find("PanelController").GetComponent<BtnControl>().panelOn = true;
             }
 
         }

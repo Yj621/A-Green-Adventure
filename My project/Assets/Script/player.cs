@@ -8,7 +8,7 @@ public class player : MonoBehaviour
     Rigidbody2D rigid;
     public float maxSpeed;
     public float jumpPower;
-    private bool isJump = true;
+    public bool isJump = true;
     private bool isSit = false;
     private GameObject chair;
     private GameObject chairChild;
@@ -125,7 +125,11 @@ public class player : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D other)
     {
-
+        if (other.gameObject.tag == "Leaf")
+        {
+            missionController.GetComponent<MissonContorller>().leafCount++;
+            Destroy(other.gameObject);
+        }
         if (other.gameObject.tag == "Head")
         {
             isJump = true;
@@ -152,19 +156,19 @@ public class player : MonoBehaviour
                 if(missionController.GetComponent<MissonContorller>().map5Clear == true)
                 {
                     GameObject.Find("Canvas").transform.Find("Chat Back2").gameObject.SetActive(true);
-                    StartBtn.SetActive(true);
                     missionController.GetComponent<MissonContorller>().dropLeaf = true;
                 }
                 else
                 {
                     GameObject.Find("Canvas").transform.Find("Chat Back1").gameObject.SetActive(true);
-                    StartBtn.SetActive(true);
                 }
+
+                GameObject.Find("PanelController").GetComponent<BtnControl>().panelOn = true;
             }
             else
             {
                 GameObject.Find("Canvas").transform.Find("Chat Back").gameObject.SetActive(true);
-                StartBtn.SetActive(true);
+                GameObject.Find("PanelController").GetComponent<BtnControl>().panelOn = true;
             }
          
         }

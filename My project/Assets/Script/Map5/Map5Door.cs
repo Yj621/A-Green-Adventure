@@ -10,7 +10,7 @@ public class Map5Door : MonoBehaviour
     public bool glassHome = false;
     public bool petHome = false;
     public bool paperHome = false;
-
+    public bool getLeaf = false;
     public int homeCount = 0;
     // Start is called before the first frame update
     void Start()
@@ -31,8 +31,8 @@ public class Map5Door : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            if (homeCount == 3)
-            {
+            if (GameObject.Find("MissionController").GetComponent<MissonContorller>().leafCount == 2)
+            {  
                 if (Input.GetKey(KeyCode.G))//GetKey사용하면 누를때 바로 이동됨
                 {
                     StartCoroutine(FadeOut());

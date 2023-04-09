@@ -49,6 +49,8 @@ public class BtnControl : MonoBehaviour
             if (player1) {
                 player1Rb.constraints = RigidbodyConstraints2D.FreezeRotation;
                 player2Rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+               // player2.GetComponent<player2>().isjump = true;
+               // player1.GetComponent<player>().isJump = true;    
             }
             
         }

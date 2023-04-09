@@ -17,12 +17,14 @@ public class Map3 : MonoBehaviour
     {
         if (getLeaf)
         {
+            
             StartCoroutine(FadeOut());
             Invoke("Delay", 0.97f);
         }
     }
     void Delay()
     {
+        GameObject.Find("MissionController").GetComponent<MissonContorller>().missonNum++;
         SceneManager.LoadScene(5);
     }
     private IEnumerator FadeOut()

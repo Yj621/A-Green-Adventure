@@ -58,7 +58,7 @@ public class MissonContorller : MonoBehaviour
         leaf.transform.position = leafTrans.transform.position;
         leaf.SetActive(true);
         dropLeaf = false;
-        missonNum++;
+       //missonNum++;
     }
 
 }
