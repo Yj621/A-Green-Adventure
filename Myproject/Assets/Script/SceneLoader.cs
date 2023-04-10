@@ -28,8 +28,8 @@ public class SceneLoader : MonoBehaviour
             imageToFadeIn.transform.localScale = scale;
             yield return null;
         }
-
-        Destroy(imageToFadeIn);
+        
+        Destroy(imageToFadeIn); 
         Destroy(gameObject);
     }
 
