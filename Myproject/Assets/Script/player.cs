@@ -180,12 +180,14 @@ public class player : MonoBehaviour
        
         if (collision.gameObject.CompareTag("Chair"))
         {
+            chair = collision.gameObject;
+            chair.transform.GetChild(1).gameObject.SetActive(true);
             // Debug.Log("의자");
             if (Input.GetKeyDown(KeyCode.DownArrow))
             {
                 if (isSit == false)
                 {
-                    chair = collision.gameObject;
+                   
                     chairChild = chair.transform.GetChild(0).gameObject;
                     chairChild.SetActive(true);
                     gameObject.transform.position = new Vector3(chair.transform.position.x, chair.transform.position.y + 1f, chair.transform.position.z);
@@ -215,6 +217,16 @@ public class player : MonoBehaviour
                     Debug.Log("서기");
                 }
             }
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+
+        if (collision.gameObject.CompareTag("Chair"))
+        {
+            chair = collision.gameObject;
+            chair.transform.GetChild(1).gameObject.SetActive(false);
         }
     }
 }

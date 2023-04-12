@@ -171,6 +171,8 @@ public class player2 : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Chair"))
         {
+            chair = collision.gameObject;
+            chair.transform.GetChild(2).gameObject.SetActive(true);
             // Debug.Log("의자");
             if (Input.GetKeyDown(KeyCode.S))
             {
@@ -201,6 +203,15 @@ public class player2 : MonoBehaviour
                     Debug.Log("서기");
                 }
             }
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+
+        if (collision.gameObject.CompareTag("Chair"))
+        {
+            chair = collision.gameObject;
+            chair.transform.GetChild(2).gameObject.SetActive(false);
         }
     }
 }
