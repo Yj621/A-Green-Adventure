@@ -36,7 +36,7 @@ public class player2 : MonoBehaviour
     }
     void Update()
     {
-        Debug.Log("isjump"+ isjump);
+        // Debug.Log("isjump"+ isjump);
         //Jump
         if (Input.GetKeyDown(KeyCode.W) && isjump)
         {
