@@ -38,7 +38,7 @@ public class MissonContorller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(missonNum);
+        // Debug.Log(missonNum);
         if (map3Btn1 == true && map3Btn2 == true)
         {
             dropLeaf = true;

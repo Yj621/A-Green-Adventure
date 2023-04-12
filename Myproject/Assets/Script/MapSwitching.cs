@@ -4,39 +4,44 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class Map1 : MonoBehaviour
+public class MapSwitching : MonoBehaviour
 {
-    private GameObject H_icon;
-    public Image imageToFadeOut;
 
-    // Start is called before the first frame update
+    public Image imageToFadeOut;
+    private GameObject H_icon;
+    private GameObject Map2_icon; //í•˜ìˆ˜êµ¬ gí‚¤
     void Start()
     {
         H_icon = GameObject.Find("HouseIcon");
         H_icon.SetActive(false);
-    }
-        // Update is called once per frame
-    void Update()
-    {
-
+        Map2_icon = GameObject.Find("Map2Icon");
+        Map2_icon.SetActive(false);
     }
 
 
-    private void OnTriggerStay2D(Collider2D collision) //¾ÀÀÌµ¿
+    private void OnTriggerStay2D(Collider2D collision) //ì”¬ì´ë™
     {
         if (collision.gameObject.CompareTag("Map2"))
         {
             H_icon.SetActive(true);
-            if (Input.GetKey(KeyCode.G))//GetKey»ç¿ëÇÏ¸é ´©¸¦¶§ ¹Ù·Î ÀÌµ¿µÊ
+            if (Input.GetKey(KeyCode.G))//GetKeyì‚¬ìš©í•˜ë©´ ëˆ„ë¥¼ë•Œ ë°”ë¡œ ì´ë™ë¨
             {
-                StartCoroutine(FadeOut());     
+                StartCoroutine(FadeOut());
+                SceneManager.LoadScene(2);     
+            }
+        }
+
+        if (collision.gameObject.CompareTag("Map2"))
+        {
+            Map2_icon.SetActive(true);
+            if (Input.GetKey(KeyCode.G))//GetKeyì‚¬ìš©í•˜ë©´ ëˆ„ë¥¼ë•Œ ë°”ë¡œ ì´ë™ë¨
+            { 
+                StartCoroutine(FadeOut());
+                SceneManager.LoadScene(4);     
             }
         }
     }
-    void Delay()
-    {
-        SceneManager.LoadScene(2);
-    }
+
     private IEnumerator FadeOut()
     {
         float duration = 1f;
@@ -56,9 +61,8 @@ public class Map1 : MonoBehaviour
         Destroy(imageToFadeOut);
         Destroy(gameObject);
     }
-    private void OnTriggerExit2D(Collider2D collision) 
+    private void OnTriggerExit2D(Collider2D collision)
     {
-        H_icon.SetActive(false);
+        Map2_icon.SetActive(false);
     }
 }
-

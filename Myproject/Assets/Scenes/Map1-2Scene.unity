@@ -2076,6 +2076,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 19cc42ad8ff345a458a417fbbce036f8, type: 3}
+--- !u!1 &1025065282 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4222253083565281322, guid: 19cc42ad8ff345a458a417fbbce036f8, type: 3}
+  m_PrefabInstance: {fileID: 1025065281}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1025065283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1025065282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45639e29b7a5f4d939c652b005e5291a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  imageToFadeOut: {fileID: 2042981150}
 --- !u!1 &1069648871
 GameObject:
   m_ObjectHideFlags: 0
@@ -2977,11 +2995,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1599646034}
   - component: {fileID: 1599646037}
-  - component: {fileID: 1599646036}
   - component: {fileID: 1599646035}
   m_Layer: 0
   m_Name: House Collider
-  m_TagString: Untagged
+  m_TagString: Map2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3021,19 +3038,6 @@ Rigidbody2D:
   m_SleepingMode: 0
   m_CollisionDetection: 0
   m_Constraints: 7
---- !u!114 &1599646036
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1599646033}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a121d982321967244af14ae5cae447b3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  imageToFadeOut: {fileID: 2042981150}
 --- !u!61 &1599646037
 BoxCollider2D:
   m_ObjectHideFlags: 0
