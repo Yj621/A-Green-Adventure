@@ -149,29 +149,7 @@ public class player : MonoBehaviour
                 panelController.GetComponent<BtnControl>().miniPanel.SetActive(true);
             }
         }
-        if (other.gameObject.CompareTag("ChatNPC"))
-        {
-            if (GameObject.Find("Canvas").transform.Find("Chat Back1")) 
-            { 
-                if(missionController.GetComponent<MissonContorller>().map5Clear == true)
-                {
-                    GameObject.Find("Canvas").transform.Find("Chat Back2").gameObject.SetActive(true);
-                    missionController.GetComponent<MissonContorller>().dropLeaf = true;
-                }
-                else
-                {
-                    GameObject.Find("Canvas").transform.Find("Chat Back1").gameObject.SetActive(true);
-                }
-
-                GameObject.Find("PanelController").GetComponent<BtnControl>().panelOn = true;
-            }
-            else
-            {
-                GameObject.Find("Canvas").transform.Find("Chat Back").gameObject.SetActive(true);
-                GameObject.Find("PanelController").GetComponent<BtnControl>().panelOn = true;
-            }
-         
-        }
+       
     }
   
   

@@ -16,6 +16,7 @@ public class Map8Player : MonoBehaviour
     {
         missonControl = GameObject.Find("MissionController");
         rigid = GetComponent<Rigidbody2D>();
+        GameObject.Find("Canvas").transform.Find("Chat Back").gameObject.SetActive(false);
     }
     void Update()
     {
@@ -78,7 +79,14 @@ public class Map8Player : MonoBehaviour
             Destroy(other.gameObject);
         }
     }
-
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Floor")
+        {
+            isJump = true;
+            animator.SetBool("IsJumping", false);
+        }
+    }
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "Head")
@@ -86,21 +94,20 @@ public class Map8Player : MonoBehaviour
             isJump = true;
             animator.SetBool("IsJumping", false);
         }
+
         if (other.gameObject.CompareTag("ChatNPC"))
         {
-            if (missonControl.GetComponent<MissonContorller>().map5Clear == true && missonControl.GetComponent<MissonContorller>().clubClear == true)
-            {
-                GameObject.Find("Canvas").transform.Find("Chat Back2").gameObject.SetActive(true);
-                missonControl.GetComponent<MissonContorller>().dropLeaf = true;
-
-            }
-            else
-            {
-                GameObject.Find("Canvas").transform.Find("Chat Back1").gameObject.SetActive(true);
-                StartBtn.SetActive(true);
-            }
+            GameObject.Find("Canvas").transform.Find("Chat Back").gameObject.SetActive(true);
+            GameObject.Find("PanelController").GetComponent<BtnControl>().panelOn = true;
         }
-       
+    }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Floor")
+        {
+            isJump = false;
+            animator.SetBool("IsJumping", true);
+        }
     }
 }
 
