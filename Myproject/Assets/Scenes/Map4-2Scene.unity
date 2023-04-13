@@ -655,6 +655,19 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4222253083565281322, guid: 19cc42ad8ff345a458a417fbbce036f8, type: 3}
   m_PrefabInstance: {fileID: 216968329}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &216968331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 216968330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e35d6a11a3f9843bc9c8eff494625089, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  imageToFadeOut: {fileID: 1782805862}
 --- !u!114 &216968332
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -669,7 +682,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxSpeed: 3
   jumpPower: 12
-  animator: {fileID: 0}
+  animator: {fileID: 216968333}
   StartBtn: {fileID: 0}
 --- !u!95 &216968333
 Animator:
@@ -757,27 +770,13 @@ GameObject:
   m_Component:
   - component: {fileID: 382784506}
   - component: {fileID: 382784505}
-  - component: {fileID: 382784504}
   m_Layer: 0
   m_Name: move map8
-  m_TagString: Untagged
+  m_TagString: Map8
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &382784504
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 382784503}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3935dc26ccd69cc4d95fa47de7861124, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  imageToFade: {fileID: 1600765169}
 --- !u!61 &382784505
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1388,27 +1387,13 @@ GameObject:
   - component: {fileID: 618858162}
   - component: {fileID: 618858161}
   - component: {fileID: 618858160}
-  - component: {fileID: 618858159}
   m_Layer: 7
   m_Name: Shop Collider
-  m_TagString: Untagged
+  m_TagString: Map6
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &618858159
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 618858158}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 837e7a0be010a0649afbc4e1e0029e2b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  imageToFade: {fileID: 0}
 --- !u!50 &618858160
 Rigidbody2D:
   serializedVersion: 4
@@ -1995,27 +1980,13 @@ GameObject:
   - component: {fileID: 917984286}
   - component: {fileID: 917984285}
   - component: {fileID: 917984284}
-  - component: {fileID: 917984283}
   m_Layer: 7
   m_Name: Club Collider
-  m_TagString: Untagged
+  m_TagString: Map5
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &917984283
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 917984282}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb17d62dd6ed96a4db228caf48bb3004, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  imageToFade: {fileID: 0}
 --- !u!50 &917984284
 Rigidbody2D:
   serializedVersion: 4
@@ -3114,6 +3085,19 @@ MonoBehaviour:
   jumpPower: 12
   animator: {fileID: 1383672801}
   StartBtn: {fileID: 0}
+--- !u!114 &1383672803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1383672800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e35d6a11a3f9843bc9c8eff494625089, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  imageToFadeOut: {fileID: 1782805862}
 --- !u!1001 &1600765168
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3613,6 +3597,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7707046156598663299, guid: 27a3aa1b513b3d64498e150d8b45cd64, type: 3}
   m_PrefabInstance: {fileID: 1782805860}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1782805862 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7707046156598663298, guid: 27a3aa1b513b3d64498e150d8b45cd64, type: 3}
+  m_PrefabInstance: {fileID: 1782805860}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1787238151
 GameObject:
   m_ObjectHideFlags: 0
