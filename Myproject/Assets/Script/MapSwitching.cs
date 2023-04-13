@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class MapSwitching : MonoBehaviour
 {
-public Image imageToFadeOut;
+    public Image imageToFadeOut;
 
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -19,13 +19,75 @@ public Image imageToFadeOut;
                 Invoke("LoadMap1", 0.97f);
             }
         }
-        if (collision.gameObject.CompareTag("Map3"))
+        if (collision.gameObject.CompareTag("Map2"))
+        {
+            if (Input.GetKey(KeyCode.G))
+            {
+                StartCoroutine(FadeOut());
+                Invoke("LoadMap2", 0.97f);
+            }
+        }
+        // if (collision.gameObject.CompareTag("Map3"))
+        // {
+        //     if (Input.GetKey(KeyCode.G))
+        //     {
+        //         StartCoroutine(FadeOut());
+        //         Invoke("LoadMap3", 0.97f);
+        //     }
+        // }
+        if (collision.gameObject.CompareTag("Map4"))
         {
             if (Input.GetKey(KeyCode.G))
             {
                 StartCoroutine(FadeOut());
                 Invoke("LoadMap4", 0.97f);
             }
+        }
+        if (collision.gameObject.CompareTag("Map4_2"))
+        {
+                StartCoroutine(FadeOut());
+                Invoke("LoadMap4_2", 0.97f);
+            
+        }
+        if (collision.gameObject.CompareTag("Map4_3"))
+        {
+            if (Input.GetKey(KeyCode.G))
+            {
+                StartCoroutine(FadeOut());
+                Invoke("LoadMap4_3", 0.97f);
+            }
+        }
+        if (collision.gameObject.CompareTag("Map4_4"))
+        {
+            if (Input.GetKey(KeyCode.G))
+            {
+                StartCoroutine(FadeOut());
+                Invoke("LoadMap4_4", 0.97f);
+            }
+        }
+
+        if (collision.gameObject.CompareTag("Map6"))
+        {
+            if (Input.GetKey(KeyCode.G))
+            {
+                StartCoroutine(FadeOut());
+                Invoke("LoadMap6", 0.97f);
+            }
+        }
+        if (collision.gameObject.CompareTag("Map7"))
+        {
+            if (Input.GetKey(KeyCode.G))
+            {
+                StartCoroutine(FadeOut());
+                Invoke("LoadMap7", 0.97f);
+            }
+        }
+        if (collision.gameObject.CompareTag("Map8"))
+        {
+
+            StartCoroutine(FadeOut());
+            Invoke("LoadMap8", 0.97f);
+
         }
     }
 
@@ -34,13 +96,51 @@ public Image imageToFadeOut;
         GameObject.Find("MissionController").GetComponent<MissonContorller>().missonNum++;
         SceneManager.LoadScene(2);
     }
+    private void LoadMap2()
+    {
+        SceneManager.LoadScene(3);
+    }
+
+    // private void LoadMap3()
+    // {
+    //     SceneManager.LoadScene(4);
+    // }
 
     private void LoadMap4()
     {
-        SceneManager.LoadScene(4);
+        SceneManager.LoadScene(5);
     }
 
+    private void LoadMap4_2()
+    {
+        SceneManager.LoadScene(6);
+    }
 
+    private void LoadMap4_3()
+    {
+        SceneManager.LoadScene(7);
+    }
+
+    private void LoadMap4_4()
+    {
+        SceneManager.LoadScene(8);
+    }
+    private void LoadMap5()
+    {
+        SceneManager.LoadScene(9);
+    }
+    private void LoadMap6()
+    {
+        SceneManager.LoadScene(10);
+    }
+    private void LoadMap7()
+    {
+        SceneManager.LoadScene(11);
+    }
+    private void LoadMap8()
+    {
+        SceneManager.LoadScene(12);
+    }
     private IEnumerator FadeOut()
     {
         float duration = 1f;
