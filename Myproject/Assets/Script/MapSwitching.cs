@@ -64,6 +64,14 @@ public class MapSwitching : MonoBehaviour
                 StartCoroutine(FadeOut());
                 Invoke("LoadMap4_4", 0.97f);
             }
+        }        
+        if (collision.gameObject.CompareTag("Map5"))
+        {
+            if (Input.GetKey(KeyCode.G))
+            {
+                StartCoroutine(FadeOut());
+                Invoke("LoadMap5", 0.97f);
+            }
         }
 
         if (collision.gameObject.CompareTag("Map6"))
