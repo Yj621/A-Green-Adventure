@@ -97,7 +97,7 @@ public class Map8Player : MonoBehaviour
 
         if (other.gameObject.CompareTag("ChatNPC"))
         {
-            GameObject.Find("Canvas").transform.Find("Chat Back").gameObject.SetActive(true);
+            other.GetComponent<Chat>().chatCanvus.SetActive(true);
             GameObject.Find("PanelController").GetComponent<BtnControl>().panelOn = true;
         }
     }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-public class Map5Chat : MonoBehaviour
+public class Chat : MonoBehaviour
 {
     List<string> chat5_1 = new List<string>() { "안녕?", "우리집에 온걸 환영해." };
     List<string> chat5_2 = new List<string>() { "고마워!\n 여기 보답이야." };
