@@ -12,7 +12,6 @@ public class SunRandom : MonoBehaviour
 
     void Start()
     {
-        // 활성화 주기마다 랜덤한 오브젝트 활성화
         StartCoroutine(RandomActivation());
     }
 
@@ -20,19 +19,20 @@ public class SunRandom : MonoBehaviour
     {
         while (true)
         {
-            // 랜덤한 오브젝트 선택
-            GameObject obj = objectPrefabs[Random.Range(0, objectPrefabs.Length)];
+            // 랜덤한 인덱스를 생성하여 프리팹 선택
+            int randomIndex = Random.Range(0, objectPrefabs.Length);
+            GameObject prefabToActivate = objectPrefabs[randomIndex];
 
-            // 선택한 오브젝트 활성화
-            GameObject newObj = Instantiate(obj, transform.position, Quaternion.identity);
-            newObj.SetActive(true); // 수정된 부분
-            activeObjects.Add(newObj);
+            // 선택한 프리팹을 활성화하고 리스트에 추가
+            GameObject newObject = Instantiate(prefabToActivate, transform.position, Quaternion.identity);
+            newObject.SetActive(true);
+            activeObjects.Add(newObject);
 
-            // 활성화 후 비활성화까지 대기
-            yield return new WaitForSeconds(activationInterval);
-            StartCoroutine(DeactivateObject(newObj));
+            // 비활성화까지 대기 후 DeactivateObject() 코루틴 실행
+            yield return new WaitForSeconds(deactivateTime);
+            StartCoroutine(DeactivateObject(newObject));
 
-            // 다음 활성화까지 대기
+            // 활성화 주기까지 대기
             yield return new WaitForSeconds(activationInterval);
         }
     }
@@ -41,26 +41,22 @@ public class SunRandom : MonoBehaviour
     {
         yield return new WaitForSeconds(deactivateTime);
 
-        // 활성화된 오브젝트 리스트에서 제거
+        // activeObjects 리스트에서 제거하고 비활성화
         activeObjects.Remove(obj);
-
-        // 오브젝트 비활성화
         obj.SetActive(false);
     }
 
     void OnTriggerEnter(Collider other)
     {
-        // 충돌한 오브젝트가 활성화된 오브젝트 리스트에 있는 경우
-        if (activeObjects.Contains(other.gameObject))
+        // 충돌한 오브젝트의 태그와 activeObjects 리스트의 오브젝트의 태그가 같은 경우
+        if (activeObjects.Contains(other.gameObject) && other.CompareTag(activeObjects[0].tag))
         {
-            // "Hello" 출력
-            Debug.Log("Hello");
+            Debug.Log("hello");
 
-            // 오브젝트 비활성화
+            // 오브젝트 비활성화하고 activeObjects 리스트에서 제거
             other.gameObject.SetActive(false);
-
-            // 활성화된 오브젝트 리스트에서 제거
             activeObjects.Remove(other.gameObject);
         }
     }
 }
+
