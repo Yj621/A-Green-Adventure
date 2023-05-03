@@ -132,7 +132,7 @@ public class player2 : MonoBehaviour
         if (other.gameObject.CompareTag("River"))
         {
             GameObject.Find("Canvas").transform.Find("Chat Back").gameObject.SetActive(true);
-            StartBtn.SetActive(true);
+          //  StartBtn.SetActive(true);
         }
         if (other.gameObject.CompareTag("Npc6"))
         {
@@ -212,6 +212,11 @@ public class player2 : MonoBehaviour
         {
             chair = collision.gameObject;
             chair.transform.GetChild(2).gameObject.SetActive(false);
+        }
+        if (collision.gameObject.CompareTag("River"))
+        {
+            GameObject.Find("Canvas").transform.Find("Chat Back").gameObject.SetActive(false);
+            // StartBtn.SetActive(true);
         }
     }
 }

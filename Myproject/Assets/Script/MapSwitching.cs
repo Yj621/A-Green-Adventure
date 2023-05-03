@@ -35,68 +35,68 @@ public class MapSwitching : MonoBehaviour
         //         Invoke("LoadMap3", 0.97f);
         //     }
         // }
-        if (collision.gameObject.CompareTag("Map4"))
-        {
-            if (Input.GetKey(KeyCode.G))
-            {
-                StartCoroutine(FadeOut());
-                Invoke("LoadMap4", 0.97f);
-            }
-        }
-        if (collision.gameObject.CompareTag("Map4_2"))
-        {
-                StartCoroutine(FadeOut());
-                Invoke("LoadMap4_2", 0.97f);
+        //if (collision.gameObject.CompareTag("Map4"))
+        //{
+        //    if (Input.GetKey(KeyCode.G))
+        //    {
+        //        StartCoroutine(FadeOut());
+        //        Invoke("LoadMap4", 0.97f);
+        //    }
+        //}
+        //if (collision.gameObject.CompareTag("Map4_2"))
+        //{
+        //        StartCoroutine(FadeOut());
+        //        Invoke("LoadMap4_2", 0.97f);
             
-        }
-        if (collision.gameObject.CompareTag("Map4_3"))
-        {
-            if (Input.GetKey(KeyCode.G))
-            {
-                StartCoroutine(FadeOut());
-                Invoke("LoadMap4_3", 0.97f);
-            }
-        }
-        if (collision.gameObject.CompareTag("Map4_4"))
-        {
-            if (Input.GetKey(KeyCode.G))
-            {
-                StartCoroutine(FadeOut());
-                Invoke("LoadMap4_4", 0.97f);
-            }
-        }        
-        if (collision.gameObject.CompareTag("Map5"))
-        {
-            if (Input.GetKey(KeyCode.G))
-            {
-                StartCoroutine(FadeOut());
-                Invoke("LoadMap5", 0.97f);
-            }
-        }
+        //}
+        //if (collision.gameObject.CompareTag("Map4_3"))
+        //{
+        //    if (Input.GetKey(KeyCode.G))
+        //    {
+        //        StartCoroutine(FadeOut());
+        //        Invoke("LoadMap4_3", 0.97f);
+        //    }
+        //}
+        //if (collision.gameObject.CompareTag("Map4_4"))
+        //{
+        //    if (Input.GetKey(KeyCode.G))
+        //    {
+        //        StartCoroutine(FadeOut());
+        //        Invoke("LoadMap4_4", 0.97f);
+        //    }
+        //}        
+        //if (collision.gameObject.CompareTag("Map5"))
+        //{
+        //    if (Input.GetKey(KeyCode.G))
+        //    {
+        //        StartCoroutine(FadeOut());
+        //        Invoke("LoadMap5", 0.97f);
+        //    }
+        //}
 
-        if (collision.gameObject.CompareTag("Map6"))
-        {
-            if (Input.GetKey(KeyCode.G))
-            {
-                StartCoroutine(FadeOut());
-                Invoke("LoadMap6", 0.97f);
-            }
-        }
-        if (collision.gameObject.CompareTag("Map7"))
-        {
-            if (Input.GetKey(KeyCode.G))
-            {
-                StartCoroutine(FadeOut());
-                Invoke("LoadMap7", 0.97f);
-            }
-        }
-        if (collision.gameObject.CompareTag("Map8"))
-        {
+        //if (collision.gameObject.CompareTag("Map6"))
+        //{
+        //    if (Input.GetKey(KeyCode.G))
+        //    {
+        //        StartCoroutine(FadeOut());
+        //        Invoke("LoadMap6", 0.97f);
+        //    }
+        //}
+        //if (collision.gameObject.CompareTag("Map7"))
+        //{
+        //    if (Input.GetKey(KeyCode.G))
+        //    {
+        //        StartCoroutine(FadeOut());
+        //        Invoke("LoadMap7", 0.97f);
+        //    }
+        //}
+        //if (collision.gameObject.CompareTag("Map8"))
+        //{
 
-            StartCoroutine(FadeOut());
-            Invoke("LoadMap8", 0.97f);
+        //    StartCoroutine(FadeOut());
+        //    Invoke("LoadMap8", 0.97f);
 
-        }
+        //}
     }
 
     private void LoadMap1()
