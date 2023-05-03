@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player1_8 : MonoBehaviour
+public class Player2_8 : MonoBehaviour
 {
     Rigidbody2D rigid;
     public float maxSpeed;

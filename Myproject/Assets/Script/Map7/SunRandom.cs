@@ -8,11 +8,19 @@ public class SunRandom : MonoBehaviour
     public float activationInterval; // 오브젝트 활성화 주기
     public float deactivateTime; // 비활성화까지 걸리는 시간
 
-    private List<GameObject> activeObjects = new List<GameObject>(); // 활성화된 오브젝트 리스트
-
+    public List<GameObject> activeObjects = new List<GameObject>(); // 활성화할 오브젝트 리스트
+        
     void Start()
     {
         StartCoroutine(RandomActivation());
+        List<GameObject> activeObjectsList = new List<GameObject>();
+        foreach(GameObject obj in activeObjects)
+        {
+            if(obj.activeSelf)
+            {
+                activeObjectsList.Add(obj);
+            }
+        }
     }
 
     IEnumerator RandomActivation()
@@ -44,19 +52,6 @@ public class SunRandom : MonoBehaviour
         // activeObjects 리스트에서 제거하고 비활성화
         activeObjects.Remove(obj);
         obj.SetActive(false);
-    }
-
-    void OnTriggerEnter(Collider other)
-    {
-        // 충돌한 오브젝트의 태그와 activeObjects 리스트의 오브젝트의 태그가 같은 경우
-        if (activeObjects.Contains(other.gameObject) && other.CompareTag(activeObjects[0].tag))
-        {
-            Debug.Log("hello");
-
-            // 오브젝트 비활성화하고 activeObjects 리스트에서 제거
-            other.gameObject.SetActive(false);
-            activeObjects.Remove(other.gameObject);
-        }
     }
 }
 

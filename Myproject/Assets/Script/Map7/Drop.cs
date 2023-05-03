@@ -5,7 +5,7 @@ using UnityEngine;
 public class Drop : MonoBehaviour
 {
     public GameObject[] objectPrefabs; //생성될 프리팹의 배열
-    public int numObjectsPerPrefab = 10; //
+    public int numObjectsPerPrefab = 10; 
     public float gameTime = 30.0f; // 게임 시간
     public float spawnInterval = 1.0f; // 오브젝트 생성 주기
 

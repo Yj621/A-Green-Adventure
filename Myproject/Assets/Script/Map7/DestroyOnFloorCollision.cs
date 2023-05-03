@@ -13,7 +13,7 @@ public class DestroyOnFloorCollision : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine(RandomActivation());
+       //StartCoroutine(RandomActivation());
     }
 
     IEnumerator RandomActivation()
