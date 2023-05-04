@@ -20,7 +20,7 @@ public class Map8Player2 : MonoBehaviour
     }
     void Update()
     {
-        //Jump
+       
         if (Input.GetKeyDown(KeyCode.W) && isJump)
         {
             rigid.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
@@ -32,13 +32,13 @@ public class Map8Player2 : MonoBehaviour
         {
             rigid.velocity = new Vector2(rigid.velocity.normalized.x * 0.5f, rigid.velocity.y);
         }
-
+        //Jump
         if (Input.GetKey(KeyCode.W))
         {
             animator.SetBool("IsJumping", true);
         }
         else animator.SetBool("IsJumping", false);
-
+        //∞»±‚
         if (Input.GetButton("Left Right Arrow"))
         {
             animator.SetBool("IsWalking", true);
@@ -73,6 +73,7 @@ public class Map8Player2 : MonoBehaviour
             isJump = true;
             animator.SetBool("IsJumping", false);
         }
+        //≥™πµ¿Ÿ ∏‘±‚
         if (other.gameObject.tag == "Leaf")
         {
             missonControl.GetComponent<MissonContorller>().leafCount++;
@@ -103,6 +104,7 @@ public class Map8Player2 : MonoBehaviour
             isJump = true;
             animator.SetBool("IsJumping", false);
         }
+        //¥Î»≠ Ω√¿€
         if (other.gameObject.CompareTag("ChatNPC"))
         {
             other.GetComponent<Chat>().chatCanvus.SetActive(true);

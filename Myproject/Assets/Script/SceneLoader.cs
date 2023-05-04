@@ -10,6 +10,7 @@ public class SceneLoader : MonoBehaviour
     private void Start()
     {
         imageToFadeIn.gameObject.SetActive(true);
+        //페이드 인 시작
         StartCoroutine(FadeIn());
     }
 

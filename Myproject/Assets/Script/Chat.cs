@@ -65,6 +65,7 @@ public class Chat : MonoBehaviour
         }
         else
         {
+            //대사 업데이트? 변경?
             myTextMeshProUGUI.text = currentChat[SentanceNum];
         }
     }

@@ -35,7 +35,7 @@ public class player : MonoBehaviour
     }
     void Update()
     {
-        //Jump
+        //앉기
         if (Input.GetKeyDown(KeyCode.UpArrow) && isJump ) //스페이스바를 누르고, 캐릭터가 땅에 있다면
         {
             rigid.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
@@ -46,13 +46,13 @@ public class player : MonoBehaviour
         {
             rigid.velocity = new Vector2(rigid.velocity.normalized.x * 0.5f, rigid.velocity.y);
         }
-
+        //점프
         if (Input.GetKey(KeyCode.UpArrow) && isSit==false)
         {
             animator.SetBool("IsJumping", true);
         }
         else animator.SetBool("IsJumping", false);
-
+        //걷기
         if (Input.GetButton("Horizontal"))
         {
             animator.SetBool("IsWalking", true);
@@ -83,11 +83,13 @@ public class player : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other)
     {
+        //바닥에 서있을 때
         if (other.gameObject.tag == "Floor" || other.gameObject.tag == "Box")
         {
             isJump = true;
             animator.SetBool("IsJumping", false);
         }
+        //장애물에 닿아 죽을 때
         if (other.gameObject.tag == "Obstacle")
         { 
             animator.SetBool("IsDie", true);
@@ -99,6 +101,7 @@ public class player : MonoBehaviour
             Destroy(other.gameObject);
 
         }
+        //버튼 누를 때
         if (other.gameObject.tag == "Btn")
         {
             Btn.SetActive(false);
@@ -108,6 +111,7 @@ public class player : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D collision)
     {
+        //바닥에 서있을 때
         if (collision.gameObject.tag == "Floor")
         {
             isJump = true;
@@ -117,6 +121,7 @@ public class player : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D collision)
     {
+        //바닥에서 떨어질 때
         if (collision.gameObject.tag == "Floor")
         {
             isJump = false;
@@ -125,22 +130,25 @@ public class player : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D other)
     {
+        //나뭇잎 먹을 때
         if (other.gameObject.tag == "Leaf")
         {
             missionController.GetComponent<MissonContorller>().leafCount++;
             Destroy(other.gameObject);
         }
+        //머리 밟기
         if (other.gameObject.tag == "Head")
         {
             isJump = true;
             animator.SetBool("IsJumping", false);
         }
+        //River에 갔을 경우
         if (other.gameObject.CompareTag("River"))
         {
             GameObject.Find("Canvas").transform.Find("Chat Back").gameObject.SetActive(true);
            // StartBtn.SetActive(true);
         }
-
+        //대화 가능한 NPC에 닿았을 때
         if (other.gameObject.CompareTag("Npc6"))
         {
             if (panelController)
@@ -155,7 +163,7 @@ public class player : MonoBehaviour
   
     private void OnTriggerStay2D(Collider2D collision)
     {
-       
+      
         if (collision.gameObject.CompareTag("Chair"))
         {
             chair = collision.gameObject;
@@ -163,6 +171,7 @@ public class player : MonoBehaviour
             // Debug.Log("의자");
             if (Input.GetKeyDown(KeyCode.DownArrow))
             {
+                //의자 앉기
                 if (isSit == false)
                 {
                    
@@ -181,7 +190,7 @@ public class player : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("ChairUp"))
         {
-            //Debug.Log("의자위");
+            //의자에서 일어나기
             if (Input.GetKeyDown(KeyCode.DownArrow))
             {
                 if (isSit == true)

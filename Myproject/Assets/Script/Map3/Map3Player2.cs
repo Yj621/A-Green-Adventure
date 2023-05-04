@@ -36,7 +36,7 @@ public class Map3Player2 : MonoBehaviour
 
     void Update()
     {
-        //Jump
+        
         if (Input.GetKeyDown(KeyCode.W) && isjump)
         {
             rigid.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
@@ -47,13 +47,13 @@ public class Map3Player2 : MonoBehaviour
         {
             rigid.velocity = new Vector2(rigid.velocity.normalized.x * 0.5f, rigid.velocity.y);
         }
-
+        //Jump
         if (Input.GetKey(KeyCode.W))
         {
             animator.SetBool("IsJumping", true);
         }
         else animator.SetBool("IsJumping", false);
-
+        //°È±â
         if (Input.GetButton("Left Right Arrow"))
         {
             animator.SetBool("IsWalking", true);
@@ -88,22 +88,26 @@ public class Map3Player2 : MonoBehaviour
         {
             isjump = true;
         }
+
+        //Àå¾Ö¹° ´ê¾Æ Á×±â
         if (other.gameObject.tag == "Obstacle")
         {
             animator.SetBool("IsDie", true);
         }
-
+        //»¡°­ ¹öÆ°
         if (other.gameObject.tag == "RedBtn")
         {
             RedObs.SetActive(false);
             RedBtn.SetActive(false);
         }
+        //°ËÀº ¹öÆ°
         if (other.gameObject.tag == "BlackBtn")
         {
             BlackObs.SetActive(false);
             BlackBtn.SetActive(false);
             BlackBtn2.SetActive(true);
         }
+        //ÃÊ·Ï ¹öÆ°
         if (other.gameObject.tag == "GreenBtn")
         {
             GreenObs.SetActive(false);
@@ -120,11 +124,13 @@ public class Map3Player2 : MonoBehaviour
     }
     void OnCollisionStay2D(Collision2D other)
     {
+        //¹öÆ° ´©¸£±â
         if (other.gameObject.tag == "Btn2")
         {
             isBtn2 = true;
             missionController.GetComponent<MissonContorller>().map3Btn2 = true;
         }
+        //³ª¹µÀÙ ¸Ô±â
         if (other.gameObject.tag == "Leaf")
         {
             map3.GetComponent<Map3>().getLeaf = true;

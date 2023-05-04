@@ -39,13 +39,13 @@ public class Map3Player : MonoBehaviour
         {
             rigid.velocity = new Vector2(rigid.velocity.normalized.x * 0.5f, rigid.velocity.y);
         }
-
+        //점프
         if (Input.GetKey(KeyCode.UpArrow))
         {
             animator.SetBool("IsJumping", true);
         }
         else animator.SetBool("IsJumping", false);
-
+        //걷기
         if (Input.GetButton("Horizontal"))
         {
             animator.SetBool("IsWalking", true);
@@ -79,15 +79,18 @@ public class Map3Player : MonoBehaviour
             isJump = true;
             animator.SetBool("IsJumping", false);
         }
+        //장애물 닿아 죽을 때
         if (other.gameObject.tag == "Obstacle")
         {
             animator.SetBool("IsDie", true);
         }
+        //파랑 버튼
         if (other.gameObject.tag == "BlueBtn")
         {
             BlueObs.SetActive(false);
             BlueBtn.SetActive(false);
         }
+        //주황버튼
         if (other.gameObject.tag == "OrBtn")
         {
             OrgBtn.SetActive(false);
@@ -109,6 +112,7 @@ public class Map3Player : MonoBehaviour
             isJump = true;
             animator.SetBool("IsJumping", false);
         }
+        //나뭇잎 먹을 때
         if (other.gameObject.tag == "Leaf")
         {
             map3.GetComponent<Map3>().getLeaf = true;
@@ -118,6 +122,7 @@ public class Map3Player : MonoBehaviour
     }
     void OnCollisionStay2D(Collision2D other)
     {
+        //버튼 누를 때
         if (other.gameObject.tag == "Btn1")
         {
             isBtn1 = true;

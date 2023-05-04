@@ -37,7 +37,7 @@ public class player2 : MonoBehaviour
     void Update()
     {
         // Debug.Log("isjump"+ isjump);
-        //Jump
+        //앉기
         if (Input.GetKeyDown(KeyCode.W) && isjump)
         {
             rigid.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
@@ -49,13 +49,13 @@ public class player2 : MonoBehaviour
         {
             rigid.velocity = new Vector2(rigid.velocity.normalized.x * 0.5f, rigid.velocity.y);
         }
-
+        //점프
         if (Input.GetKey(KeyCode.W) && isSit == false)
         {
             animator.SetBool("IsJumping", true);
         }
         else animator.SetBool("IsJumping", false);
-
+        //걷기
         if (Input.GetButton("Left Right Arrow"))
         {
             animator.SetBool("IsWalking", true);
@@ -86,21 +86,25 @@ public class player2 : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other)
     {
+        //바닥에 서있을 때
         if (other.gameObject.tag == "Floor" || other.gameObject.tag == "Box")
         {
             isjump = true;
             animator.SetBool("IsJumping", false);
         }
+        //장애물에 닿아 죽을 때
         if (other.gameObject.tag == "Obstacle")
         {
             animator.SetBool("IsDie", true);
             restartPanel.SetActive(true);
         }
+        //버튼 누를 때
         if (other.gameObject.tag == "Btn")
         {
             Btn.SetActive(false);
             Target.SetActive(false);
         }
+        //대화 가능한 NPC에 닿았을 때
         if (other.gameObject.CompareTag("ChatNPC"))
         {
             GameObject.Find("Canvas").transform.Find("Chat Back").gameObject.SetActive(true);
@@ -119,6 +123,7 @@ public class player2 : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
      {
+        //나뭇잎 먹었을 때
         if (other.gameObject.tag == "Leaf")
         {
             missionController.GetComponent<MissonContorller>().leafCount++;
@@ -142,6 +147,7 @@ public class player2 : MonoBehaviour
                 panelController.GetComponent<BtnControl>().miniPanel.SetActive(true);
             }
         }
+        //대화 가능 NPC
         if (other.gameObject.CompareTag("ChatNPC"))
         {
             if (GameObject.Find("Canvas").transform.Find("Chat Back1"))
@@ -176,6 +182,7 @@ public class player2 : MonoBehaviour
             // Debug.Log("의자");
             if (Input.GetKeyDown(KeyCode.S))
             {
+                //의자 앉기
                 if (isSit == false)
                 {
                     chair = collision.gameObject;
@@ -191,6 +198,7 @@ public class player2 : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("ChairUp"))
         {
+            //의자에서 일어나기
             //Debug.Log("의자위");
             if (Input.GetKeyDown(KeyCode.S))
             {
