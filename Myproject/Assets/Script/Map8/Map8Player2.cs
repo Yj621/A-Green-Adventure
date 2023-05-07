@@ -10,7 +10,6 @@ public class Map8Player2 : MonoBehaviour
     private bool isJump = true;
    // private bool isDie ;
     public Animator animator;
-    public GameObject StartBtn;
     private GameObject missonControl;
 
     void Awake()

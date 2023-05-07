@@ -10,13 +10,13 @@ public class Map8Player : MonoBehaviour
     private bool isJump = true;
     //private bool isDie = false;
     public Animator animator;
-    public GameObject StartBtn;
     private GameObject missonControl;
     void Awake()
     {
         missonControl = GameObject.Find("MissionController");
         rigid = GetComponent<Rigidbody2D>();
         GameObject.Find("Canvas").transform.Find("Chat Back").gameObject.SetActive(false);
+
     }
     void Update()
     {
