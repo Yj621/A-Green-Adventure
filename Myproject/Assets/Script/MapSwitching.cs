@@ -101,7 +101,7 @@ public class MapSwitching : MonoBehaviour
 
     private void LoadMap1()
     {
-        GameObject.Find("MissionController").GetComponent<MissonContorller>().missonNum++;
+        //GameObject.Find("MissionController").GetComponent<MissonContorller>().missonNum++;
         SceneManager.LoadScene(2);
     }
     private void LoadMap2()
