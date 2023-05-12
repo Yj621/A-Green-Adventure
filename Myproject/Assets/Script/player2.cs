@@ -17,7 +17,6 @@ public class player2 : MonoBehaviour
     private GameObject restartPanel;
     public GameObject Target; //버튼을 누르면 사라질 객체
     public GameObject Btn; //버튼도 사라지게
-    public GameObject StartBtn;
     private GameObject panelController;
     private GameObject missionController;
     private void Start()
@@ -103,12 +102,6 @@ public class player2 : MonoBehaviour
         {
             Btn.SetActive(false);
             Target.SetActive(false);
-        }
-        //대화 가능한 NPC에 닿았을 때
-        if (other.gameObject.CompareTag("ChatNPC"))
-        {
-            GameObject.Find("Canvas").transform.Find("Chat Back").gameObject.SetActive(true);
-            StartBtn.SetActive(true);
         }
 
     }

@@ -248,7 +248,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 59187077}
-  - component: {fileID: 59187078}
   - component: {fileID: 59187079}
   m_Layer: 0
   m_Name: Sun
@@ -276,26 +275,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &59187078
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 59187076}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52b5d9245f8b041388091501896d5eee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectPrefabs:
-  - {fileID: 1469638571}
-  - {fileID: 688468448}
-  - {fileID: 704513873}
-  - {fileID: 287077827}
-  activationInterval: 1
-  deactivateTime: 5
-  activeObjects: []
 --- !u!114 &59187079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1469,6 +1448,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.6619099, y: 9.50564, z: 1.6619099}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1648008473}
   m_RootOrder: 0
@@ -1779,6 +1759,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 2.46, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1199233}
   - {fileID: 1740193482}

@@ -75,16 +75,10 @@ public class Player2_8 : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.tag == "Floor" || other.gameObject.tag == "Box")
-        {
-            isJump = true;
-            animator.SetBool("IsJumping", false);
-        }
-
-        if (other.gameObject.CompareTag(objectSpawner.lastSpawnedObjectTag)) {
-            Debug.Log("hello");
-            Destroy(other.gameObject);
-        }
+        //if (other.gameObject.CompareTag(objectSpawner.lastSpawnedObjectTag)) {
+        //    Debug.Log("hello");
+        //    Destroy(other.gameObject);
+        //}
     }
     
  

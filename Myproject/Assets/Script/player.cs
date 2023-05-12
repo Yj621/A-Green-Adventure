@@ -17,7 +17,6 @@ public class player : MonoBehaviour
     public Animator animator;
     public GameObject Target; //버튼을 누르면 사라질 객체
     public GameObject Btn; //버튼도 사라지게
-    public GameObject StartBtn;
     private GameObject panelController;
     private GameObject missionController;
     private void Start()
@@ -146,16 +145,6 @@ public class player : MonoBehaviour
         if (other.gameObject.CompareTag("River"))
         {
             GameObject.Find("Canvas").transform.Find("Chat Back").gameObject.SetActive(true);
-           // StartBtn.SetActive(true);
-        }
-        //대화 가능한 NPC에 닿았을 때
-        if (other.gameObject.CompareTag("Npc6"))
-        {
-            if (panelController)
-            {
-                panelController.GetComponent<BtnControl>().panelOn = true;
-                panelController.GetComponent<BtnControl>().miniPanel.SetActive(true);
-            }
         }
        
     }
@@ -173,8 +162,7 @@ public class player : MonoBehaviour
             {
                 //의자 앉기
                 if (isSit == false)
-                {
-                   
+                {                
                     chairChild = chair.transform.GetChild(0).gameObject;
                     chairChild.SetActive(true);
                     gameObject.transform.position = new Vector3(chair.transform.position.x, chair.transform.position.y + 1f, chair.transform.position.z);
@@ -218,7 +206,6 @@ public class player : MonoBehaviour
         if (collision.gameObject.CompareTag("River"))
         {
             GameObject.Find("Canvas").transform.Find("Chat Back").gameObject.SetActive(false);
-            // StartBtn.SetActive(true);
         }
     }
 }

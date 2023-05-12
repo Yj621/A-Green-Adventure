@@ -16,7 +16,7 @@ public class MapSwitching : MonoBehaviour
             if (Input.GetKey(KeyCode.G))//GetKey사용하면 누를때 바로 이동됨
             {
                 StartCoroutine(FadeOut());
-                Invoke("LoadMap1", 0.97f);
+                Invoke("LoadMap1_2", 0.97f);
             }
         }
         if (collision.gameObject.CompareTag("Map2"))
@@ -99,14 +99,15 @@ public class MapSwitching : MonoBehaviour
         //}
     }
 
-    private void LoadMap1()
+    private void LoadMap1_2()
     {
-        //GameObject.Find("MissionController").GetComponent<MissonContorller>().missonNum++;
+        Debug.Log(GameObject.Find("MissionController").GetComponent<MissonContorller>().missonNum);
         SceneManager.LoadScene(2);
     }
     private void LoadMap2()
     {
         SceneManager.LoadScene(3);
+        Debug.Log(GameObject.Find("MissionController").GetComponent<MissonContorller>().missonNum);
     }
 
     // private void LoadMap3()
