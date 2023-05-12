@@ -215,6 +215,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxSpeed: 3
   jumpPower: 10
+  isJump: 1
   animator: {fileID: 22743687}
   Target: {fileID: 0}
   Btn: {fileID: 0}
@@ -1610,6 +1611,7 @@ MonoBehaviour:
   animator: {fileID: 1253897828}
   maxSpeed: 3
   jumpPower: 10
+  isjump: 1
   Target: {fileID: 0}
   Btn: {fileID: 0}
   StartBtn: {fileID: 0}
@@ -3024,7 +3026,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 97d44b3da545fe0418f2ef88a573412a, type: 3}
+  m_audioClip: {fileID: 8300000, guid: fae95d9dd32934e39997b8d2c6557770, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
