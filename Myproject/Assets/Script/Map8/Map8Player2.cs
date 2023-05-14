@@ -20,38 +20,30 @@ public class Map8Player2 : MonoBehaviour
     }
     void Update()
     {
-       
-        if (Input.GetKeyDown(KeyCode.W) && isJump)
+        //Jump
+        if (Input.GetKeyDown(KeyCode.UpArrow) && isJump) //스페이스바를 누르고, 캐릭터가 땅에 있다면
         {
             rigid.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
             isJump = false;
         }
-
         //멈출때 속도
-        if (Input.GetButtonDown("Left Right Arrow"))
+        if (Input.GetButtonDown("Horizontal"))
         {
             rigid.velocity = new Vector2(rigid.velocity.normalized.x * 0.5f, rigid.velocity.y);
         }
-        //Jump
-        if (Input.GetKey(KeyCode.W))
-        {
-            animator.SetBool("IsJumping", true);
-        }
-        else animator.SetBool("IsJumping", false);
-        //걷기
-        if (Input.GetButton("Left Right Arrow"))
+
+
+        if (Input.GetButton("Horizontal"))
         {
             animator.SetBool("IsWalking", true);
         }
         else animator.SetBool("IsWalking", false);
 
     }
-
-
     void FixedUpdate()
     {
         //움직일때 속도
-        float h = Input.GetAxisRaw("Left Right Arrow");
+        float h = Input.GetAxisRaw("Horizontal");
         rigid.AddForce(Vector2.right * h, ForceMode2D.Impulse);
 
         if (rigid.velocity.x > maxSpeed)
@@ -64,8 +56,8 @@ public class Map8Player2 : MonoBehaviour
             rigid.velocity = new Vector2(maxSpeed * (-1), rigid.velocity.y);
             transform.rotation = Quaternion.Euler(0, 180, 0);
         }
-
     }
+
     void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.tag == "Floor")

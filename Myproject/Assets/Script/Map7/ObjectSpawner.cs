@@ -7,25 +7,21 @@ public class ObjectSpawner : MonoBehaviour {
     public float spawnTime = 10f;
     public string lastSpawnedObjectTag; // 마지막에 생성된 오브젝트의 태그값을 저장할 변수
 
+    int randomIndex=0;
     void Start () {
         // spawnTime마다 SpawnObject() 함수를 호출
         InvokeRepeating("SpawnObject", 0, spawnTime);
     }
 
     void SpawnObject () {
+        //기존이미지 비활성화
+        spawnObjects[randomIndex].gameObject.SetActive(false);
         // 랜덤하게 4개의 spawnObjects 중 하나를 선택
-        int randomIndex = Random.Range(0, spawnObjects.Length);
-        // 선택된 오브젝트를 생성하고 활성화
-        GameObject obj = Instantiate(spawnObjects[randomIndex], transform.position, Quaternion.identity);
+        randomIndex = Random.Range(0, spawnObjects.Length);
+        // 선택된 오브젝트를 새로 활성화
+        spawnObjects[randomIndex].gameObject.SetActive(true);
         // 태그 저장
-        lastSpawnedObjectTag = obj.tag;
-        obj.SetActive(true);
-        // 10초 후에 생성된 오브젝트를 비활성화
-        StartCoroutine(DeactivateObject(obj, 10f));
+        lastSpawnedObjectTag = spawnObjects[randomIndex].gameObject.tag;
     }
 
-    IEnumerator DeactivateObject(GameObject obj, float delayTime) {
-        yield return new WaitForSeconds(delayTime);
-        obj.SetActive(false);
-    }
 }

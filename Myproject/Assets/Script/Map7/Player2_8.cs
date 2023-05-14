@@ -13,9 +13,11 @@ public class Player2_8 : MonoBehaviour
     private GameObject panelController;
     private GameObject missionController;
     private ObjectSpawner objectSpawner;
- 
+    public GameObject gameController;
+
     void Start()
     {
+        gameController = GameObject.Find("GameController");
         objectSpawner = GameObject.FindObjectOfType<ObjectSpawner>();
         if (GameObject.Find("PanelController"))
         {
@@ -33,23 +35,30 @@ public class Player2_8 : MonoBehaviour
     void Update()
     {
         //Jump
-        if (Input.GetKeyDown(KeyCode.UpArrow) && isJump ) //스페이스바를 누르고, 캐릭터가 땅에 있다면
+        if (Input.GetKeyDown(KeyCode.W) && isJump ) //스페이스바를 누르고, 캐릭터가 땅에 있다면
         {
             rigid.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
             isJump = false;
         }
         //멈출때 속도
-        if (Input.GetButtonDown("Horizontal"))
+        if (Input.GetButtonDown("Left Right Arrow"))
         {
             rigid.velocity = new Vector2(rigid.velocity.normalized.x * 0.5f, rigid.velocity.y);
         }
 
-
-        if (Input.GetButton("Horizontal"))
+        //Jump
+        if (Input.GetKey(KeyCode.W))
+        {
+            animator.SetBool("IsJumping", true);
+        }
+        else animator.SetBool("IsJumping", false);
+        //걷기
+        if (Input.GetButton("Left Right Arrow"))
         {
             animator.SetBool("IsWalking", true);
         }
         else animator.SetBool("IsWalking", false);
+
 
     }
 
@@ -71,17 +80,41 @@ public class Player2_8 : MonoBehaviour
             transform.rotation = Quaternion.Euler(0, 180, 0);
         }
     }
-    
+
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        //if (other.gameObject.CompareTag(objectSpawner.lastSpawnedObjectTag)) {
-        //    Debug.Log("hello");
-        //    Destroy(other.gameObject);
-        //}
+        if (other.gameObject.CompareTag("clover"))
+        {
+            gameController.GetComponent<BossGameContorl>().player2Touch = "clover";
+            Destroy(other.gameObject);
+            gameController.GetComponent<BossGameContorl>().BossHpBar();
+            gameController.GetComponent<BossGameContorl>().player2HpContorl();
+        }
+        else if (other.gameObject.CompareTag("heart"))
+        {
+            gameController.GetComponent<BossGameContorl>().player2Touch = "heart";
+            Destroy(other.gameObject);
+            gameController.GetComponent<BossGameContorl>().BossHpBar();
+            gameController.GetComponent<BossGameContorl>().player2HpContorl();
+        }
+        else if (other.gameObject.CompareTag("diamond"))
+        {
+            gameController.GetComponent<BossGameContorl>().player2Touch = "diamond";
+            Destroy(other.gameObject);
+            gameController.GetComponent<BossGameContorl>().BossHpBar();
+            gameController.GetComponent<BossGameContorl>().player2HpContorl();
+        }
+        else if (other.gameObject.CompareTag("spade"))
+        {
+            gameController.GetComponent<BossGameContorl>().player2Touch = "spade";
+            Destroy(other.gameObject);
+            gameController.GetComponent<BossGameContorl>().BossHpBar();
+            gameController.GetComponent<BossGameContorl>().player2HpContorl();
+        }
     }
-    
- 
+
+
     private void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Floor")

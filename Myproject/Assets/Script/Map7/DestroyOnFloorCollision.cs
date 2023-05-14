@@ -9,9 +9,7 @@ public class DestroyOnFloorCollision : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Floor"))
         {
-            Destroy(gameObject); // 충돌한 오브젝트를 파괴합니다.
-            Debug.Log("1");
-            
+            Destroy(gameObject); // 충돌한 오브젝트를 파괴합니다. 
         }
     }
 

@@ -8,6 +8,7 @@ public class Player1_8 : MonoBehaviour
     public float maxSpeed;
     public float jumpPower;
     public bool isJump = true;
+    public GameObject gameController;
     private Vector3 sitPlace;
     public Animator animator;
     private GameObject panelController;
@@ -16,6 +17,7 @@ public class Player1_8 : MonoBehaviour
  
     void Start()
     {
+        gameController = GameObject.Find("GameController");
         objectSpawner = GameObject.FindObjectOfType<ObjectSpawner>();
         if (GameObject.Find("PanelController"))
         {
@@ -75,10 +77,38 @@ public class Player1_8 : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        //if (other.gameObject.CompareTag(objectSpawner.lastSpawnedObjectTag)) {
-        //    Debug.Log("hello");
-        //    Destroy(other.gameObject);
-        //}
+        if (other.gameObject.CompareTag("clover"))
+        {
+            //부딫힌 오브젝트 태그 저장
+            gameController.GetComponent<BossGameContorl>().player1Touch = other.gameObject.tag;
+            //부딪히면 삭제
+            Destroy(other.gameObject);
+            //보스 체력 깎는 함수
+            gameController.GetComponent<BossGameContorl>().BossHpBar();
+            //플레이어 hp를  UI에 적용
+            gameController.GetComponent<BossGameContorl>().player1HpContorl();
+        }
+        else if (other.gameObject.CompareTag("heart"))
+        {
+            gameController.GetComponent<BossGameContorl>().player1Touch = other.gameObject.tag;
+            Destroy(other.gameObject);
+            gameController.GetComponent<BossGameContorl>().BossHpBar();
+            gameController.GetComponent<BossGameContorl>().player1HpContorl();
+        }
+        else if (other.gameObject.CompareTag("diamond"))
+        {
+            gameController.GetComponent<BossGameContorl>().player1Touch = other.gameObject.tag;
+            Destroy(other.gameObject);
+            gameController.GetComponent<BossGameContorl>().BossHpBar();
+            gameController.GetComponent<BossGameContorl>().player1HpContorl();
+        }
+        else if (other.gameObject.CompareTag("spade"))
+        {
+            gameController.GetComponent<BossGameContorl>().player1Touch = other.gameObject.tag;
+            Destroy(other.gameObject);
+            gameController.GetComponent<BossGameContorl>().BossHpBar();
+            gameController.GetComponent<BossGameContorl>().player1HpContorl();
+        }
     }
     
  
