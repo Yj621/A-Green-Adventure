@@ -42,6 +42,7 @@ public class Map1Switching : MonoBehaviour
 
     private IEnumerator FadeOut()
     {
+        //페이드인 페이드아웃
         float duration = 1f;
         float startTime = Time.time;
         Vector3 startScale = new Vector3(imageToFadeOut.rectTransform.localScale.x, imageToFadeOut.rectTransform.localScale.y, 1f);

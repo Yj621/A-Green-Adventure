@@ -12,7 +12,6 @@ public class BtnControl : MonoBehaviour
     private Rigidbody2D player2Rb;
     public bool panelOn = false;
 
-    // Start is called before the first frame update
     void Start()
     {
         if (GameObject.Find("Player1"))
@@ -23,7 +22,10 @@ public class BtnControl : MonoBehaviour
             player2Rb = player2.GetComponent<Rigidbody2D>();
         }
        
-        if(miniPanel != null) { miniPanel.SetActive(false); }
+        if(miniPanel != null) 
+        { 
+            miniPanel.SetActive(false); 
+        }
         if(GameObject.Find("RestartPanel") != null)
         {
             RestartPanel = GameObject.Find("RestartPanel");
@@ -32,10 +34,9 @@ public class BtnControl : MonoBehaviour
         
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (panelOn == true)
+        if (panelOn == true) //??? ?????? player1,2? ???? ???
         {
             if (player1)
             {
@@ -49,8 +50,6 @@ public class BtnControl : MonoBehaviour
             if (player1) {
                 player1Rb.constraints = RigidbodyConstraints2D.FreezeRotation;
                 player2Rb.constraints = RigidbodyConstraints2D.FreezeRotation;
-               // player2.GetComponent<player2>().isjump = true;
-               // player1.GetComponent<player>().isJump = true;    
             }
             
         }
@@ -69,10 +68,10 @@ public class BtnControl : MonoBehaviour
     }
 
 
-    public void ClickMiniGameYes()
-    {
-        //리듬게임 시작
-    }
+    // public void ClickMiniGameYes()
+    // {
+
+    // }
 
      public void ClickMiniGameNo()
     {

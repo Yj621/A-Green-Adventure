@@ -10,6 +10,7 @@ public class Icon : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
+        //태그를 비교해 태그에 머물러있을때 생기도록
         if (collision.gameObject.CompareTag("Map2"))
         {
             H_icon.SetActive(true);
@@ -22,6 +23,7 @@ public class Icon : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
+        //태그를 비교해 태그를 벗어날때 없어지도록
         if (collision.gameObject.CompareTag("Map2"))
         {
             H_icon.SetActive(false);
