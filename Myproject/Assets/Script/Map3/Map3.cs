@@ -14,11 +14,12 @@ public class Map3 : MonoBehaviour
         {
             StartCoroutine(FadeOut());
             Invoke("Delay", 0.97f);
+            getLeaf = false;
         }
     }
     void Delay()
     {
-        //GameObject.Find("MissionController").GetComponent<MissonContorller>().missonNum++;
+        GameObject.Find("MissionController").GetComponent<MissonContorller>().missonNum++;
         SceneManager.LoadScene(5);
     }
     private IEnumerator FadeOut()
