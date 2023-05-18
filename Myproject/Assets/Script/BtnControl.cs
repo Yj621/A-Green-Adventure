@@ -36,7 +36,7 @@ public class BtnControl : MonoBehaviour
 
     void Update()
     {
-        if (panelOn == true) //??? ?????? player1,2? ???? ???
+        if (panelOn == true)
         {
             if (player1)
             {

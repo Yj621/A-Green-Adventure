@@ -27,76 +27,68 @@ public class MapSwitching : MonoBehaviour
                 Invoke("LoadMap2", 0.97f);
             }
         }
-        // if (collision.gameObject.CompareTag("Map3"))
-        // {
-        //     if (Input.GetKey(KeyCode.G))
-        //     {
-        //         StartCoroutine(FadeOut());
-        //         Invoke("LoadMap3", 0.97f);
-        //     }
-        // }
-        //if (collision.gameObject.CompareTag("Map4"))
-        //{
-        //    if (Input.GetKey(KeyCode.G))
-        //    {
-        //        StartCoroutine(FadeOut());
-        //        Invoke("LoadMap4", 0.97f);
-        //    }
-        //}
-        //if (collision.gameObject.CompareTag("Map4_2"))
-        //{
-        //        StartCoroutine(FadeOut());
-        //        Invoke("LoadMap4_2", 0.97f);
+        if (collision.gameObject.CompareTag("Map3"))
+        {
+            if (Input.GetKey(KeyCode.G))
+            {
+                StartCoroutine(FadeOut());
+                Invoke("LoadMap3", 0.97f);
+            }
+        }
+        if (collision.gameObject.CompareTag("Map4_2"))
+        {
+               StartCoroutine(FadeOut());
+               Invoke("LoadMap4_2", 0.97f);
             
-        //}
-        //if (collision.gameObject.CompareTag("Map4_3"))
-        //{
-        //    if (Input.GetKey(KeyCode.G))
-        //    {
-        //        StartCoroutine(FadeOut());
-        //        Invoke("LoadMap4_3", 0.97f);
-        //    }
-        //}
-        //if (collision.gameObject.CompareTag("Map4_4"))
-        //{
-        //    if (Input.GetKey(KeyCode.G))
-        //    {
-        //        StartCoroutine(FadeOut());
-        //        Invoke("LoadMap4_4", 0.97f);
-        //    }
-        //}        
-        //if (collision.gameObject.CompareTag("Map5"))
-        //{
-        //    if (Input.GetKey(KeyCode.G))
-        //    {
-        //        StartCoroutine(FadeOut());
-        //        Invoke("LoadMap5", 0.97f);
-        //    }
-        //}
+        }
+        if (collision.gameObject.CompareTag("Map4_3"))
+        {
+           if (Input.GetKey(KeyCode.G))
+           {
+               StartCoroutine(FadeOut());
+               Invoke("LoadMap4_3", 0.97f);
+           }
+        }
+        if (collision.gameObject.CompareTag("Map4_4"))
+        {
+           if (Input.GetKey(KeyCode.G))
+           {
+               StartCoroutine(FadeOut());
+               Invoke("LoadMap4_4", 0.97f);
+           }
+        }        
+        if (collision.gameObject.CompareTag("Map5"))
+        {
+           if (Input.GetKey(KeyCode.G))
+           {
+               StartCoroutine(FadeOut());
+               Invoke("LoadMap5", 0.97f);
+           }
+        }
 
-        //if (collision.gameObject.CompareTag("Map6"))
-        //{
-        //    if (Input.GetKey(KeyCode.G))
-        //    {
-        //        StartCoroutine(FadeOut());
-        //        Invoke("LoadMap6", 0.97f);
-        //    }
-        //}
-        //if (collision.gameObject.CompareTag("Map7"))
-        //{
-        //    if (Input.GetKey(KeyCode.G))
-        //    {
-        //        StartCoroutine(FadeOut());
-        //        Invoke("LoadMap7", 0.97f);
-        //    }
-        //}
-        //if (collision.gameObject.CompareTag("Map8"))
-        //{
+        if (collision.gameObject.CompareTag("Map6"))
+        {
+           if (Input.GetKey(KeyCode.G))
+           {
+               StartCoroutine(FadeOut());
+               Invoke("LoadMap6", 0.97f);
+           }
+        }
+        if (collision.gameObject.CompareTag("Map7"))
+        {
+           if (Input.GetKey(KeyCode.G))
+           {
+               StartCoroutine(FadeOut());
+               Invoke("LoadMap7", 0.97f);
+           }
+        }
+        if (collision.gameObject.CompareTag("Map8"))
+        {
 
-        //    StartCoroutine(FadeOut());
-        //    Invoke("LoadMap8", 0.97f);
+           StartCoroutine(FadeOut());
+           Invoke("LoadMap8", 0.97f);
 
-        //}
+        }
     }
 
     private void LoadMap1_2()
@@ -108,16 +100,6 @@ public class MapSwitching : MonoBehaviour
     {
         SceneManager.LoadScene(3);
         Debug.Log(GameObject.Find("MissionController").GetComponent<MissonContorller>().missonNum);
-    }
-
-    // private void LoadMap3()
-    // {
-    //     SceneManager.LoadScene(4);
-    // }
-
-    private void LoadMap4()
-    {
-        SceneManager.LoadScene(5);
     }
 
     private void LoadMap4_2()

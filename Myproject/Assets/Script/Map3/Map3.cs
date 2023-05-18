@@ -7,17 +7,11 @@ public class Map3 : MonoBehaviour
 {
     public bool getLeaf = false;
     public Image imageToFadeOut;
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
     void Update()
     {
-        if (getLeaf)
+        if (getLeaf) 
         {
-            
             StartCoroutine(FadeOut());
             Invoke("Delay", 0.97f);
         }
