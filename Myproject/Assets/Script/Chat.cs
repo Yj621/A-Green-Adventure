@@ -15,7 +15,7 @@ public class Chat : MonoBehaviour
     private int SentanceNum = 0;
     private GameObject missonController;
     public GameObject chatCanvus;
-
+    int i = 0;
     void Start()
     {
         missonController = GameObject.Find("MissionController");
@@ -57,12 +57,19 @@ public class Chat : MonoBehaviour
         }
         if (SentanceNum >= currentChat.Count)
         {
+            
             chatCanvus.SetActive(false);
             GameObject.Find("PanelController").GetComponent<BtnControl>().panelOn = false;
+            while(i == 0){
+                missonController.GetComponent<MissonContorller>().missonNum++;
+                i++;
+            }
+            
         }
         else
         {
             myTextMeshProUGUI.text = currentChat[SentanceNum];
+            i = 0;
         }
     }
 
