@@ -24,7 +24,7 @@ public class Map3 : MonoBehaviour
     }
     void Delay()
     {
-        GameObject.Find("MissionController").GetComponent<MissonContorller>().missonNum++;
+        //GameObject.Find("MissionController").GetComponent<MissonContorller>().missonNum++;
         SceneManager.LoadScene(5);
     }
     private IEnumerator FadeOut()
