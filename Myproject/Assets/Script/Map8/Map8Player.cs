@@ -101,6 +101,13 @@ public class Map8Player : MonoBehaviour
             other.GetComponent<Chat>().chatCanvus.SetActive(true);
             GameObject.Find("PanelController").GetComponent<BtnControl>().panelOn = true;
         }
+        //³ª¹µÀÙ ¸ÔÀ» ¶§
+        if (other.gameObject.tag == "Leaf")
+        {
+            missonControl.GetComponent<MissonContorller>().leafCount++;
+            missonControl.GetComponent<MissonContorller>().missonNum++;
+            Destroy(other.gameObject);
+        }
     }
     private void OnCollisionExit2D(Collision2D collision)
     {

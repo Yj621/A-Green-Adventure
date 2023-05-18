@@ -45,6 +45,10 @@ public class MissonContorller : MonoBehaviour
             map3Btn2 = false;
             blind.SetActive(false);
         }
+        if (map5Clear)
+        {
+            dropLeaf = true;
+        }
         if ( dropLeaf==true)
         {
             if (leaf)
@@ -57,7 +61,7 @@ public class MissonContorller : MonoBehaviour
         leaf.transform.position = leafTrans.transform.position;
         leaf.SetActive(true);
         dropLeaf = false;
-       //missonNum++;
+
     }
 
 }
