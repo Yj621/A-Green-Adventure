@@ -18,27 +18,21 @@ public class Map8Player : MonoBehaviour
         rigid = GetComponent<Rigidbody2D>();
         GameObject.Find("Canvas").transform.Find("Chat Back").gameObject.SetActive(false);
     }
-    void Update()
+      void Update()
     {
         //Jump
-        if (Input.GetKeyDown(KeyCode.UpArrow) && isJump) //스페이스바를 누르고, 캐릭터가 땅에 있다면
+        if (Input.GetKeyDown(KeyCode.UpArrow) && isJump ) //스페이스바를 누르고, 캐릭터가 땅에 있다면
         {
             rigid.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
             isJump = false;
-
         }
         //멈출때 속도
         if (Input.GetButtonDown("Horizontal"))
         {
             rigid.velocity = new Vector2(rigid.velocity.normalized.x * 0.5f, rigid.velocity.y);
         }
-        //점프
-        if (Input.GetKey(KeyCode.UpArrow))
-        {
-            animator.SetBool("IsJumping", true);
-        }
-        else animator.SetBool("IsJumping", false);
-        //걷기
+
+
         if (Input.GetButton("Horizontal"))
         {
             animator.SetBool("IsWalking", true);
@@ -51,7 +45,7 @@ public class Map8Player : MonoBehaviour
     void FixedUpdate()
     {
         //움직일때 속도
-        float h = Input.GetAxisRaw("Horizontal");
+        float h =  Input.GetAxisRaw("Horizontal");
         rigid.AddForce(Vector2.right * h, ForceMode2D.Impulse);
 
         if (rigid.velocity.x > maxSpeed)
@@ -65,7 +59,6 @@ public class Map8Player : MonoBehaviour
             transform.rotation = Quaternion.Euler(0, 180, 0);
         }
     }
-
     void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.tag == "Floor")

@@ -10,13 +10,11 @@ public class Map8Player2 : MonoBehaviour
     private bool isJump = true;
    // private bool isDie ;
     public Animator animator;
-    public GameObject StartBtn;
     private GameObject missonControl;
-     private Vector3 sitPlace;
+    private Vector3 sitPlace;
     private GameObject panelController;
     private GameObject missionController;
     private ObjectSpawner objectSpawner;
-    public GameObject gameController;
 
     void Awake()
     {
@@ -27,7 +25,7 @@ public class Map8Player2 : MonoBehaviour
     void Update()
     {
         //Jump
-        if (Input.GetKeyDown(KeyCode.W) && isJump ) //스페이스바를 누르고, 캐릭터가 땅에 있다면
+        if (Input.GetKeyDown(KeyCode.W) && isJump )
         {
             rigid.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
             isJump = false;
@@ -54,25 +52,25 @@ public class Map8Player2 : MonoBehaviour
 
     }
 
-
     void FixedUpdate()
     {
         //움직일때 속도
-        float h =  Input.GetAxisRaw("Horizontal");
+        float h =  Input.GetAxisRaw("Left Right Arrow");
         rigid.AddForce(Vector2.right * h, ForceMode2D.Impulse);
 
         if (rigid.velocity.x > maxSpeed)
         {
+            
             rigid.velocity = new Vector2(maxSpeed, rigid.velocity.y);
             transform.rotation = Quaternion.Euler(0, 0, 0);
         }
         else if (rigid.velocity.x < maxSpeed * (-1))
         {
+            
             rigid.velocity = new Vector2(maxSpeed * (-1), rigid.velocity.y);
             transform.rotation = Quaternion.Euler(0, 180, 0);
         }
     }
-
 
     void OnCollisionEnter2D(Collision2D other)
     {

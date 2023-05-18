@@ -25,7 +25,6 @@ public class Player2_8 : MonoBehaviour
         }
         missionController = GameObject.Find("MissionController");
         
-        
     }
     void Awake()
     {
