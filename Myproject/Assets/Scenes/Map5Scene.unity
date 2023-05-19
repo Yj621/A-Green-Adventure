@@ -1765,7 +1765,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player2
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3573003254772844934, guid: 0ca69c5792593734fa0a1f00a3c6f823, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0ca69c5792593734fa0a1f00a3c6f823, type: 3}
 --- !u!1 &608730876
 GameObject:
@@ -2398,7 +2399,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 4
+  m_SortingOrder: 5
   m_Sprite: {fileID: -1859671022, guid: 1aec35d2e1eb405479d64c00195300db, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -3162,7 +3163,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 4
+  m_SortingOrder: 5
   m_Sprite: {fileID: 935648927, guid: 8ff952158f452c54393fb96321e04c12, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -4579,6 +4580,33 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 327f77caeebf7d344b1773a9cfa00417, type: 3}
+--- !u!1 &1682999028 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3573003254772844937, guid: 0ca69c5792593734fa0a1f00a3c6f823, type: 3}
+  m_PrefabInstance: {fileID: 593880168}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1682999029 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3573003254772844936, guid: 0ca69c5792593734fa0a1f00a3c6f823, type: 3}
+  m_PrefabInstance: {fileID: 593880168}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1682999035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1682999028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ec02c70cb9cf8748acfed8e6fa5ab2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxSpeed: 10
+  jumpPower: 17
+  animator: {fileID: 1682999029}
+  StartBtn: {fileID: 0}
+  gameController: {fileID: 0}
 --- !u!1 &1685124637
 GameObject:
   m_ObjectHideFlags: 0
@@ -4639,7 +4667,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 4
+  m_SortingOrder: 5
   m_Sprite: {fileID: -1583201767, guid: 3a0fc39641d9de9469a771281aae83bd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

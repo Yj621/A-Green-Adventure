@@ -73,12 +73,8 @@ public class Map8Player : MonoBehaviour
             isJump = true;
             animator.SetBool("IsJumping", false);
         }
-        //³ª¹µÀÙ ¸Ô±â
-        if (other.gameObject.tag == "Leaf")
-        {
-            missonControl.GetComponent<MissonContorller>().leafCount++;
-            Destroy(other.gameObject);
-        }
+        
+
     }
     private void OnCollisionStay2D(Collision2D collision)
     {
@@ -106,7 +102,7 @@ public class Map8Player : MonoBehaviour
         {
             missonControl.GetComponent<MissonContorller>().leafCount++;
             missonControl.GetComponent<MissonContorller>().missonNum++;
-            Destroy(other.gameObject);
+            other.gameObject.SetActive(false);
         }
     }
     private void OnCollisionExit2D(Collision2D collision)

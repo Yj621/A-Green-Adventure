@@ -118,7 +118,7 @@ public class Map8Player2 : MonoBehaviour
         {
             missionController.GetComponent<MissonContorller>().leafCount++;
             missionController.GetComponent<MissonContorller>().missonNum++;
-            Destroy(other.gameObject);
+            other.gameObject.SetActive(false);
         }
 
     }
