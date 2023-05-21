@@ -66,7 +66,7 @@ public class Player2_8 : MonoBehaviour
     void FixedUpdate()
     {
         //움직일때 속도
-        float h =  Input.GetAxisRaw("Horizontal");
+        float h =  Input.GetAxisRaw("Left Right Arrow");
         rigid.AddForce(Vector2.right * h, ForceMode2D.Impulse);
 
         if (rigid.velocity.x > maxSpeed)
