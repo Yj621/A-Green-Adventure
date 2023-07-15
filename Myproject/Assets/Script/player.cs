@@ -19,6 +19,9 @@ public class player : MonoBehaviour
     public GameObject Btn; //버튼도 사라지게
     private GameObject panelController;
     private GameObject missionController;
+
+    public GameManager manager;
+
     private void Start()
     {
         if (GameObject.Find("PanelController"))
@@ -34,29 +37,36 @@ public class player : MonoBehaviour
     }
     void Update()
     {
-        //앉기
+        //점프
         if (Input.GetKeyDown(KeyCode.UpArrow) && isJump ) //스페이스바를 누르고, 캐릭터가 땅에 있다면
         {
             rigid.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
             isJump = false;
+            manager.SfxPlay(GameManager.Sfx.Jump);
         }
         //멈출때 속도
         if (Input.GetButtonDown("Horizontal"))
         {
+            manager.SfxPlay(GameManager.Sfx.Walk);
             rigid.velocity = new Vector2(rigid.velocity.normalized.x * 0.5f, rigid.velocity.y);
         }
         //점프
         if (Input.GetKey(KeyCode.UpArrow) && isSit==false)
         {
             animator.SetBool("IsJumping", true);
+            manager.SfxPlay(GameManager.Sfx.Jump);
         }
         else animator.SetBool("IsJumping", false);
         //걷기
         if (Input.GetButton("Horizontal"))
         {
+            manager.SfxPlay(GameManager.Sfx.Walk);
             animator.SetBool("IsWalking", true);
         }
-        else animator.SetBool("IsWalking", false);
+        else {
+            //manager.StopSfx(GameManager.Sfx.Walk);//멈춤
+            animator.SetBool("IsWalking", false);
+        }
 
     }
 
@@ -66,7 +76,6 @@ public class player : MonoBehaviour
         //움직일때 속도
         float h =  Input.GetAxisRaw("Horizontal");
         rigid.AddForce(Vector2.right * h, ForceMode2D.Impulse);
-
         if (rigid.velocity.x > maxSpeed)
         {
             rigid.velocity = new Vector2(maxSpeed, rigid.velocity.y);
@@ -92,17 +101,19 @@ public class player : MonoBehaviour
         if (other.gameObject.tag == "Obstacle")
         { 
             animator.SetBool("IsDie", true);
+            manager.SfxPlay(GameManager.Sfx.Die);
             panelController.GetComponent<BtnControl>().RestartPanel.SetActive(true);
             panelController.GetComponent<BtnControl>().panelOn = true;
         }
         if (other.gameObject.tag == "Blind")
         {
             Destroy(other.gameObject);
-
+            manager.SfxPlay(GameManager.Sfx.Blind);
         }
         //버튼 누를 때
         if (other.gameObject.tag == "Btn")
         {
+            manager.SfxPlay(GameManager.Sfx.Button);
             Btn.SetActive(false);
             Target.SetActive(false);
         }
@@ -114,6 +125,7 @@ public class player : MonoBehaviour
         if (collision.gameObject.tag == "Floor")
         {
             isJump = true;
+            manager.SfxPlay(GameManager.Sfx.Jump);
             animator.SetBool("IsJumping", false);
         }
     }
@@ -139,6 +151,7 @@ public class player : MonoBehaviour
         if (other.gameObject.tag == "Head")
         {
             isJump = true;
+            manager.SfxPlay(GameManager.Sfx.Jump);
             animator.SetBool("IsJumping", false);
         }
         //River에 갔을 경우
