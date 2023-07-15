@@ -20,7 +20,13 @@ public class player : MonoBehaviour
     private GameObject panelController;
     private GameObject missionController;
 
-    public GameManager manager;
+    public AudioSource JumpSound;
+    public AudioSource WalkSound;
+    public AudioSource DieSound;
+    public AudioSource BtnSound;
+    public AudioSource BlindSound;
+    private bool isJumping = false; // 이전 점프 상태를 저장하는 변수
+    private bool isJumpSoundPlayed = false; // 점프 소리가 재생되었는지 여부를 나타내는 변수
 
     private void Start()
     {
@@ -29,91 +35,93 @@ public class player : MonoBehaviour
             panelController = GameObject.Find("PanelController");
         }
         missionController = GameObject.Find("MissionController");
-        
-    }
-    void Awake()
-    {
         rigid = GetComponent<Rigidbody2D>();
     }
+
     void Update()
     {
-        //점프
-        if (Input.GetKeyDown(KeyCode.UpArrow) && isJump ) //스페이스바를 누르고, 캐릭터가 땅에 있다면
+        // 점프
+        if (Input.GetKeyDown(KeyCode.UpArrow) && isJump && !isJumping)
         {
             rigid.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
-            isJump = false;
-            manager.SfxPlay(GameManager.Sfx.Jump);
+            isJumping = true;
+            animator.SetBool("IsJumping", true);
+
+            if (!isJumpSoundPlayed) // 점프 소리가 재생되지 않은 경우에만 재생
+            {
+                JumpSound.Play();
+                isJumpSoundPlayed = true;
+            }
         }
-        //멈출때 속도
+        else if (Input.GetKeyUp(KeyCode.UpArrow))
+        {
+            isJumping = false;
+            animator.SetBool("IsJumping", false);
+            isJumpSoundPlayed = false; // 점프 키를 놓을 때 점프 소리 재생 상태 초기화
+        }
+        
+        // 멈출 때 속도
         if (Input.GetButtonDown("Horizontal"))
         {
-            manager.SfxPlay(GameManager.Sfx.Walk);
             rigid.velocity = new Vector2(rigid.velocity.normalized.x * 0.5f, rigid.velocity.y);
         }
-        //점프
-        if (Input.GetKey(KeyCode.UpArrow) && isSit==false)
+
+        // 걷기
+        if (Input.GetButton("Horizontal") && !isJumping && !WalkSound.isPlaying)
         {
-            animator.SetBool("IsJumping", true);
-            manager.SfxPlay(GameManager.Sfx.Jump);
-        }
-        else animator.SetBool("IsJumping", false);
-        //걷기
-        if (Input.GetButton("Horizontal"))
-        {
-            manager.SfxPlay(GameManager.Sfx.Walk);
+            WalkSound.Play();
             animator.SetBool("IsWalking", true);
         }
-        else {
-            //manager.StopSfx(GameManager.Sfx.Walk);//멈춤
+        else if (!Input.GetButton("Horizontal"))
+        {
+            WalkSound.Stop();
             animator.SetBool("IsWalking", false);
         }
-
     }
-
 
     void FixedUpdate()
     {
-        //움직일때 속도
-        float h =  Input.GetAxisRaw("Horizontal");
+        // 움직일 때 속도
+        float h = Input.GetAxisRaw("Horizontal");
         rigid.AddForce(Vector2.right * h, ForceMode2D.Impulse);
         if (rigid.velocity.x > maxSpeed)
         {
             rigid.velocity = new Vector2(maxSpeed, rigid.velocity.y);
             transform.rotation = Quaternion.Euler(0, 0, 0);
         }
-        else if (rigid.velocity.x < maxSpeed * (-1))
+        else if (rigid.velocity.x < -maxSpeed)
         {
-            rigid.velocity = new Vector2(maxSpeed * (-1), rigid.velocity.y);
+            rigid.velocity = new Vector2(-maxSpeed, rigid.velocity.y);
             transform.rotation = Quaternion.Euler(0, 180, 0);
         }
     }
-    
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        //바닥에 서있을 때
-        if (other.gameObject.tag == "Floor" || other.gameObject.tag == "Box")
+        // 바닥에 서있을 때
+        if (other.gameObject.CompareTag("Floor") || other.gameObject.CompareTag("Box"))
         {
             isJump = true;
+            isJumping = false;
             animator.SetBool("IsJumping", false);
         }
-        //장애물에 닿아 죽을 때
-        if (other.gameObject.tag == "Obstacle")
-        { 
+        // 장애물에 닿아 죽을 때
+        if (other.gameObject.CompareTag("Obstacle"))
+        {
             animator.SetBool("IsDie", true);
-            manager.SfxPlay(GameManager.Sfx.Die);
+            DieSound.Play();
             panelController.GetComponent<BtnControl>().RestartPanel.SetActive(true);
             panelController.GetComponent<BtnControl>().panelOn = true;
         }
-        if (other.gameObject.tag == "Blind")
+        if (other.gameObject.CompareTag("Blind"))
         {
             Destroy(other.gameObject);
-            manager.SfxPlay(GameManager.Sfx.Blind);
+            BlindSound.Play();
         }
-        //버튼 누를 때
-        if (other.gameObject.tag == "Btn")
+        // 버튼 누를 때
+        if (other.gameObject.CompareTag("Btn"))
         {
-            manager.SfxPlay(GameManager.Sfx.Button);
+            BtnSound.Play();
             Btn.SetActive(false);
             Target.SetActive(false);
         }
@@ -121,21 +129,22 @@ public class player : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        //바닥에 서있을 때
-        if (collision.gameObject.tag == "Floor")
+        // 바닥에 서있을 때
+        if (collision.gameObject.CompareTag("Floor"))
         {
             isJump = true;
-            manager.SfxPlay(GameManager.Sfx.Jump);
+            isJumping = false;
             animator.SetBool("IsJumping", false);
         }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        //바닥에서 떨어질 때
-        if (collision.gameObject.tag == "Floor")
+        // 바닥에서 떨어질 때
+        if (collision.gameObject.CompareTag("Floor"))
         {
             isJump = false;
+            isJumping = true;
             animator.SetBool("IsJumping", true);
         }
     }
@@ -151,7 +160,7 @@ public class player : MonoBehaviour
         if (other.gameObject.tag == "Head")
         {
             isJump = true;
-            manager.SfxPlay(GameManager.Sfx.Jump);
+            JumpSound.Play();
             animator.SetBool("IsJumping", false);
         }
         //River에 갔을 경우

@@ -32,14 +32,19 @@ public class GameManager : MonoBehaviour
         sfxPlayer[sfxPointer].Play();
         sfxPointer = (sfxPointer + 1) % sfxPlayer.Length;
     }
-
-    public void StopSfx(Sfx type)
-    {
-        if (type == Sfx.Walk)
-        {
-            sfxPlayer[sfxPointer].Stop();
-        }
-    }
+    // public void StopSfx(Sfx type)
+    // {
+    //     if (type == Sfx.Walk)
+    //     {
+    //         foreach (var sfx in sfxPlayer)
+    //         {
+    //             if (sfx.type == Sfx.Walk)
+    //             {
+    //                 sfx.Stop();
+    //             }
+    //         }
+    //     }
+    // }
 
 
 }
