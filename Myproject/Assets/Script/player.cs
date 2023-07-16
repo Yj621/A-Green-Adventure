@@ -67,7 +67,7 @@ public class player : MonoBehaviour
         }
 
         // 걷기
-        if (Input.GetButton("Horizontal") && !isJumping && !WalkSound.isPlaying)
+        if (Input.GetButton("Horizontal") && !isJumping || !WalkSound.isPlaying)
         {
             WalkSound.Play();
             animator.SetBool("IsWalking", true);
@@ -229,7 +229,12 @@ public class player : MonoBehaviour
         {
             GameObject.Find("Canvas").transform.Find("Chat Back").gameObject.SetActive(false);
         }
+                //대화 시작
+        if (collision.gameObject.CompareTag("ChatNPC"))
+        {
+            collision.GetComponent<Chat>().chatCanvus.SetActive(true);
+            GameObject.Find("PanelController").GetComponent<BtnControl>().panelOn = true;
+        }
+        
     }
 }
-
-

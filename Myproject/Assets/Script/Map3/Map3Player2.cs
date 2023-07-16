@@ -8,7 +8,6 @@ public class Map3Player2 : MonoBehaviour
     public Animator animator;
     public float maxSpeed;
     public float jumpPower;
-    private bool isjump = true;
     private bool isJump = true;
     // private bool isDie = false;
     private GameObject missionController;
@@ -25,6 +24,17 @@ public class Map3Player2 : MonoBehaviour
     public GameObject GreenBtn;
 
     public GameObject map3;
+
+
+    public AudioSource JumpSound;
+    public AudioSource WalkSound;
+    public AudioSource DieSound;
+    public AudioSource BtnSound;
+    public AudioSource BlindSound;
+    public AudioSource LeafSound;
+    private bool isJumping = false; // 이전 점프 상태를 저장하는 변수
+    private bool isJumpSoundPlayed = false; // 점프 소리가 재생되었는지 여부를 나타내는 변수
+
     private void Start()
     {
         missionController = GameObject.Find("MissionController");
@@ -37,28 +47,41 @@ public class Map3Player2 : MonoBehaviour
     void Update()
     {
         
-        if (Input.GetKeyDown(KeyCode.W) && isjump)
+        if (Input.GetKeyDown(KeyCode.W) && isJump && !isJumping)
         {
             rigid.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
-            isjump = false;
+            isJumping = true;
+            animator.SetBool("IsJumping", true);
+
+            if (!isJumpSoundPlayed) // 점프 소리가 재생되지 않은 경우에만 재생
+            {
+                JumpSound.Play();
+                isJumpSoundPlayed = true;
+            }
         }
+        else if(Input.GetKeyDown(KeyCode.W))
+        {
+            isJumping = false;
+            animator.SetBool("IsJumping", false);
+            isJumpSoundPlayed = false; // 점프 키를 놓을 때 점프 소리 재생 상태 초기화
+        }
+
         //멈출때 속도
         if (Input.GetButtonDown("Left Right Arrow"))
         {
             rigid.velocity = new Vector2(rigid.velocity.normalized.x * 0.5f, rigid.velocity.y);
         }
-        //Jump
-        if (Input.GetKey(KeyCode.W))
-        {
-            animator.SetBool("IsJumping", true);
-        }
-        else animator.SetBool("IsJumping", false);
         //걷기
-        if (Input.GetButton("Left Right Arrow"))
+        if (Input.GetButton("Left Right Arrow")&& !isJumping && !WalkSound.isPlaying)
         {
+            WalkSound.Play();
             animator.SetBool("IsWalking", true);
         }
-        else animator.SetBool("IsWalking", false);
+        else if(Input.GetButton("Left Right Arrow"))
+        {
+            WalkSound.Stop();
+            animator.SetBool("IsWalking", false);
+        }
 
     }
 
@@ -86,7 +109,8 @@ public class Map3Player2 : MonoBehaviour
     {
         if (other.gameObject.tag == "Floor")
         {
-            isjump = true;
+            isJump = true;
+            animator.SetBool("IsJumping", false);
         }
 
         //장애물 닿아 죽기
@@ -97,12 +121,14 @@ public class Map3Player2 : MonoBehaviour
         //빨강 버튼
         if (other.gameObject.tag == "RedBtn")
         {
+            BtnSound.Play();
             RedObs.SetActive(false);
             RedBtn.SetActive(false);
         }
         //검은 버튼
         if (other.gameObject.tag == "BlackBtn")
         {
+            BtnSound.Play();
             BlackObs.SetActive(false);
             BlackBtn.SetActive(false);
             BlackBtn2.SetActive(true);
@@ -110,6 +136,7 @@ public class Map3Player2 : MonoBehaviour
         //초록 버튼
         if (other.gameObject.tag == "GreenBtn")
         {
+            BtnSound.Play();
             GreenObs.SetActive(false);
             GreenBtn.SetActive(false);
         }
@@ -118,6 +145,7 @@ public class Map3Player2 : MonoBehaviour
         if (other.gameObject.tag == "Blind")
         {
             Destroy(other.gameObject);
+            BlindSound.Play();
         }    
 
     }
