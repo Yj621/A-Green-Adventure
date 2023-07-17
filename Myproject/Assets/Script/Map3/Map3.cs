@@ -12,6 +12,7 @@ public class Map3 : MonoBehaviour
     {
         if (getLeaf) 
         {
+            imageToFadeOut.gameObject.SetActive(true);
             StartCoroutine(FadeOut());
             Invoke("Delay", 0.97f);
             getLeaf = false;

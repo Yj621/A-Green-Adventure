@@ -15,6 +15,7 @@ public class Map1Switching : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.G))//GetKey사용하면 누를때 바로 이동됨
             {
+                imageToFadeOut.gameObject.SetActive(true);
                 StartCoroutine(FadeOut());
                 Invoke("LoadMap2", 0.97f);
             }
@@ -24,6 +25,7 @@ public class Map1Switching : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.G))
             {
+                imageToFadeOut.gameObject.SetActive(true);
                 StartCoroutine(FadeOut());
                 Invoke("LoadMap3", 0.97f);
             }
