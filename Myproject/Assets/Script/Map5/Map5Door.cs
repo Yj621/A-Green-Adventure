@@ -12,10 +12,11 @@ public class Map5Door : MonoBehaviour
     public bool paperHome = false;
     public bool getLeaf = false;
     public int homeCount = 0;
+    private GameObject missionController;
     // Start is called before the first frame update
     void Start()
     {
-        
+        missionController = GameObject.Find("MissionController");
     }
 
     // Update is called once per frame
@@ -35,6 +36,7 @@ public class Map5Door : MonoBehaviour
             {  
                 if (Input.GetKey(KeyCode.G))//GetKey사용하면 누를때 바로 이동됨
                 {
+                    missionController.GetComponent<MissonContorller>().missonNum++;
                     StartCoroutine(FadeOut());
                     Invoke("Delay", 0.97f);
                 }

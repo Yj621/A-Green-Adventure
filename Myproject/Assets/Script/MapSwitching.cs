@@ -8,6 +8,12 @@ using UnityEngine.UI;
 public class MapSwitching : MonoBehaviour
 {
     public Image imageToFadeOut;
+    private GameObject missionController;
+
+    private void Start()
+    {
+        missionController = GameObject.Find("MissionController");
+    }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -85,6 +91,7 @@ public class MapSwitching : MonoBehaviour
         {
            if (Input.GetKey(KeyCode.G))
            {
+                missionController.GetComponent<MissonContorller>().missonNum++;
                 imageToFadeOut.gameObject.SetActive(true);
                 StartCoroutine(FadeOut());
                Invoke("LoadMap7", 0.97f);
@@ -94,8 +101,9 @@ public class MapSwitching : MonoBehaviour
         {
             imageToFadeOut.gameObject.SetActive(true);
             StartCoroutine(FadeOut());
-           Invoke("LoadMap8", 0.97f);
-
+            Invoke("LoadMap8", 0.97f);
+            if (missionController.GetComponent<MissonContorller>().missonNum == 3 || missionController.GetComponent<MissonContorller>().missonNum == 6)
+                missionController.GetComponent<MissonContorller>().missonNum++;
         }
     }
 

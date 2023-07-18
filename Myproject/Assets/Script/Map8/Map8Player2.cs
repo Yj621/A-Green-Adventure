@@ -20,7 +20,7 @@ public class Map8Player2 : MonoBehaviour
 
     void Awake()
     {
-        missonControl = GameObject.Find("MissionController");
+        missionController = GameObject.Find("MissionController");
         rigid = GetComponent<Rigidbody2D>();
     }
 
@@ -117,8 +117,8 @@ public class Map8Player2 : MonoBehaviour
         if (other.gameObject.tag == "Leaf")
         {
             missionController.GetComponent<MissonContorller>().leafCount++;
-            missionController.GetComponent<MissonContorller>().missonNum++;
-            other.gameObject.SetActive(false);
+            Destroy(other.gameObject);
+            missionController.GetComponent<MissonContorller>().dropLeaf = false;
         }
 
     }

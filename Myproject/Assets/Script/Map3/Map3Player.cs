@@ -145,7 +145,7 @@ public class Map3Player : MonoBehaviour
             LeafSound.Play();
             map3.GetComponent<Map3>().getLeaf = true;
             missionController.GetComponent<MissonContorller>().leafCount++;
-            Destroy(other.gameObject);
+            other.gameObject.SetActive(false);
         }
     }
     void OnCollisionStay2D(Collision2D other)

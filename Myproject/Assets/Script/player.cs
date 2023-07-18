@@ -155,6 +155,7 @@ public class player : MonoBehaviour
         {
             missionController.GetComponent<MissonContorller>().leafCount++;
             Destroy(other.gameObject);
+            missionController.GetComponent<MissonContorller>().dropLeaf = false;
         }
         //¸Ó¸® ¹â±â
         if (other.gameObject.tag == "Head")

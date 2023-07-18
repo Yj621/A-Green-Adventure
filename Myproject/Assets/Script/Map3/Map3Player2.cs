@@ -179,7 +179,7 @@ public class Map3Player2 : MonoBehaviour
         if (other.gameObject.tag == "Leaf")
         {
             map3.GetComponent<Map3>().getLeaf = true;
-            Destroy(other.gameObject);
+            other.gameObject.SetActive(false);
             missionController.GetComponent<MissonContorller>().leafCount++;
         }  
     }

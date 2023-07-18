@@ -15,6 +15,7 @@ public class Chat : MonoBehaviour
     private GameObject missonController;
     public GameObject chatCanvus;
     int i = 0;
+    int j = 0;
     void Start()
     {
         missonController = GameObject.Find("MissionController");
@@ -45,13 +46,18 @@ public class Chat : MonoBehaviour
         }
         else if (gameObject.transform.GetChild(0).CompareTag("ChatNPC8"))
         {
-            if (missonController.GetComponent<MissonContorller>().map5Clear == true && missonController.GetComponent<MissonContorller>().clubClear == true )
+            if (missonController.GetComponent<MissonContorller>().map5Clear) //== true && missonController.GetComponent<MissonContorller>().clubClear == true )
             {
                 currentChat = chat8_2;
             }
             else
             {
-                currentChat = chat8_1;;
+                if(missonController.gameObject.GetComponent<MissonContorller>().missonNum == 4)
+                {
+                    currentChat = chat8_1;
+                  
+                }
+                
             }
         }
         if (SentanceNum >= currentChat.Count)
