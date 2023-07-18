@@ -14,6 +14,7 @@ public class BtnControl : MonoBehaviour
 
     void Start()
     {
+        Time.timeScale = 1;
         if (GameObject.Find("Player1"))
         {
             player1 = GameObject.Find("Player1");
@@ -59,11 +60,13 @@ public class BtnControl : MonoBehaviour
     public void ClickRestartBtn()
     {
         RestartPanel.SetActive(true);
+        Time.timeScale = 0;
         panelOn = false;
     }
 
     public void ClickStart()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(1);
     }
 

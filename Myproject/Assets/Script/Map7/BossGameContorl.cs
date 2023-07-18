@@ -15,6 +15,7 @@ public class BossGameContorl : MonoBehaviour
     public bool Playerloose = false;
 
     public GameObject sun;
+    public GameObject restart;
 
     public string lastSpawnedObjectTag;
     public string player1Touch;
@@ -40,7 +41,11 @@ public class BossGameContorl : MonoBehaviour
             PlayerWin = true;
         }
         else if (player1HP <= 0 || player2HP <= 0) Playerloose = true;
-
+        if (Playerloose)
+        {
+            Time.timeScale = 0;
+            restart.SetActive(true);
+        }
     }
 
     //보스 체력바 설정
