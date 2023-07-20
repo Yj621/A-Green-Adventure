@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3573003254772844933}
   - component: {fileID: 3573003254772844934}
   - component: {fileID: 3573003254772844935}
+  - component: {fileID: -2032355660671956044}
   - component: {fileID: 3573003254772844936}
   m_Layer: 0
   m_Name: Player2
@@ -149,6 +150,20 @@ CapsuleCollider2D:
   m_Offset: {x: 0.027294159, y: -0.20971358}
   m_Size: {x: 1.6392746, y: 3.0105736}
   m_Direction: 0
+--- !u!114 &-2032355660671956044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3573003254772844937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e35d6a11a3f9843bc9c8eff494625089, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  imageToFadeOut: {fileID: 7707046156598663298, guid: 27a3aa1b513b3d64498e150d8b45cd64, type: 3}
+  BtnSound: {fileID: 7264752309868815229, guid: 2fcbd8202e6984236b3629536578f26c, type: 3}
 --- !u!95 &3573003254772844936
 Animator:
   serializedVersion: 4

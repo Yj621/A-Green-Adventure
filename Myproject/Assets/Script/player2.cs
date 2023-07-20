@@ -162,6 +162,7 @@ public class player2 : MonoBehaviour
         {
             isJump = true;
             animator.SetBool("IsJumping", false);
+            //isJumping = false; // 머리를 밟았을 때 점프 상태를 false로 설정
         }
 
         //대화 시작

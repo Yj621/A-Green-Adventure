@@ -67,7 +67,7 @@ public class player : MonoBehaviour
         }
 
         // 걷기
-        if (Input.GetButton("Horizontal") && !isJumping || !WalkSound.isPlaying)
+        if (Input.GetButton("Horizontal") && !isJumping && !WalkSound.isPlaying)
         {
             WalkSound.Play();
             animator.SetBool("IsWalking", true);
@@ -157,17 +157,23 @@ public class player : MonoBehaviour
             Destroy(other.gameObject);
             missionController.GetComponent<MissonContorller>().dropLeaf = false;
         }
-        //머리 밟기
+        //머리밟기
         if (other.gameObject.tag == "Head")
         {
             isJump = true;
-            JumpSound.Play();
             animator.SetBool("IsJumping", false);
+            //isJumping = false; // 머리를 밟았을 때 점프 상태를 false로 설정
         }
         //River에 갔을 경우
         if (other.gameObject.CompareTag("River"))
         {
             GameObject.Find("Canvas").transform.Find("Chat Back").gameObject.SetActive(true);
+        }
+                        //대화 시작
+        if (other.gameObject.CompareTag("ChatNPC"))
+        {
+            other.GetComponent<Chat>().chatCanvus.SetActive(true);
+            GameObject.Find("PanelController").GetComponent<BtnControl>().panelOn = true;
         }
        
     }
@@ -179,7 +185,7 @@ public class player : MonoBehaviour
         if (collision.gameObject.CompareTag("Chair"))
         {
             chair = collision.gameObject;
-            chair.transform.GetChild(1).gameObject.SetActive(true);
+            // chair.transform.GetChild(1).gameObject.SetActive(true);
             // Debug.Log("의자");
             if (Input.GetKeyDown(KeyCode.DownArrow))
             {
@@ -224,18 +230,13 @@ public class player : MonoBehaviour
         if (collision.gameObject.CompareTag("Chair"))
         {
             chair = collision.gameObject;
-            chair.transform.GetChild(1).gameObject.SetActive(false);
+            // chair.transform.GetChild(1).gameObject.SetActive(false);
         }
         if (collision.gameObject.CompareTag("River"))
         {
             GameObject.Find("Canvas").transform.Find("Chat Back").gameObject.SetActive(false);
         }
-                //대화 시작
-        if (collision.gameObject.CompareTag("ChatNPC"))
-        {
-            collision.GetComponent<Chat>().chatCanvus.SetActive(true);
-            GameObject.Find("PanelController").GetComponent<BtnControl>().panelOn = true;
-        }
+
         
     }
 }
