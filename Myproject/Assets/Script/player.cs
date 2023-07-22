@@ -15,8 +15,8 @@ public class player : MonoBehaviour
     // private bool isDie = false;
     private Vector3 sitPlace;
     public Animator animator;
-    public GameObject Target; //¹öÆ°À» ´©¸£¸é »ç¶óÁú °´Ã¼
-    public GameObject Btn; //¹öÆ°µµ »ç¶óÁö°Ô
+    public GameObject Target; //ï¿½ï¿½Æ°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼
+    public GameObject Btn; //ï¿½ï¿½Æ°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     private GameObject panelController;
     private GameObject missionController;
 
@@ -24,9 +24,9 @@ public class player : MonoBehaviour
     public AudioSource WalkSound;
     public AudioSource DieSound;
     public AudioSource BtnSound;
-    public AudioSource BlindSound;
-    private bool isJumping = false; // ÀÌÀü Á¡ÇÁ »óÅÂ¸¦ ÀúÀåÇÏ´Â º¯¼ö
-    private bool isJumpSoundPlayed = false; // Á¡ÇÁ ¼Ò¸®°¡ Àç»ýµÇ¾ú´ÂÁö ¿©ºÎ¸¦ ³ªÅ¸³»´Â º¯¼ö
+    public AudioSource BossGetSound;
+    private bool isJumping = false; // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½
+    private bool isJumpSoundPlayed = false; // ï¿½ï¿½ï¿½ï¿½ ï¿½Ò¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î¸ï¿½ ï¿½ï¿½Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
     private void Start()
     {
@@ -40,14 +40,14 @@ public class player : MonoBehaviour
 
     void Update()
     {
-        // Á¡ÇÁ
+        // ï¿½ï¿½ï¿½ï¿½
         if (Input.GetKeyDown(KeyCode.UpArrow) && isJump && !isJumping)
         {
             rigid.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
             isJumping = true;
             animator.SetBool("IsJumping", true);
 
-            if (!isJumpSoundPlayed) // Á¡ÇÁ ¼Ò¸®°¡ Àç»ýµÇÁö ¾ÊÀº °æ¿ì¿¡¸¸ Àç»ý
+            if (!isJumpSoundPlayed) // ï¿½ï¿½ï¿½ï¿½ ï¿½Ò¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ì¿¡ï¿½ï¿½ ï¿½ï¿½ï¿½
             {
                 JumpSound.Play();
                 isJumpSoundPlayed = true;
@@ -57,16 +57,16 @@ public class player : MonoBehaviour
         {
             isJumping = false;
             animator.SetBool("IsJumping", false);
-            isJumpSoundPlayed = false; // Á¡ÇÁ Å°¸¦ ³õÀ» ¶§ Á¡ÇÁ ¼Ò¸® Àç»ý »óÅÂ ÃÊ±âÈ­
+            isJumpSoundPlayed = false; // ï¿½ï¿½ï¿½ï¿½ Å°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò¸ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­
         }
         
-        // ¸ØÃâ ¶§ ¼Óµµ
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Óµï¿½
         if (Input.GetButtonDown("Horizontal"))
         {
             rigid.velocity = new Vector2(rigid.velocity.normalized.x * 0.5f, rigid.velocity.y);
         }
 
-        // °È±â
+        // ï¿½È±ï¿½
         if (Input.GetButton("Horizontal") && !isJumping && !WalkSound.isPlaying)
         {
             WalkSound.Play();
@@ -81,7 +81,7 @@ public class player : MonoBehaviour
 
     void FixedUpdate()
     {
-        // ¿òÁ÷ÀÏ ¶§ ¼Óµµ
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Óµï¿½
         float h = Input.GetAxisRaw("Horizontal");
         rigid.AddForce(Vector2.right * h, ForceMode2D.Impulse);
         if (rigid.velocity.x > maxSpeed)
@@ -98,14 +98,14 @@ public class player : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        // ¹Ù´Ú¿¡ ¼­ÀÖÀ» ¶§
+        // ï¿½Ù´Ú¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
         if (other.gameObject.CompareTag("Floor") || other.gameObject.CompareTag("Box"))
         {
             isJump = true;
             isJumping = false;
             animator.SetBool("IsJumping", false);
         }
-        // Àå¾Ö¹°¿¡ ´ê¾Æ Á×À» ¶§
+        // ï¿½ï¿½Ö¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
         if (other.gameObject.CompareTag("Obstacle"))
         {
             animator.SetBool("IsDie", true);
@@ -113,12 +113,7 @@ public class player : MonoBehaviour
             panelController.GetComponent<BtnControl>().RestartPanel.SetActive(true);
             panelController.GetComponent<BtnControl>().panelOn = true;
         }
-        if (other.gameObject.CompareTag("Blind"))
-        {
-            Destroy(other.gameObject);
-            BlindSound.Play();
-        }
-        // ¹öÆ° ´©¸¦ ¶§
+        // ï¿½ï¿½Æ° ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
         if (other.gameObject.CompareTag("Btn"))
         {
             BtnSound.Play();
@@ -129,7 +124,7 @@ public class player : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        // ¹Ù´Ú¿¡ ¼­ÀÖÀ» ¶§
+        // ï¿½Ù´Ú¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
         if (collision.gameObject.CompareTag("Floor"))
         {
             isJump = true;
@@ -140,7 +135,7 @@ public class player : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        // ¹Ù´Ú¿¡¼­ ¶³¾îÁú ¶§
+        // ï¿½Ù´Ú¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
         if (collision.gameObject.CompareTag("Floor"))
         {
             isJump = false;
@@ -150,26 +145,26 @@ public class player : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D other)
     {
-        //³ª¹µÀÙ ¸ÔÀ» ¶§
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
         if (other.gameObject.tag == "Leaf")
         {
             missionController.GetComponent<MissonContorller>().leafCount++;
             Destroy(other.gameObject);
             missionController.GetComponent<MissonContorller>().dropLeaf = false;
         }
-        //¸Ó¸®¹â±â
+        //ï¿½Ó¸ï¿½ï¿½ï¿½ï¿½
         if (other.gameObject.tag == "Head")
         {
             isJump = true;
             animator.SetBool("IsJumping", false);
-            //isJumping = false; // ¸Ó¸®¸¦ ¹â¾ÒÀ» ¶§ Á¡ÇÁ »óÅÂ¸¦ false·Î ¼³Á¤
+            //isJumping = false; // ï¿½Ó¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â¸ï¿½ falseï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         }
-        //River¿¡ °¬À» °æ¿ì
+        //Riverï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
         if (other.gameObject.CompareTag("River"))
         {
             GameObject.Find("Canvas").transform.Find("Chat Back").gameObject.SetActive(true);
         }
-                        //´ëÈ­ ½ÃÀÛ
+                        //ï¿½ï¿½È­ ï¿½ï¿½ï¿½ï¿½
         if (other.gameObject.CompareTag("ChatNPC"))
         {
             other.GetComponent<Chat>().chatCanvus.SetActive(true);
@@ -186,10 +181,10 @@ public class player : MonoBehaviour
         {
             chair = collision.gameObject;
             // chair.transform.GetChild(1).gameObject.SetActive(true);
-            // Debug.Log("ÀÇÀÚ");
+            // Debug.Log("ï¿½ï¿½ï¿½ï¿½");
             if (Input.GetKeyDown(KeyCode.DownArrow))
             {
-                //ÀÇÀÚ ¾É±â
+                //ï¿½ï¿½ï¿½ï¿½ ï¿½É±ï¿½
                 if (isSit == false)
                 {                
                     chairChild = chair.transform.GetChild(0).gameObject;
@@ -200,14 +195,14 @@ public class player : MonoBehaviour
                     animator.SetBool("IsSit", true);
                     isSit = true;
                     
-                    Debug.Log("¾É±â");
+                    Debug.Log("ï¿½É±ï¿½");
                     
                 }
             }
         }
         if (collision.gameObject.CompareTag("ChairUp"))
         {
-            //ÀÇÀÚ¿¡¼­ ÀÏ¾î³ª±â
+            //ï¿½ï¿½ï¿½Ú¿ï¿½ï¿½ï¿½ ï¿½Ï¾î³ªï¿½ï¿½
             if (Input.GetKeyDown(KeyCode.DownArrow))
             {
                 if (isSit == true)
@@ -218,7 +213,7 @@ public class player : MonoBehaviour
                     animator.SetBool("IsSit", false);
                     isSit = false;
                    
-                    Debug.Log("¼­±â");
+                    Debug.Log("ï¿½ï¿½ï¿½ï¿½");
                 }
             }
         }

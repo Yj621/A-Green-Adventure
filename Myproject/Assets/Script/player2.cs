@@ -215,8 +215,8 @@ public class player2 : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Chair"))
         {
-            chair = collision.gameObject;
-            chair.transform.GetChild(2).gameObject.SetActive(true);
+            // chair = collision.gameObject;
+            // chair.transform.GetChild(2).gameObject.SetActive(true);
             // Debug.Log("ÀÇÀÚ");
             if (Input.GetKeyDown(KeyCode.S))
             {
@@ -254,11 +254,11 @@ public class player2 : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
 
-        if (collision.gameObject.CompareTag("Chair"))
-        {
-            chair = collision.gameObject;
-            chair.transform.GetChild(2).gameObject.SetActive(false);
-        }
+        // if (collision.gameObject.CompareTag("Chair"))
+        // {
+        //     chair = collision.gameObject;
+        //     chair.transform.GetChild(2).gameObject.SetActive(false);
+        // }
         if (collision.gameObject.CompareTag("River"))
         {
             GameObject.Find("Canvas").transform.Find("Chat Back").gameObject.SetActive(false);

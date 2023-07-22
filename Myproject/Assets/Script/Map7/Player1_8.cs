@@ -14,6 +14,14 @@ public class Player1_8 : MonoBehaviour
     private GameObject panelController;
     private GameObject missionController;
     private ObjectSpawner objectSpawner;
+
+    public AudioSource JumpSound;
+    public AudioSource WalkSound;
+    public AudioSource DieSound;
+    public AudioSource BtnSound;
+    public AudioSource BossGetSound;
+    private bool isJumping = false;
+    private bool isJumpSoundPlayed = false; 
  
     void Start()
     {
@@ -29,30 +37,47 @@ public class Player1_8 : MonoBehaviour
     }
     void Awake()
     {
-        
         rigid = GetComponent<Rigidbody2D>();
     }
     void Update()
     {
-        //Jump
-        if (Input.GetKeyDown(KeyCode.UpArrow) && isJump ) //스페이스바를 누르고, 캐릭터가 땅에 있다면
+        // ����
+        if (Input.GetKeyDown(KeyCode.UpArrow) && isJump && !isJumping)
         {
             rigid.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
-            isJump = false;
+            isJumping = true;
+            animator.SetBool("IsJumping", true);
+
+            if (!isJumpSoundPlayed) // ���� �Ҹ��� ������� ���� ��쿡�� ���
+            {
+                JumpSound.Play();
+                isJumpSoundPlayed = true;
+            }
         }
-        //멈출때 속도
+        else if (Input.GetKeyUp(KeyCode.UpArrow))
+        {
+            isJumping = false;
+            animator.SetBool("IsJumping", false);
+            isJumpSoundPlayed = false; // ���� Ű�� ���� �� ���� �Ҹ� ��� ���� �ʱ�ȭ
+        }
+        
+        // ���� �� �ӵ�
         if (Input.GetButtonDown("Horizontal"))
         {
             rigid.velocity = new Vector2(rigid.velocity.normalized.x * 0.5f, rigid.velocity.y);
         }
 
-
-        if (Input.GetButton("Horizontal"))
+        // �ȱ�
+        if (Input.GetButton("Horizontal") && !isJumping && !WalkSound.isPlaying)
         {
+            WalkSound.Play();
             animator.SetBool("IsWalking", true);
         }
-        else animator.SetBool("IsWalking", false);
-
+        else if (!Input.GetButton("Horizontal"))
+        {
+            WalkSound.Stop();
+            animator.SetBool("IsWalking", false);
+        }
     }
 
 
@@ -81,6 +106,7 @@ public class Player1_8 : MonoBehaviour
         {
             //부딫힌 오브젝트 태그 저장
             gameController.GetComponent<BossGameContorl>().player1Touch = other.gameObject.tag;
+            BossGetSound.Play();
             //부딪히면 삭제
             Destroy(other.gameObject);
             //보스 체력 깎는 함수
@@ -91,6 +117,7 @@ public class Player1_8 : MonoBehaviour
         else if (other.gameObject.CompareTag("heart"))
         {
             gameController.GetComponent<BossGameContorl>().player1Touch = other.gameObject.tag;
+            BossGetSound.Play();            
             Destroy(other.gameObject);
             gameController.GetComponent<BossGameContorl>().BossHpBar();
             gameController.GetComponent<BossGameContorl>().player1HpContorl();
@@ -98,6 +125,7 @@ public class Player1_8 : MonoBehaviour
         else if (other.gameObject.CompareTag("diamond"))
         {
             gameController.GetComponent<BossGameContorl>().player1Touch = other.gameObject.tag;
+            BossGetSound.Play(); 
             Destroy(other.gameObject);
             gameController.GetComponent<BossGameContorl>().BossHpBar();
             gameController.GetComponent<BossGameContorl>().player1HpContorl();
@@ -105,6 +133,7 @@ public class Player1_8 : MonoBehaviour
         else if (other.gameObject.CompareTag("spade"))
         {
             gameController.GetComponent<BossGameContorl>().player1Touch = other.gameObject.tag;
+            BossGetSound.Play(); 
             Destroy(other.gameObject);
             gameController.GetComponent<BossGameContorl>().BossHpBar();
             gameController.GetComponent<BossGameContorl>().player1HpContorl();
