@@ -6,11 +6,19 @@ public class BtnControl : MonoBehaviour
 {
     public GameObject miniPanel;
     public GameObject RestartPanel;
+    public GameObject Note;
     private GameObject player1;
     private Rigidbody2D player1Rb;
     private GameObject player2;
     private Rigidbody2D player2Rb;
     public bool panelOn = false;
+    private Camera mainCamera; // Camera.main을 저장할 변수
+
+    private void Awake()
+    {
+        // Awake 메서드에서 Camera.main을 가져옴
+        mainCamera = Camera.main;
+    }
 
     void Start()
     {
@@ -31,6 +39,12 @@ public class BtnControl : MonoBehaviour
         {
             RestartPanel = GameObject.Find("RestartPanel");
             RestartPanel.SetActive(false);
+        }
+
+        if(GameObject.Find("Note") != null)
+        {
+            Note = GameObject.Find("Note");
+            Note.SetActive(false);
         }
         
     }
@@ -56,7 +70,22 @@ public class BtnControl : MonoBehaviour
         }
 
     }
+    public void StopBackgroundMusic()
+    {
+        // 현재 Scene에서 태그가 "MainCamera"인 카메라를 가져옴
+        Camera mainCamera = Camera.main;
 
+        // "MainCamera" 카메라에 붙어 있는 AudioSource를 가져와서 정지
+        if (mainCamera != null)
+        {
+            AudioSource audioSource = mainCamera.GetComponent<AudioSource>();
+            if (audioSource != null && audioSource.isPlaying)
+            {
+                audioSource.Stop();
+            }
+        }
+    }
+    
     public void ClickRestartBtn()
     {
         RestartPanel.SetActive(true);
@@ -71,10 +100,13 @@ public class BtnControl : MonoBehaviour
     }
 
 
-    // public void ClickMiniGameYes()
-    // {
-
-    // }
+    public void ClickMiniGameYes()
+    {
+        miniPanel.SetActive(false);
+        Note.SetActive(true);
+        StopBackgroundMusic();
+        panelOn = true;
+    }
 
      public void ClickMiniGameNo()
     {

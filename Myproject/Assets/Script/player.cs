@@ -170,6 +170,14 @@ public class player : MonoBehaviour
             other.GetComponent<Chat>().chatCanvus.SetActive(true);
             GameObject.Find("PanelController").GetComponent<BtnControl>().panelOn = true;
         }
+        if (other.gameObject.CompareTag("Npc6"))
+        {
+            if (panelController)
+            {
+                panelController.GetComponent<BtnControl>().panelOn = true;
+                panelController.GetComponent<BtnControl>().miniPanel.SetActive(true);
+            }
+        }
        
     }
   
