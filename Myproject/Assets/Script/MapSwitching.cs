@@ -20,13 +20,17 @@ public class MapSwitching : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Map1"))
         {
-            if (Input.GetKey(KeyCode.G))//GetKey사용하면 누를때 바로 이동됨
+            if(missionController.GetComponent<MissonContorller>().missonNum == 1)
             {
-                BtnSound.Play();
-                imageToFadeOut.gameObject.SetActive(true);
-                StartCoroutine(FadeOut());
-                Invoke("LoadMap1_2", 0.97f);
-            }
+                collision.gameObject.transform.GetChild(0).gameObject.SetActive(true);
+                if (Input.GetKey(KeyCode.G))//GetKey사용하면 누를때 바로 이동됨
+                {
+                    BtnSound.Play();
+                    imageToFadeOut.gameObject.SetActive(true);
+                    StartCoroutine(FadeOut());
+                    Invoke("LoadMap1_2", 0.97f);
+                }
+            } 
         }
         if (collision.gameObject.CompareTag("Map2"))
         {
@@ -181,6 +185,11 @@ public class MapSwitching : MonoBehaviour
         }
         Destroy(imageToFadeOut);
         Destroy(gameObject);
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        collision.gameObject.transform.GetChild(0).gameObject.SetActive(false);
     }
 }
 

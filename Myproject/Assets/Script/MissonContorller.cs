@@ -32,7 +32,7 @@ public class MissonContorller : MonoBehaviour
     {
         player1 = GameObject.Find("Player1");
         if (GameObject.Find("Blind")) blind = GameObject.Find("Blind");
-        if (GameObject.Find("LeafPos")) leafTrans = GameObject.Find("LeafPos");
+        if (GameObject.Find("LeafPos")) leafTrans = GameObject.Find("LeafPos");           
     }
 
     // Update is called once per frame
@@ -54,6 +54,7 @@ public class MissonContorller : MonoBehaviour
             if (leaf)
                 LeafControl(); 
         }
+
     }
    
     void LeafControl()
