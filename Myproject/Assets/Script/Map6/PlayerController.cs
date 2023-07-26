@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     TimingManager theTimingManager;
+    
     void Start()
     {
         theTimingManager = FindObjectOfType<TimingManager>();
