@@ -116,7 +116,8 @@ public class BtnControl : MonoBehaviour
 
     public void ClickRestart()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        // SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene(gameObject.scene.name);
         RestartPanel.SetActive(false);
         panelOn=false;
     }

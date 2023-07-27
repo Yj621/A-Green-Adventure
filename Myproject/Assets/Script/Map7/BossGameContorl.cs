@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 public class BossGameContorl : MonoBehaviour
 {
+    private GameObject missonController;
+
     public int bossHP;
     public int player1HP = 2;
     public int player2HP = 2;
@@ -16,6 +18,9 @@ public class BossGameContorl : MonoBehaviour
 
     public GameObject sun;
     public GameObject restart;
+    public GameObject gameUI;
+    public GameObject gameBackground;
+    public GameObject gameSystem;
 
     public string lastSpawnedObjectTag;
     public string player1Touch;
@@ -24,23 +29,38 @@ public class BossGameContorl : MonoBehaviour
     public int bossHppMinus = 10;
     void Start()
     {
+
+        missonController = GameObject.Find("MissionController");
+
         //여기에서 보스 체력 조건 달아서 정하면 될듯
         bossHP = 100;
 
         //생성된 태양 이미지 태그 불러오기
         sun = GameObject.Find("Sun");
         lastSpawnedObjectTag = sun.GetComponent<ObjectSpawner>().lastSpawnedObjectTag;
+
+        sun.SetActive(false);
+        gameUI.SetActive(false);
+        gameSystem.SetActive(false);
+        gameBackground.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(missonController.GetComponent<MissonContorller>().missonNum == 10)
+        {
+            gameUI.SetActive(true);
+            gameSystem.SetActive(true);
+            sun.SetActive(true);
+            gameBackground.SetActive(true);
+        }
         //플레이어 승리 조건
-        if (bossBar.fillAmount < 0)
+        if (bossBar.fillAmount <= 0)
         {
             PlayerWin = true;
         }
-        else if (player1HP <= 0 || player2HP <= 0) Playerloose = true;
+        else if (player1HP < 0 || player2HP < 0) Playerloose = true;
         if (Playerloose)
         {
             Time.timeScale = 0;

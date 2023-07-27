@@ -164,6 +164,12 @@ public class Player2_8 : MonoBehaviour
             isJump = true;
             animator.SetBool("IsJumping", false);
         }
+
+        if (other.gameObject.CompareTag("ChatNPC"))
+        {
+            other.GetComponent<Chat>().chatCanvus.SetActive(true);
+            GameObject.Find("PanelController").GetComponent<BtnControl>().panelOn = true;
+        }
     }
 
 }

@@ -19,9 +19,21 @@ public class MissonContorller : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     { 
-        DontDestroyOnLoad(gameObject); 
+       // DontDestroyOnLoad(gameObject); 
         leaf = gameObject.transform.GetChild(0).gameObject;
         leaf.SetActive(false);
+    }
+    private void Awake()
+    {
+        var obj = FindObjectsOfType<MissonContorller>();
+        if (obj.Length == 1)
+        {
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
     void OnEnable()
     {

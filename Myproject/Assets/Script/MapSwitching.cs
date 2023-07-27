@@ -189,7 +189,9 @@ public class MapSwitching : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        collision.gameObject.transform.GetChild(0).gameObject.SetActive(false);
+        //g키 없애기
+        if(collision.gameObject.transform.GetChild(0))
+            collision.gameObject.transform.GetChild(0).gameObject.SetActive(false);
     }
 }
 
