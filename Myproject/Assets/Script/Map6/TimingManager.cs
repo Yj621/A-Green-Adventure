@@ -8,9 +8,12 @@ public class TimingManager : MonoBehaviour
     [SerializeField] Transform Center = null;
     [SerializeField] RectTransform[] timingRect = null;
     Vector2[] timingBoxs = null;
+    EffectManager theEffect;
 
     private void Start()
     {
+        theEffect = FindObjectOfType<EffectManager>();
+
         // 타이밍 박스 설정
         
         timingBoxs = new Vector2[timingRect.Length];
@@ -31,14 +34,19 @@ public class TimingManager : MonoBehaviour
             {
                 if(timingBoxs[x].x<= t_NotePosY && t_NotePosY<=timingBoxs[x].y)
                 {
+                    //노트 제거
                     boxNoteList[i].GetComponent<Note>().HideNote();
                     boxNoteList.RemoveAt(i);
-                    Debug.Log("Hit" + x);
+
+                    //이펙트 연출                    
+                    if(x<timingBoxs.Length - 1)
+                        theEffect.NoteHitEffect();
+                    theEffect.JudgementEffect(x);
                     return;
                 }
             }
                
         }
-        Debug.Log("Miss");
+        theEffect.JudgementEffect(timingBoxs.Length);
     }
 }
