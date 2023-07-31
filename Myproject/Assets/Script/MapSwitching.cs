@@ -22,7 +22,6 @@ public class MapSwitching : MonoBehaviour
         {
             if(missionController.GetComponent<MissonContorller>().missonNum == 1)
             {
-                collision.gameObject.transform.GetChild(0).gameObject.SetActive(true);
                 if (Input.GetKey(KeyCode.G))//GetKey사용하면 누를때 바로 이동됨
                 {
                     BtnSound.Play();
@@ -187,11 +186,5 @@ public class MapSwitching : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        //g키 없애기
-        if(collision.gameObject.transform.GetChild(0))
-            collision.gameObject.transform.GetChild(0).gameObject.SetActive(false);
-    }
 }
 
