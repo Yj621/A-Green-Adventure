@@ -29,7 +29,7 @@ public class MissonUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        missionNum = GameObject.Find("MissionController").GetComponent<MissonContorller>().missonNum;
-        myTextMeshProUGUI.text = myList[missionNum] ;
+        // missionNum = GameObject.Find("MissionController").GetComponent<MissonContorller>().missonNum;
+        // myTextMeshProUGUI.text = myList[missionNum] ;
     }
 }
