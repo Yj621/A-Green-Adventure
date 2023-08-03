@@ -254,15 +254,22 @@ public class player2 : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
 
-        // if (collision.gameObject.CompareTag("Chair"))
-        // {
-        //     chair = collision.gameObject;
-        //     chair.transform.GetChild(2).gameObject.SetActive(false);
-        // }
+        if (collision.gameObject.CompareTag("Chair"))
+        {
+            chair = collision.gameObject;
+            // chair.transform.GetChild(1).gameObject.SetActive(false);
+        }
         if (collision.gameObject.CompareTag("River"))
         {
             GameObject.Find("Canvas").transform.Find("Chat Back").gameObject.SetActive(false);
-            // StartBtn.SetActive(true);
+        }
+
+        //머리에서 떨어질 때
+        if (collision.gameObject.CompareTag("Head"))
+        {
+            isJump = false;
+            isJumping = true;
+            animator.SetBool("IsJumping", true);
         }
     }
 }

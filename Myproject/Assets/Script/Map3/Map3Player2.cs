@@ -49,6 +49,7 @@ public class Map3Player2 : MonoBehaviour
         
         if (Input.GetKeyDown(KeyCode.W) && isJump && !isJumping)
         {
+            
             rigid.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
             isJumping = true;
             animator.SetBool("IsJumping", true);
@@ -116,6 +117,7 @@ public class Map3Player2 : MonoBehaviour
         //Àå¾Ö¹° ´ê¾Æ Á×±â
         if (other.gameObject.tag == "Obstacle")
         {
+            DieSound.Play();
             animator.SetBool("IsDie", true);
         }
         //»¡°­ ¹öÆ°
@@ -158,7 +160,13 @@ public class Map3Player2 : MonoBehaviour
             isBtn2 = true;
             missionController.GetComponent<MissonContorller>().map3Btn2 = true;
         }
-
+        // ¹Ù´Ú¿¡ ¼­ÀÖÀ» ¶§
+        if (other.gameObject.CompareTag("Floor"))
+        {
+            isJump = true;
+            isJumping = false;
+            animator.SetBool("IsJumping", false);
+        }
     }
 
     void OnTriggerExit2D(Collider2D collision)
@@ -167,9 +175,16 @@ public class Map3Player2 : MonoBehaviour
         isBtn2 = false;
     }
 
+
     void OnTriggerEnter2D(Collider2D other)
     {
-
+        // ¹Ù´Ú¿¡ ¼­ÀÖÀ» ¶§
+        if (other.gameObject.CompareTag("Floor") || other.gameObject.CompareTag("Box"))
+        {
+            isJump = true;
+            isJumping = false;
+            animator.SetBool("IsJumping", false);
+        }
         if (other.gameObject.tag == "Head")
         {
             isJump = true;
@@ -182,5 +197,15 @@ public class Map3Player2 : MonoBehaviour
             other.gameObject.SetActive(false);
             missionController.GetComponent<MissonContorller>().leafCount++;
         }  
+    }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        // ¹Ù´Ú¿¡¼­ ¶³¾îÁú ¶§
+        if (collision.gameObject.CompareTag("Floor"))
+        {
+            isJump = false;
+            isJumping = true;
+            animator.SetBool("IsJumping", true);
+        }
     }
 }

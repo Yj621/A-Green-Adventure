@@ -133,7 +133,13 @@ public class Map3Player : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-
+        // 바닥에 서있을 때
+        if (other.gameObject.CompareTag("Floor") || other.gameObject.CompareTag("Box"))
+        {
+            isJump = true;
+            isJumping = false;
+            animator.SetBool("IsJumping", false);
+        }
         if (other.gameObject.tag == "Head")
         {
             isJump = true;
@@ -157,10 +163,30 @@ public class Map3Player : MonoBehaviour
             // BtnSound.Play();
             missionController.GetComponent<MissonContorller>().map3Btn1 = true;
         }
+        // 바닥에 서있을 때
+        if (other.gameObject.CompareTag("Floor"))
+        {
+            isJump = true;
+            isJumping = false;
+            animator.SetBool("IsJumping", false);
+        }
     }
     void OnTriggerExit2D(Collider2D collision)
     {
         isBtn1 = false;
         missionController.GetComponent<MissonContorller>().map3Btn1 = false;
     }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        // 바닥에서 떨어질 때
+        if (collision.gameObject.CompareTag("Floor"))
+        {
+            isJump = false;
+            isJumping = true;
+            animator.SetBool("IsJumping", true);
+        }
+    }
+
 }
+
