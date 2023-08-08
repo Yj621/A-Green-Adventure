@@ -72,6 +72,11 @@ public class MissonContorller : MonoBehaviour
     void LeafControl()
     {
         leaf.transform.position = leafTrans.transform.position;
+        if (map5Clear == true && missonNum == 6)
+        {
+            leaf.gameObject.transform.localScale = new Vector3(0.2f, 0.2f, 0);
+        }
+        else leaf.gameObject.transform.localScale = new Vector3(0.1f, 0.1f, 0);
         leaf.SetActive(true);
         dropLeaf = false;
 

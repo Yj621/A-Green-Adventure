@@ -84,6 +84,7 @@ public class MapSwitching : MonoBehaviour
            if (Input.GetKey(KeyCode.G))
            {
                 BtnSound.Play();
+                imageToFadeOut.gameObject.SetActive(true);
                 StartCoroutine(FadeOut());
                 Invoke("LoadMap5", 0.97f);
            }

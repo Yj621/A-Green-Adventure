@@ -41,6 +41,7 @@ public class Map5Door : MonoBehaviour
                 if (Input.GetKey(KeyCode.G))//GetKey사용하면 누를때 바로 이동됨
                 {
                     missionController.GetComponent<MissonContorller>().missonNum++;
+                    imageToFadeOut.gameObject.SetActive(true);
                     StartCoroutine(FadeOut());
                     Invoke("Delay", 0.97f);
                 }
