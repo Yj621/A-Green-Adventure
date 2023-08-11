@@ -145,11 +145,11 @@ public class player : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D other)
     {
-        //나뭇잎 먹을 때
+        //맵 5에서 나뭇잎 먹을 때
         if (other.gameObject.tag == "Leaf")
         {
-            missionController.GetComponent<MissonContorller>().leafCount++;
             Destroy(other.gameObject);
+            missionController.GetComponent<MissonContorller>().leafCount = 2;
             missionController.GetComponent<MissonContorller>().dropLeaf = false;
         }
         //머리 밟기

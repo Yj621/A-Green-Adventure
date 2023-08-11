@@ -166,10 +166,16 @@ public class Player1_8 : MonoBehaviour
             isJump = true;
             animator.SetBool("IsJumping", false);
         }
-        if (other.gameObject.CompareTag("ChatNPC"))
+        if (other.gameObject.CompareTag("ChatNPC") && missionController.GetComponent<MissonContorller>().missonNum != 10)
         {
             other.GetComponent<Chat>().chatCanvus.SetActive(true);
             GameObject.Find("PanelController").GetComponent<BtnControl>().panelOn = true;
+        }
+        if (other.gameObject.tag == "Leaf")
+        {
+            missionController.GetComponent<MissonContorller>().leafCount=3;
+            gameController.GetComponent<BossGameContorl>().PlayerWin = false;
+            other.gameObject.SetActive(false);
         }
     }
 

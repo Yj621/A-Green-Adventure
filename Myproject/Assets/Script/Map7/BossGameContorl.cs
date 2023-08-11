@@ -16,6 +16,7 @@ public class BossGameContorl : MonoBehaviour
     public bool PlayerWin = false;
     public bool Playerloose = false;
 
+    public GameObject leaf;
     public GameObject sun;
     public GameObject restart;
     public GameObject gameUI;
@@ -66,6 +67,18 @@ public class BossGameContorl : MonoBehaviour
             Time.timeScale = 0;
             restart.SetActive(true);
         }
+        if (PlayerWin == true)
+        {
+            leaf.SetActive(true);
+            PlayerWin = false;
+            gameUI.SetActive(false);
+            gameSystem.SetActive(false);
+            sun.SetActive(false);
+            gameBackground.SetActive(false);
+            bossBar.fillAmount = 1;
+            missonController.GetComponent<MissonContorller>().missonNum = 11;
+        }
+
     }
 
     //보스 체력바 설정

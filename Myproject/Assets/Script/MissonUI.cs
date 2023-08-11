@@ -24,6 +24,7 @@ public class MissonUI : MonoBehaviour
         myList.Add("빌딩을 들어가보자");
         myList.Add("사장과 얘기해 보자");
         myList.Add("사장을 쓰러뜨리자");
+        myList.Add("끝");
     }
 
     // Update is called once per frame

@@ -151,11 +151,12 @@ public class player2 : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
      {
-        //³ª¹µÀÙ ¸Ô¾úÀ» ¶§
+        //map5¿¡¼­ ³ª¹µÀÙ ¸Ô¾úÀ» ¶§
         if (other.gameObject.tag == "Leaf")
         {
-            missionController.GetComponent<MissonContorller>().leafCount++;
             Destroy(other.gameObject);
+            missionController.GetComponent<MissonContorller>().leafCount = 2;
+            missionController.GetComponent<MissonContorller>().dropLeaf = false;
         }
         //¸Ó¸®¹â±â
         if (other.gameObject.tag == "Head")
@@ -190,12 +191,12 @@ public class player2 : MonoBehaviour
         {
             if (GameObject.Find("Canvas").transform.Find("Chat Back1"))
             {
-                if (missionController.GetComponent<MissonContorller>().map5Clear == true)
-                {
-                    GameObject.Find("Canvas").transform.Find("Chat Back2").gameObject.SetActive(true);
-                    missionController.GetComponent<MissonContorller>().dropLeaf = true;
-                }
-                else
+                //if (missionController.GetComponent<MissonContorller>().map5Clear == true)
+                //{
+                //    GameObject.Find("Canvas").transform.Find("Chat Back2").gameObject.SetActive(true);
+                //    missionController.GetComponent<MissonContorller>().dropLeaf = true;
+                //}
+                //else
                 {
                     GameObject.Find("Canvas").transform.Find("Chat Back1").gameObject.SetActive(true);
                 }

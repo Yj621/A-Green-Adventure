@@ -63,7 +63,7 @@ public class Map5Door : MonoBehaviour
 
     void Delay()
     {
-        SceneManager.LoadScene(6);
+        SceneManager.LoadScene(7);
     }
     private IEnumerator FadeOut()
     {
