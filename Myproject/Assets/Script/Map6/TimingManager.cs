@@ -30,23 +30,25 @@ public class TimingManager : MonoBehaviour
         {
             float t_NotePosY = boxNoteList[i].transform.localPosition.y;
 
-            for(int x =0; x<timingBoxs.Length; x++)
+            for(int j = 0; j < timingBoxs.Length; j++)
             {
-                if(timingBoxs[x].x<= t_NotePosY && t_NotePosY<=timingBoxs[x].y)
+                if(timingBoxs[j].x<= t_NotePosY && t_NotePosY<=timingBoxs[j].y)
                 {
-                    //노트 제거
+                    // 노트 제거
                     boxNoteList[i].GetComponent<Note>().HideNote();
                     boxNoteList.RemoveAt(i);
+                    Debug.Log("Hit"+j);
 
-                    //이펙트 연출                    
-                    if(x<timingBoxs.Length - 1)
+                    // 이펙트 연출 ⭐⭐
+                    if (j < timingBoxs.Length - 1) // Perfect, Cool, Good 판정때만 이펙트 효과. Bad 일땐 X
                         theEffect.NoteHitEffect();
-                    theEffect.JudgementEffect(x);
+                    theEffect.JudgementEffect(j);
+
                     return;
                 }
             }
-               
         }
+
         theEffect.JudgementEffect(timingBoxs.Length);
     }
 }
