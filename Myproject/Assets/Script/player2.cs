@@ -141,7 +141,7 @@ public class player2 : MonoBehaviour
     private void OnCollisionExit2D(Collision2D collision)
     {
         // ¹Ù´Ú¿¡¼­ ¶³¾îÁú ¶§
-        if (collision.gameObject.CompareTag("Floor"))
+        if (collision.gameObject.CompareTag("Floor") || collision.gameObject.tag == "Box")
         {
             isJump = false;
             isJumping = true;

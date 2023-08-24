@@ -29,6 +29,11 @@ public class Icon : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("Map5"))
         {
+            if (missonController.GetComponent<MissonContorller>().missonNum == 5)
+                collision.gameObject.transform.GetChild(0).gameObject.SetActive(true);
+        }
+        else if (collision.gameObject.CompareTag("Map6"))
+        {
             collision.gameObject.transform.GetChild(0).gameObject.SetActive(true);
         }
     }
@@ -50,6 +55,11 @@ public class Icon : MonoBehaviour
                 collision.gameObject.transform.GetChild(0).gameObject.SetActive(false);
         }
         else if (collision.gameObject.CompareTag("Map5"))
+        {
+            if (missonController.GetComponent<MissonContorller>().missonNum == 5)
+                collision.gameObject.transform.GetChild(0).gameObject.SetActive(false);
+        }
+        else if (collision.gameObject.CompareTag("Map6"))
         {
             collision.gameObject.transform.GetChild(0).gameObject.SetActive(false);
         }
