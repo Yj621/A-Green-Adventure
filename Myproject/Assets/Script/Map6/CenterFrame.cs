@@ -6,23 +6,38 @@ public class CenterFrame : MonoBehaviour
 {
     AudioSource Club;
     bool MusicStart;
+    bool MusicFinished; // 새로운 변수 추가
+    
+    Result theResult;
 
     private void Start()
     {
         Club = GetComponent<AudioSource>();
+        MusicFinished = false; // 초기화
+        theResult = FindObjectOfType<Result>();
+    }
 
+
+    private void Update()
+    {
+        if (MusicStart && !Club.isPlaying && !MusicFinished)
+        {
+            MusicFinished = true;
+            // 배경음악이 끝났을 때 실행하고 싶은 작업 수행
+            Debug.Log("Background music has finished playing.");
+            theResult.ShowResult();
+        }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if(!MusicStart)
+        if (!MusicStart)
         {
-            if(other.CompareTag("Note"))
+            if (other.CompareTag("Note"))
             {
                 Club.Play();
                 MusicStart = true;
             }
         }
-
     }
 }

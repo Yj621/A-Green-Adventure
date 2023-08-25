@@ -9,11 +9,12 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         theTimingManager = FindObjectOfType<TimingManager>();
+        
     }
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Z))
+        if(Input.GetKeyDown(KeyCode.UpArrow))
         {
             theTimingManager.CheckTiming();
         }

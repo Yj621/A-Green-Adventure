@@ -7,6 +7,7 @@ public class BtnControl : MonoBehaviour
     public GameObject miniPanel;
     public GameObject RestartPanel;
     public GameObject Note;
+    public GameObject Score;
     private GameObject player1;
     private Rigidbody2D player1Rb;
     private GameObject player2;
@@ -46,7 +47,11 @@ public class BtnControl : MonoBehaviour
             Note = GameObject.Find("Note");
             Note.SetActive(false);
         }
-        
+        if(GameObject.Find("Score") != null)
+        {
+            Score = GameObject.Find("Score");
+            Score.SetActive(false);
+        }
     }
 
     void Update()
@@ -104,6 +109,7 @@ public class BtnControl : MonoBehaviour
     {
         miniPanel.SetActive(false);
         Note.SetActive(true);
+        Score.SetActive(true);
         StopBackgroundMusic();
         panelOn = true;
     }

@@ -9,11 +9,11 @@ public class TimingManager : MonoBehaviour
     [SerializeField] RectTransform[] timingRect = null;
     Vector2[] timingBoxs = null;
     EffectManager theEffect;
-
+    ScoreManager theScoreManager;
     private void Start()
     {
         theEffect = FindObjectOfType<EffectManager>();
-
+        theScoreManager = FindObjectOfType<ScoreManager>();
         // 타이밍 박스 설정
         
         timingBoxs = new Vector2[timingRect.Length];
@@ -43,7 +43,8 @@ public class TimingManager : MonoBehaviour
                     if (j < timingBoxs.Length - 1) // Perfect, Cool, Good 판정때만 이펙트 효과. Bad 일땐 X
                         theEffect.NoteHitEffect();
                     theEffect.JudgementEffect(j);
-
+                    //점수 증가
+                    theScoreManager.IncreaseScore(j);
                     return;
                 }
             }
