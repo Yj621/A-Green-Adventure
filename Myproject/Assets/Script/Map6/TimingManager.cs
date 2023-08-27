@@ -5,6 +5,7 @@ using UnityEngine;
 public class TimingManager : MonoBehaviour
 {
     public List<GameObject> boxNoteList = new List<GameObject>();
+    int[] judgementRecord;
     [SerializeField] Transform Center = null;
     [SerializeField] RectTransform[] timingRect = null;
     Vector2[] timingBoxs = null;
@@ -12,6 +13,7 @@ public class TimingManager : MonoBehaviour
     ScoreManager theScoreManager;
     private void Start()
     {
+        judgementRecord = new int[5];
         theEffect = FindObjectOfType<EffectManager>();
         theScoreManager = FindObjectOfType<ScoreManager>();
         // 타이밍 박스 설정
@@ -42,14 +44,29 @@ public class TimingManager : MonoBehaviour
                     // 이펙트 연출 ⭐⭐
                     if (j < timingBoxs.Length - 1) // Perfect, Cool, Good 판정때만 이펙트 효과. Bad 일땐 X
                         theEffect.NoteHitEffect();
-                    theEffect.JudgementEffect(j);
-                    //점수 증가
-                    theScoreManager.IncreaseScore(j);
+
+                    theScoreManager.IncreaseScore(j);//점수 증가
+                    theEffect.JudgementEffect(j);//판정 연출
+                    judgementRecord[j]++; //판정 기록
                     return;
                 }
             }
         }
 
         theEffect.JudgementEffect(timingBoxs.Length);
+        MissRecord(); //판정 기록
     }
+    public int[] GetJudgementRecord()
+    {
+        // for(int i = 0; i < 5; i++){
+        //     Debug.Log("배열"+ judgementRecord[i]);
+        // }
+        return judgementRecord;
+
+    }
+    public void MissRecord()
+    {
+        judgementRecord[4]++;
+    }
+
 }

@@ -17,6 +17,7 @@ public class Result : MonoBehaviour
         theTiming = FindObjectOfType<TimingManager>();
     }
 
+
     public void ShowResult()
     {
         goUI.SetActive(true);
@@ -25,5 +26,17 @@ public class Result : MonoBehaviour
             txtCount[i].text = "0";
 
         txtScore.text = "0";
+
+        // 점수들 가져오기
+        int t_currentScore = theScore.GetCurrentScore();
+        int[] t_judgement = theTiming.GetJudgementRecord();
+        // int t_currentScore = theScore.GetCurrentScore();
+
+        // 텍스트 세팅 (가져온 것들로)
+        for (int i = 0; i < txtCount.Length; i++)
+        {
+            txtCount[i].text = string.Format("{0:#,##0}", t_judgement[i]);
+        }
+        txtScore.text = string.Format("{0:#,##0}", t_currentScore);
     }
 }

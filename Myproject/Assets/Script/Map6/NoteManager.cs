@@ -9,11 +9,11 @@ public class NoteManager : MonoBehaviour
     [SerializeField] Transform tfNoteAppear = null;
     [SerializeField] GameObject goNote =null;
     TimingManager theTimingManager;
-    EffectManager theEffectManager;
+    EffectManager theEffect;
 
     void Start()
     {
-        theEffectManager = FindObjectOfType<EffectManager>();
+        theEffect = FindObjectOfType<EffectManager>();
         theTimingManager = GetComponent<TimingManager>();
     }
 
@@ -30,14 +30,17 @@ public class NoteManager : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit2D(Collider2D other)
+    private void OnTriggerExit2D(Collider2D collision)
     {
-        if(other.CompareTag("Note"))
-        { 
-            if(other.GetComponent<Note>().GetNoteFlag())
-                theEffectManager.JudgementEffect(4);
-            theTimingManager.boxNoteList.Remove(other.gameObject);
-            Destroy(other.gameObject);
+        if (collision.CompareTag("Note"))
+        {
+            if (collision.GetComponent<Note>().GetNoteFlag())
+            {
+                theTimingManager.MissRecord();
+                theEffect.JudgementEffect(4);
+            }
+            theTimingManager.boxNoteList.Remove(collision.gameObject);
+            Destroy(collision.gameObject);
         }
     }
 }

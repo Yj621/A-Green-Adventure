@@ -26,4 +26,8 @@ public class ScoreManager : MonoBehaviour
         currentScore += t_increaseScore;
         txtScore.text = string.Format("{0:#, ##0}",currentScore);
     }
+    public int GetCurrentScore()
+    {
+        return currentScore;
+    }
 }

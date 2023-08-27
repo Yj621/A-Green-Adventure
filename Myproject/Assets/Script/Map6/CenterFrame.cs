@@ -8,7 +8,7 @@ public class CenterFrame : MonoBehaviour
     bool MusicStart;
     bool MusicFinished; // 새로운 변수 추가
     
-    Result theResult;
+    public Result theResult;
 
     private void Start()
     {
@@ -23,8 +23,8 @@ public class CenterFrame : MonoBehaviour
         if (MusicStart && !Club.isPlaying && !MusicFinished)
         {
             MusicFinished = true;
-            // 배경음악이 끝났을 때 실행하고 싶은 작업 수행
-            Debug.Log("Background music has finished playing.");
+            // 배경음악이 끝났을 때
+            Debug.Log("BGM끝");
             theResult.ShowResult();
         }
     }
