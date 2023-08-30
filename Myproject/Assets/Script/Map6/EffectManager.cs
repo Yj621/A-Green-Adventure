@@ -16,7 +16,6 @@ public class EffectManager : MonoBehaviour
     public void JudgementEffect(int p_num)
     {
         judgementImage.sprite = judgementSprite[p_num];
-        Debug.Log(judgementImage.sprite);
         judgementAnimator.SetTrigger(hit);
     }
 

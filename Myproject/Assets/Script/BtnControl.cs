@@ -14,6 +14,7 @@ public class BtnControl : MonoBehaviour
     private Rigidbody2D player2Rb;
     public bool panelOn = false;
     private Camera mainCamera; // Camera.main을 저장할 변수
+    public Result theResult;
 
     private void Awake()
     {
@@ -111,6 +112,11 @@ public class BtnControl : MonoBehaviour
         Note.SetActive(true);
         Score.SetActive(true);
         StopBackgroundMusic();
+        Result theResult = FindObjectOfType<Result>();
+        if (theResult != null)
+        {
+            theResult.InitializeScoreAndTiming();
+        }
         panelOn = true;
     }
 

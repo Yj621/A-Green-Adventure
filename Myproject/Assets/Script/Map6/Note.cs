@@ -16,7 +16,7 @@ public class Note : MonoBehaviour
         noteImage.enabled = false;
     }
     void Update(){
-        transform.localPosition += Vector3.down * noteSpeed * Time.deltaTime;
+        transform.localPosition += Vector3.right * noteSpeed * Time.deltaTime;
     }
     public bool GetNoteFlag()
     {

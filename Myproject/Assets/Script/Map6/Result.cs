@@ -11,12 +11,12 @@ public class Result : MonoBehaviour
     
     ScoreManager theScore;
     TimingManager theTiming;
-    void Start()
+
+    public void InitializeScoreAndTiming()
     {
         theScore = FindObjectOfType<ScoreManager>();
         theTiming = FindObjectOfType<TimingManager>();
     }
-
 
     public void ShowResult()
     {
