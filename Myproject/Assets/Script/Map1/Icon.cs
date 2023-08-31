@@ -36,6 +36,11 @@ public class Icon : MonoBehaviour
         {
             collision.gameObject.transform.GetChild(0).gameObject.SetActive(true);
         }
+        else if (collision.gameObject.CompareTag("Map7"))
+        {
+            if (missonController.GetComponent<MissonContorller>().missonNum == 7)
+                collision.gameObject.transform.GetChild(0).gameObject.SetActive(true);
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -62,6 +67,11 @@ public class Icon : MonoBehaviour
         else if (collision.gameObject.CompareTag("Map6"))
         {
             collision.gameObject.transform.GetChild(0).gameObject.SetActive(false);
+        }
+        else if (collision.gameObject.CompareTag("Map7"))
+        {
+            if (missonController.GetComponent<MissonContorller>().missonNum == 7)
+                collision.gameObject.transform.GetChild(0).gameObject.SetActive(false);
         }
     }
 

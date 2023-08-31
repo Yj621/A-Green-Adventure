@@ -38,7 +38,7 @@ public class Map5Door : MonoBehaviour
             if (GameObject.Find("MissionController").GetComponent<MissonContorller>().leafCount == 2)
             {
                 Gbtn.SetActive(true);
-                if (Input.GetKey(KeyCode.G))//GetKey사용하면 누를때 바로 이동됨
+                if (Input.GetKeyDown(KeyCode.G))//GetKey사용하면 누를때 바로 이동됨
                 {
                     missionController.GetComponent<MissonContorller>().missonNum++;
                     imageToFadeOut.gameObject.SetActive(true);

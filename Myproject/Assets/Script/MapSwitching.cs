@@ -108,11 +108,14 @@ public class MapSwitching : MonoBehaviour
         {
            if (Input.GetKey(KeyCode.G))
            {
-                BtnSound.Play();
-                missionController.GetComponent<MissonContorller>().missonNum++;
-                imageToFadeOut.gameObject.SetActive(true);
-                StartCoroutine(FadeOut());
-                Invoke("LoadMap7", 0.97f);
+                if(missionController.GetComponent<MissonContorller>().missonNum == 7)
+                {
+                    BtnSound.Play();
+                    //missionController.GetComponent<MissonContorller>().missonNum++;
+                    imageToFadeOut.gameObject.SetActive(true);
+                    StartCoroutine(FadeOut());
+                    Invoke("LoadMap7", 0.97f);
+                }  
            }
         }
         if (collision.gameObject.CompareTag("Map8"))
@@ -121,8 +124,11 @@ public class MapSwitching : MonoBehaviour
             imageToFadeOut.gameObject.SetActive(true);
             StartCoroutine(FadeOut());
             Invoke("LoadMap8", 0.97f);
-            if (missionController.GetComponent<MissonContorller>().missonNum == 3 || missionController.GetComponent<MissonContorller>().missonNum == 6)
+            if (missionController.GetComponent<MissonContorller>().missonNum == 3)
+            {
                 missionController.GetComponent<MissonContorller>().missonNum++;
+            }
+  
         }
     }
 

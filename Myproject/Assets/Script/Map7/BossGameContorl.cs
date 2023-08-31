@@ -49,7 +49,7 @@ public class BossGameContorl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(missonController.GetComponent<MissonContorller>().missonNum == 10)
+        if(missonController.GetComponent<MissonContorller>().missonNum == 9)
         {
             gameUI.SetActive(true);
             gameSystem.SetActive(true);

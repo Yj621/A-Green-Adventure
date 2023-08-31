@@ -20,7 +20,6 @@ public class MissonUI : MonoBehaviour
         myList.Add("도시 주민의 형을 찾아보자");
         myList.Add("도시를 돌아다니며 오염된 원인을 찾자");
         myList.Add(" 집을 정리하고 낭비되는 전기를 막자");
-        myList.Add("오염된 도시의 주민에게 돌아가자");
         myList.Add("빌딩을 들어가보자");
         myList.Add("사장과 얘기해 보자");
         myList.Add("사장을 쓰러뜨리자");
