@@ -1069,7 +1069,9 @@ MonoBehaviour:
   miniPanel: {fileID: 0}
   RestartPanel: {fileID: 835913242}
   Note: {fileID: 0}
+  Score: {fileID: 0}
   panelOn: 0
+  theResult: {fileID: 0}
 --- !u!4 &330942210
 Transform:
   m_ObjectHideFlags: 0
@@ -1554,6 +1556,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d3fbfca27979d048945864d9d209d16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  imageToFadeOut: {fileID: 713392586}
   bossHP: 100
   player1HP: 2
   player2HP: 2

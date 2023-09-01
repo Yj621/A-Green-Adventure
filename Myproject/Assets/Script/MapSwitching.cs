@@ -16,6 +16,7 @@ public class MapSwitching : MonoBehaviour
         missionController = GameObject.Find("MissionController");
     }
 
+
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Map1"))

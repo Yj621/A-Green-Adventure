@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 public class BossGameContorl : MonoBehaviour
 {
     private GameObject missonController;
+    public Image imageToFadeOut;
 
     public int bossHP;
     public int player1HP = 2;
@@ -30,7 +32,6 @@ public class BossGameContorl : MonoBehaviour
     public int bossHppMinus = 10;
     void Start()
     {
-
         missonController = GameObject.Find("MissionController");
 
         //여기에서 보스 체력 조건 달아서 정하면 될듯
@@ -49,7 +50,13 @@ public class BossGameContorl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(missonController.GetComponent<MissonContorller>().missonNum == 9)
+        if (missonController.GetComponent<MissonContorller>().leafCount == 3)
+        {
+            imageToFadeOut.gameObject.SetActive(true);
+            StartCoroutine(FadeOut());
+            Invoke("LoadMap9", 0.97f);
+        }
+        if (missonController.GetComponent<MissonContorller>().missonNum == 9)
         {
             gameUI.SetActive(true);
             gameSystem.SetActive(true);
@@ -78,7 +85,6 @@ public class BossGameContorl : MonoBehaviour
             bossBar.fillAmount = 1;
             missonController.GetComponent<MissonContorller>().missonNum = 11;
         }
-
     }
 
     //보스 체력바 설정
@@ -116,5 +122,29 @@ public class BossGameContorl : MonoBehaviour
             }
             player2HP--;
         }
+    }
+
+    private void LoadMap9()
+    {
+        SceneManager.LoadScene(13);
+    }
+    private IEnumerator FadeOut()
+    {
+        float duration = 1f;
+        float startTime = Time.time;
+        Vector3 startScale = new Vector3(imageToFadeOut.rectTransform.localScale.x, imageToFadeOut.rectTransform.localScale.y, 1f);
+
+        while (Time.time < startTime + duration)
+        {
+            float t = (Time.time - startTime) / duration;
+            float alpha = Mathf.Lerp(1f, 0f, t);
+            Vector3 scale = Vector3.Lerp(startScale, Vector3.zero, t);
+
+
+            imageToFadeOut.transform.localScale = scale;
+            yield return null;
+        }
+        Destroy(imageToFadeOut);
+        Destroy(gameObject);
     }
 }
