@@ -6,7 +6,7 @@ public class CenterFrame : MonoBehaviour
 {
     AudioSource Club;
     bool MusicStart;
-    bool MusicFinished; // 새로운 변수 추가
+    public bool MusicFinished; // 새로운 변수 추가
     
     public Result theResult;
 

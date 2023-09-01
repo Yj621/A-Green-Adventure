@@ -197,6 +197,5 @@ public class MapSwitching : MonoBehaviour
         Destroy(imageToFadeOut);
         Destroy(gameObject);
     }
-
 }
 

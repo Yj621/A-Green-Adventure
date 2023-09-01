@@ -138,4 +138,8 @@ public class BtnControl : MonoBehaviour
     {
         Application.Quit();
     }
+    public void Map6()
+    {
+        SceneManager.LoadScene(10);
+    }
 }
