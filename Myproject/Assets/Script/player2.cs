@@ -25,6 +25,7 @@ public class player2 : MonoBehaviour
     public AudioSource DieSound;
     public AudioSource BtnSound;
     public AudioSource BlindSound;
+    public AudioSource LeafSound;
     private bool isJumping = false; // 이전 점프 상태를 저장하는 변수
     private bool isJumpSoundPlayed = false; // 점프 소리가 재생되었는지 여부를 나타내는 변수
 
@@ -154,6 +155,7 @@ public class player2 : MonoBehaviour
         //map5에서 나뭇잎 먹었을 때
         if (other.gameObject.tag == "Leaf")
         {
+            LeafSound.Play();
             Destroy(other.gameObject);
             missionController.GetComponent<MissonContorller>().leafCount = 2;
             missionController.GetComponent<MissonContorller>().dropLeaf = false;

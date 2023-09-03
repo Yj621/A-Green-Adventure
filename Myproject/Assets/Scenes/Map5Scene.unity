@@ -1591,6 +1591,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 137156010}
     - target: {fileID: 8306352752871801138, guid: 19cc42ad8ff345a458a417fbbce036f8, type: 3}
+      propertyPath: LeafSound
+      value: 
+      objectReference: {fileID: 676724467}
+    - target: {fileID: 8306352752871801138, guid: 19cc42ad8ff345a458a417fbbce036f8, type: 3}
       propertyPath: WalkSound
       value: 
       objectReference: {fileID: 664060216}
@@ -2300,6 +2304,77 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
+--- !u!1001 &676724465
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 697344526}
+    m_Modifications:
+    - target: {fileID: 4986965072490882977, guid: d3a452756e27847dd8de2e2825e527bc, type: 3}
+      propertyPath: m_Name
+      value: LeafSound
+      objectReference: {fileID: 0}
+    - target: {fileID: 7107778873631333736, guid: d3a452756e27847dd8de2e2825e527bc, type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7107778873631333737, guid: d3a452756e27847dd8de2e2825e527bc, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7107778873631333737, guid: d3a452756e27847dd8de2e2825e527bc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -16.520002
+      objectReference: {fileID: 0}
+    - target: {fileID: 7107778873631333737, guid: d3a452756e27847dd8de2e2825e527bc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 6.049999
+      objectReference: {fileID: 0}
+    - target: {fileID: 7107778873631333737, guid: d3a452756e27847dd8de2e2825e527bc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.027613766
+      objectReference: {fileID: 0}
+    - target: {fileID: 7107778873631333737, guid: d3a452756e27847dd8de2e2825e527bc, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7107778873631333737, guid: d3a452756e27847dd8de2e2825e527bc, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7107778873631333737, guid: d3a452756e27847dd8de2e2825e527bc, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7107778873631333737, guid: d3a452756e27847dd8de2e2825e527bc, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7107778873631333737, guid: d3a452756e27847dd8de2e2825e527bc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7107778873631333737, guid: d3a452756e27847dd8de2e2825e527bc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7107778873631333737, guid: d3a452756e27847dd8de2e2825e527bc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d3a452756e27847dd8de2e2825e527bc, type: 3}
+--- !u!4 &676724466 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7107778873631333737, guid: d3a452756e27847dd8de2e2825e527bc, type: 3}
+  m_PrefabInstance: {fileID: 676724465}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &676724467 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 7107778873631333736, guid: d3a452756e27847dd8de2e2825e527bc, type: 3}
+  m_PrefabInstance: {fileID: 676724465}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &697344525
 GameObject:
   m_ObjectHideFlags: 0
@@ -2334,6 +2409,7 @@ Transform:
   - {fileID: 1006871516}
   - {fileID: 1307336556}
   - {fileID: 546144004}
+  - {fileID: 676724466}
   m_Father: {fileID: 0}
   m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4982,6 +5058,10 @@ PrefabInstance:
       propertyPath: JumpSound
       value: 
       objectReference: {fileID: 137156010}
+    - target: {fileID: 3573003254772844934, guid: 0ca69c5792593734fa0a1f00a3c6f823, type: 3}
+      propertyPath: LeafSound
+      value: 
+      objectReference: {fileID: 676724467}
     - target: {fileID: 3573003254772844934, guid: 0ca69c5792593734fa0a1f00a3c6f823, type: 3}
       propertyPath: WalkSound2
       value: 

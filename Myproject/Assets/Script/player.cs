@@ -20,15 +20,20 @@ public class player : MonoBehaviour
     private GameObject panelController;
     private GameObject missionController;
 
+    BossGameContorl BossSc;
+
     public AudioSource JumpSound;
     public AudioSource WalkSound;
     public AudioSource DieSound;
     public AudioSource BtnSound;
     public AudioSource BossGetSound;
+    public AudioSource LeafSound;
     private bool isJumping = false; // 이전 점프 상태를 저장하는 변수
     private bool isJumpSoundPlayed = false; // 점프 소리가 재생되었는지 여부를 나타내는 변수
     private void Start()
     {
+        BossSc = FindObjectOfType<BossGameContorl>();
+
         if (GameObject.Find("PanelController"))
         {
             panelController = GameObject.Find("PanelController");
@@ -76,6 +81,11 @@ public class player : MonoBehaviour
         {
             WalkSound.Stop();
             animator.SetBool("IsWalking", false);
+        }
+        if(BossSc.Playerloose=true)
+        {
+            animator.SetBool("IsDie", true);
+            DieSound.Play();
         }
     }
 
@@ -148,6 +158,7 @@ public class player : MonoBehaviour
         //맵 5에서 나뭇잎 먹을 때
         if (other.gameObject.tag == "Leaf")
         {
+            LeafSound.Play();
             Destroy(other.gameObject);
             missionController.GetComponent<MissonContorller>().leafCount = 2;
             missionController.GetComponent<MissonContorller>().dropLeaf = false;
