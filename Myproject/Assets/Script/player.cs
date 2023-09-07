@@ -82,11 +82,11 @@ public class player : MonoBehaviour
             WalkSound.Stop();
             animator.SetBool("IsWalking", false);
         }
-        if(BossSc.Playerloose=true)
-        {
-            animator.SetBool("IsDie", true);
-            DieSound.Play();
-        }
+        // if(BossSc.Playerloose=true)
+        // {
+        //     animator.SetBool("IsDie", true);
+        //     DieSound.Play();
+        // }
     }
 
     void FixedUpdate()

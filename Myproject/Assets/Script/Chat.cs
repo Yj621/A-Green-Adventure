@@ -10,7 +10,7 @@ public class Chat : MonoBehaviour
     // List<string> chat5_2 = new List<string>() { "집이 깨끗해졌네!","에어컨도 꺼졌고!","고마워!\n 여기 보답이야." };
     List<string> chat8_1 = new List<string>() { "내 동생?", "맞아, 동생은 도시에 살고 있어", "안부 전해줘서 고마워", "여기는 이렇게 황폐하고 오염되었지만", "옆 도시는 정말 번화가라던데", "나 대신 구경해보고 얘기해 줄래?" };
     List<string> chat8_2 = new List<string>() { "고마워, 이건 내 선물이야" };    List<string> currentChat = new List<string>();
-    List<string> chat7 = new List<string>() { "여긴 어떻게 들어온거지?" };
+    List<string> chat7 = new List<string>() { "여긴 어떻게 들어온거지?", "나를 쓰러뜨릴 수 있을 것 같나?", "그렇다면 한 번 덤벼봐라!" };
     private TextMeshProUGUI myTextMeshProUGUI;
     private int SentanceNum = 0;
     private GameObject missonController;
