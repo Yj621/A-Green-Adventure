@@ -1,5 +1,3 @@
-# K-Project A Green Adventure
-
 # A Green Adventure
 
 ## 🎮 게임 소개
