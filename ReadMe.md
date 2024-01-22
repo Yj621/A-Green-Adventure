@@ -51,3 +51,8 @@
 ![동물농장_발표자료_13.png](https://github.com/Yj621/Kp-23-1/blob/main/image/img_13.png)
 
 ![동물농장_발표자료_14.png](https://github.com/Yj621/Kp-23-1/blob/main/image/img_14.png)
+
+
+https://youtu.be/Bp7SQIwjy0c
+결과 영상입니다.
+
