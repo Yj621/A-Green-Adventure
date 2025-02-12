@@ -15,6 +15,44 @@
 (팀원) 양우송 : 미니게임 개발, 보스맵 개발
 
 (팀원) 정유민 : 게임 내의 모든 오브젝트 일러스트
+## **🧑 팀 구성원 및 역할**
+
+---
+
+| 이름 | 정윤지 | 양우송 | 정유민 |
+| :---: | :---: | :---: | :---: |
+| 역할1 | 플레이어 | 미니게임 | 게임 내의 모든 오브젝트 일러스트 |
+| 역할2 | 리듬게임 | 보스맵 | 맵 디자인 |
+| GitHub | [@Yj621](https://github.com/Yj621)|[@YangWooSong](https://github.com/YangWooSong) |[@JungYouM](https://github.com/JungYouM)|
+
+## 🛠️ 개발 환경
+
+---
+
+<div align="center">
+
+### **언어 및 게임 엔진**
+
+</div>
+<p align="center">
+<img src="https://img.shields.io/badge/Unity-100000?style=for-the-badge&logo=unity&logoColor=white">
+<img src="https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=c-sharp&logoColor=white">
+
+</p>
+
+<div align="center">
+
+### **협업 툴**
+
+</div>
+
+<p align="center">
+<img src="https://img.shields.io/badge/Notion-000000?style=for-the-badge&logo=notion&logoColor=white">
+
+<img src="https://img.shields.io/badge/Discord-7289DA?style=for-the-badge&logo=discord&logoColor=white">
+
+<img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white">
+</p>
 
 ## 🗣️ 느낀점
 
