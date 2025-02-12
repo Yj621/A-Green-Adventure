@@ -8,16 +8,7 @@
 
 23.03.07 ~ 23.09.14
 
-## 👩‍💻 역할
-
-(팀장) 정윤지 : 플레이어 개발, 리듬게임 개발
-
-(팀원) 양우송 : 미니게임 개발, 보스맵 개발
-
-(팀원) 정유민 : 게임 내의 모든 오브젝트 일러스트
 ## **🧑 팀 구성원 및 역할**
-
----
 
 | 이름 | 정윤지 | 양우송 | 정유민 |
 | :---: | :---: | :---: | :---: |
@@ -26,8 +17,6 @@
 | GitHub | [@Yj621](https://github.com/Yj621)|[@YangWooSong](https://github.com/YangWooSong) |[@JungYouM](https://github.com/JungYouM)|
 
 ## 🛠️ 개발 환경
-
----
 
 <div align="center">
 
