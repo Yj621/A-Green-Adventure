@@ -9,12 +9,17 @@
 23.03.07 ~ 23.09.14
 
 ## **🧑 팀 구성원 및 역할**
-
+<div align="center">
+  
 | 이름 | 정윤지 | 양우송 | 정유민 |
 | :---: | :---: | :---: | :---: |
 | 역할1 | 플레이어 | 미니게임 | 게임 내의 모든 오브젝트 일러스트 |
 | 역할2 | 리듬게임 | 보스맵 | 맵 디자인 |
 | GitHub | [@Yj621](https://github.com/Yj621)|[@YangWooSong](https://github.com/YangWooSong) |[@JungYouM](https://github.com/JungYouM)|
+
+</div>
+
+
 
 ## 🛠️ 개발 환경
 
@@ -73,13 +78,10 @@
 
 ![동물농장_발표자료_11.png](https://github.com/Yj621/Kp-23-1/blob/main/image/img_11.png)
 
-https://youtu.be/Bp7SQIwjy0c
 
-위 링크를 누르면 영상을 볼 수 있습니다.
+[![img_12](https://github.com/user-attachments/assets/fc6f66dc-343f-49cf-b227-1c48428d073a)
+](https://youtu.be/Bp7SQIwjy0c)
 
-![동물농장_발표자료_12.png](https://github.com/Yj621/Kp-23-1/blob/main/image/img_12.png)
-
-![동물농장_발표자료_13.png](https://github.com/Yj621/Kp-23-1/blob/main/image/img_13.png)
 
 ![동물농장_발표자료_14.png](https://github.com/Yj621/Kp-23-1/blob/main/image/img_14.png)
 
