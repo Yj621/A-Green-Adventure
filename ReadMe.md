@@ -24,6 +24,18 @@
 | :---: | :---: | :---: | :---: |
 | 시작화면 | 스토리 | 미니게임 | 클리어 |
 
+
+| 시골맵 | 미니게임1 | 도시맵 | 황폐맵 |
+| :---: | :---: | :---: | :---: |
+| ![image](https://github.com/user-attachments/assets/0901394e-6e5e-4c92-80a1-5c2554180aa6) | ![image](https://github.com/user-attachments/assets/ecdb8c2a-e810-47de-a177-6b21dae3b8b4) | ![image](https://github.com/user-attachments/assets/bc3713c5-a1c4-4d09-989c-0892ce671b52) | ![image](https://github.com/user-attachments/assets/68628ea6-506b-4791-a22a-90e02b55b190)
+| 기본 조작 튜토리얼 | NPC 대화 | 협력 미니게임1 | NPC 대화 |
+
+
+| 미니게임2 | 미니게임3 | 보스맵 |
+| :---: | :---: | :---: |
+| ![image](https://github.com/user-attachments/assets/2171b717-47b4-47bd-b11e-f299389bdf87) | ![image](https://github.com/user-attachments/assets/81895f54-141e-4254-900e-e459fd1a9cae) | ![image](https://github.com/user-attachments/assets/49d9209f-f981-4dd2-93b8-e293eeb6ede5) |
+| 기본 조작 튜토리얼 | NPC 대화 | 협력 미니게임1 |
+
 ## 🛠️ 개발 환경
 
 <div align="center">
