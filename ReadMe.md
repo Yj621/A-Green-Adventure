@@ -1,4 +1,4 @@
-# A Green Adventure
+![image](https://github.com/user-attachments/assets/772a8562-bc56-480b-99bb-6dc28ebeec08)# A Green Adventure
 
 ## 🎮 게임 소개
 
@@ -20,6 +20,9 @@
 </div>
 
 
+| ![image](https://github.com/user-attachments/assets/b76c980f-f4f3-4f14-87d8-e66e06af6d32) | ![image](https://github.com/user-attachments/assets/ecdb8c2a-e810-47de-a177-6b21dae3b8b4) | ![image](https://github.com/user-attachments/assets/34115afe-d9f3-4db5-bc12-2dc67c82c680) | ![image](https://github.com/user-attachments/assets/9b54f3ce-ffaf-4c3e-b68a-2232ebc04c74)
+| :---: | :---: | :---: | :---: |
+| 시작화면 | 스토리 | 미니게임 | 클리어 |
 
 ## 🛠️ 개발 환경
 
