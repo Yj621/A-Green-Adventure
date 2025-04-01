@@ -18,7 +18,10 @@
 
 23.03.07 ~ 23.09.14
 
-## 💡 **언어 및 게임 엔진**
+## 💡 장르
+2D 플랫포머 협동
+
+## ⚙️ **언어 및 게임 엔진**
 
 </div>
 <img src="https://img.shields.io/badge/Unity-100000?style=for-the-badge&logo=unity&logoColor=white">
