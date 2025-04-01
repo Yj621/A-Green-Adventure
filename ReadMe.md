@@ -38,15 +38,12 @@
 </p>
 
 ## **🧑 팀 구성원 및 역할**
-<div align="center">
-  
+
 | 이름 | 정윤지 | 양우송 | 정유민 |
 | :---: | :---: | :---: | :---: |
 | 역할1 | 플레이어 | 미니게임 | 게임 내의 모든 오브젝트 일러스트 |
 | 역할2 | 리듬게임 | 보스맵 | 맵 디자인 |
 | GitHub | [@Yj621](https://github.com/Yj621)|[@YangWooSong](https://github.com/YangWooSong) |[@JungYouM](https://github.com/JungYouM)|
-
-</div>
 
 # 게임 설명
 
