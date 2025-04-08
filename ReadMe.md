@@ -88,7 +88,7 @@
 
 - 맵 순서
   
-| 시골맵 | 미니게임1 | 도시맵 | 황폐맵 |
+| 시골맵 | 주민집 | 도시맵 | 황폐맵 |
 | :---: | :---: | :---: | :---: |
 | ![image](https://github.com/user-attachments/assets/0901394e-6e5e-4c92-80a1-5c2554180aa6) | ![image](https://github.com/user-attachments/assets/ecdb8c2a-e810-47de-a177-6b21dae3b8b4) | ![image](https://github.com/user-attachments/assets/bc3713c5-a1c4-4d09-989c-0892ce671b52) | ![image](https://github.com/user-attachments/assets/68628ea6-506b-4791-a22a-90e02b55b190)
 | 기본 조작 튜토리얼 | NPC 대화 | 협력 미니게임1 | NPC 대화 |
